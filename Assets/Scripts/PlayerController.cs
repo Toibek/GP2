@@ -5,14 +5,35 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float movementSpeed;
+    private Rigidbody rb;
+    private Vector3 movementInput;
+    private Coroutine MoveRoutine;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void OnMove(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
-        Debug.Log("Move: " + input);
+        movementInput = new(input.x, 0, input.y);
+        if (MoveRoutine == null && movementInput != Vector3.zero)
+        {
+            MoveRoutine = StartCoroutine(MovementEnum());
+        }
     }
-    private void OnPrimary()
+    IEnumerator MovementEnum()
     {
-        Debug.Log("Primary");
+        while (movementInput != Vector3.zero)
+        {
+            rb.velocity = movementInput * movementSpeed;
+            yield return new WaitForEndOfFrame();
+        }
+        MoveRoutine = null;
+    }
+    private void OnPrimary(InputValue value)
+    {
+        Debug.Log("Primary " + value.Get<float>());
     }
     private void OnSecondary()
     {
