@@ -9,7 +9,7 @@ public class StationBase : Interactable
     protected ItemBase _outputItem;
 
     protected bool isProcessingItem;
-    public override void StartPrimaryInteract(object obj, ref PlayerController playerController)
+    public override void StartPrimaryInteract(object obj, ref Movement playerController)
     {
         //if (obj != null)
         //{
@@ -25,27 +25,27 @@ public class StationBase : Interactable
         //}
     }
 
-    public override void EndPrimaryInteract(object obj, ref PlayerController playerController)
+    public override void EndPrimaryInteract(object obj, ref Movement playerController)
     {
 
     }
 
-    public override void HoldPrimaryInteract(object obj, ref PlayerController playerController)
+    public override void HoldPrimaryInteract(object obj, ref Movement playerController)
     {
 
     }
 
-    public override void StartSecondaryInteract(ref PlayerController playerController)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void HoldSecondaryInteract(ref PlayerController playerController)
+    public override void StartSecondaryInteract(ref Movement playerController)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void EndSecondaryInteract(ref PlayerController playerController)
+    public override void HoldSecondaryInteract(ref Movement playerController)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void EndSecondaryInteract(ref Movement playerController)
     {
         throw new System.NotImplementedException();
     }

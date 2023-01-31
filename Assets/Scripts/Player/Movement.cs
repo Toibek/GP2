@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     private Rigidbody rb;
@@ -30,10 +30,6 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         MoveRoutine = null;
-    }
-    private void OnPrimary(InputValue value)
-    {
-        Debug.Log("Primary " + value.Get<float>());
     }
     private void OnSecondary()
     {
