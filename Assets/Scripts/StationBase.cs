@@ -13,9 +13,8 @@ public class StationBase : Interactable
     protected ItemBase _outputItem;
 
     protected bool isProcessingItem;
-    public override void StartPrimaryInteract(object obj, ref Movement playerController)
     protected bool _isProcessingItem;
-    public override void StartPrimaryInteract(object obj, ref PlayerController playerController)
+    public override void StartPrimaryInteract(object obj, ref Movement playerController)
     {
         throw new System.NotImplementedException();
     }

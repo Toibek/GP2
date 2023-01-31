@@ -11,7 +11,7 @@ public class ProcessingStation : StationBase
 
     public float ProcentageProgress => Mathf.Max(0,_time) / _processingTime;
 
-    public override void StartPrimaryInteract(object obj, ref PlayerController playerController)
+    public override void StartPrimaryInteract(object obj, ref Movement playerController)
     {
         base.StartPrimaryInteract(obj, ref playerController);
         if (obj == null && playerController)
