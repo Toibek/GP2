@@ -4,35 +4,28 @@ using UnityEngine;
 
 public class StationBase : Interactable
 {
+    [Header("Base Station")]
+    [SerializeField]
     protected ItemBase _inputItem;
-    protected ItemBase _proccesedItem;
+    [SerializeField]
+    protected ItemBase _processedItem;
+    [SerializeField]
     protected ItemBase _outputItem;
 
-    protected bool isProcessingItem;
+    protected bool _isProcessingItem;
     public override void StartPrimaryInteract(object obj, ref PlayerController playerController)
     {
-        //if (obj != null)
-        //{
-        //    ItemBase _item = obj as ItemBase;
-        //    if (_item != null)
-        //    {
-        //        _inputItem = _item;
-        //    }
-        //}
-        //else 
-        //{
-        //    return;
-        //}
+        throw new System.NotImplementedException();
     }
 
     public override void EndPrimaryInteract(object obj, ref PlayerController playerController)
     {
-
+        throw new System.NotImplementedException();
     }
 
     public override void HoldPrimaryInteract(object obj, ref PlayerController playerController)
     {
-
+        throw new System.NotImplementedException();
     }
 
     public override void StartSecondaryInteract(ref PlayerController playerController)
@@ -52,7 +45,8 @@ public class StationBase : Interactable
 
     protected virtual IEnumerator ProcessingItem()
     {
-        if (isProcessingItem) isProcessingItem = false;
+        if (_isProcessingItem) _isProcessingItem = false;
         yield return 0;
     }
+
 }
