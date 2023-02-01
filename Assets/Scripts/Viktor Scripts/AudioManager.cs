@@ -11,36 +11,54 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     // Singleton instance of the AudioManager
-    public static AudioManager instance;
+    public static AudioManager Instance;
 
     // An array to store audio clips
-    public AudioClip[] sounds;
-
-    // An array of names to match the audio clips
-    public string[] clipNames;
+    public Sound[] Sounds;
 
     // The AudioSource component used to play audio clips
-    public AudioSource audioSource;
+    public AudioSource AudioSource;
 
     private void Awake()
     {
         // Ensure that there is only one instance of the AudioManager
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
+
+        foreach (Sound sound in Sounds)
+        {
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
+        }
     }
 
-    // Function to play audio clips
+    // Function to play audio clips by index
     public void PlaySound(int index)
     {
         // Set the audio clip based on the index
-        audioSource.clip = sounds[index];
+        AudioSource.clip = Sounds[index].clip;
         // Play the audio clip
-        audioSource.Play();
+        AudioSource.Play();
+    }
+
+    // Function to play audio clips by name
+    public void PlaySound(string name)
+    {
+        foreach (Sound sound in Sounds)
+        {
+            if (sound.name == name)
+            {
+                sound.source.Play();
+            }
+        }
     }
 }
