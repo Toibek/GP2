@@ -14,32 +14,32 @@ public class StationBase : Interactable
 
     protected bool isProcessingItem;
     protected bool _isProcessingItem;
-    public override void StartPrimaryInteract(object obj, ref Movement playerController)
+    public override void StartPrimaryInteract(object obj, ref Inventory playerController)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void EndPrimaryInteract(object obj, ref Movement playerController)
+    public override void EndPrimaryInteract(object obj, ref Inventory playerController)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void HoldPrimaryInteract(object obj, ref Movement playerController)
+    public override void HoldPrimaryInteract(object obj, ref Inventory playerController)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void StartSecondaryInteract(ref Movement playerController)
+    public override void StartSecondaryInteract(ref Inventory playerController)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void HoldSecondaryInteract(ref Movement playerController)
+    public override void HoldSecondaryInteract(ref Inventory playerController)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void EndSecondaryInteract(ref Movement playerController)
+    public override void EndSecondaryInteract(ref Inventory playerController)
     {
         throw new System.NotImplementedException();
     }

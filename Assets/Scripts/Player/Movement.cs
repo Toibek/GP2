@@ -31,12 +31,4 @@ public class Movement : MonoBehaviour
         }
         MoveRoutine = null;
     }
-    private void OnSecondary()
-    {
-        Debug.Log("Secondary");
-    }
-    private void OnDrop()
-    {
-        Debug.Log("Drop");
-    }
 }

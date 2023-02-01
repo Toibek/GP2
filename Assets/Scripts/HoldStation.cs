@@ -19,14 +19,14 @@ public class HoldStation : StationBase
         _heldAmount = _holdAmount;
     }
 
-    public override void StartPrimaryInteract(object obj, ref Movement playerController)
+    public override void StartPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.StartPrimaryInteract(obj, ref playerController);
+        base.StartPrimaryInteract(obj, ref inventory);
     }
 
-    public override void HoldPrimaryInteract(object obj, ref Movement playerController)
+    public override void HoldPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.HoldPrimaryInteract(obj, ref playerController);
+        base.HoldPrimaryInteract(obj, ref inventory);
         _heldAmount -= Time.deltaTime;
 
         if (_heldAmount >= _holdAmount)
@@ -36,9 +36,9 @@ public class HoldStation : StationBase
         }
     }
 
-    public override void EndPrimaryInteract(object obj, ref Movement playerController)
+    public override void EndPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.EndPrimaryInteract(obj, ref playerController);
+        base.EndPrimaryInteract(obj, ref inventory);
         if (_resetsProgress) _heldAmount = _holdAmount;
     }
 

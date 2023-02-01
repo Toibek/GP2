@@ -5,19 +5,50 @@ using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
+    private InteractableFinder Interactables;
+    private void Start()
+    {
+        Interactables = GetComponentInChildren<InteractableFinder>();
+    }
+    #region Input
     private void OnPrimary(InputValue value)
     {
         if (value.Get<float>() == 0)
-            PrimaryUp();
+            OnPrimaryUp();
         else
-            PrimaryDown();
+            OnPrimaryDown();
     }
-    private void PrimaryDown()
+    private void OnSecondary(InputValue value)
     {
-        Debug.Log("Primary Down");
+        if (value.Get<float>() == 0)
+            OnSecondaryUp();
+        else
+            OnSecondaryDown();
     }
-    private void PrimaryUp()
+
+    private void OnDrop()
     {
-        Debug.Log("Primary Up");
+
     }
+    private void OnPrimaryDown()
+    {
+        if (Interactables.Closest != null)
+        {
+            Interactables.Closest.StartPrimaryInteract(null,ref this);
+            Debug.Log("Interacting with: " + Interactables.Closest);
+        }
+    }
+    private void OnPrimaryUp()
+    {
+
+    }
+    private void OnSecondaryDown()
+    {
+
+    }
+    private void OnSecondaryUp()
+    {
+
+    }
+    #endregion
 }

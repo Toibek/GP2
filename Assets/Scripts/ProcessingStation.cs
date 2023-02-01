@@ -11,10 +11,10 @@ public class ProcessingStation : StationBase
 
     public float ProcentageProgress => Mathf.Max(0,_time) / _processingTime;
 
-    public override void StartPrimaryInteract(object obj, ref Movement playerController)
+    public override void StartPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.StartPrimaryInteract(obj, ref playerController);
-        if (obj == null && playerController)
+        base.StartPrimaryInteract(obj, ref inventory);
+        if (obj == null && inventory)
         {
             // Give player item here
             throw new System.NotImplementedException("Not Implimented Give Item to player");

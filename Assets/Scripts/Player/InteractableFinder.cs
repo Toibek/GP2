@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableFinder : MonoBehaviour
 {
 
-    internal Interactable closest;
+    internal Interactable Closest;
     private List<Interactable> nearby;
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,7 @@ public class InteractableFinder : MonoBehaviour
             if (!nearby.Contains(oth)) nearby.Add(oth);
             else return;
 
-            if (nearby.Count == 1) closest = nearby[0];
+            if (nearby.Count == 1) Closest = nearby[0];
         }
     }
     private void OnTriggerExit(Collider other)
@@ -25,8 +25,8 @@ public class InteractableFinder : MonoBehaviour
         {
             if (nearby.Contains(oth)) nearby.Remove(oth);
             else return;
-            if (closest != oth) return;
-            else if (nearby.Count == 1) closest = nearby[0];
+            if (Closest != oth) return;
+            else if (nearby.Count == 1) Closest = nearby[0];
             else findClosest();
         }
     }
@@ -43,6 +43,6 @@ public class InteractableFinder : MonoBehaviour
                 intr = nearby[i];
             }
         }
-        closest = intr;
+        Closest = intr;
     }
 }

@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class PickUpStation : StationBase
 {
-    public override void StartPrimaryInteract(object obj, ref Movement playerController)
+    public override void StartPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.StartPrimaryInteract(obj, ref playerController);
-        if (playerController)
+        base.StartPrimaryInteract(obj, ref inventory);
+        if (inventory)
         {
             // Give player item here
             throw new System.NotImplementedException("Not Implimented Give Item to player");
         }
     }
 
-    public override void HoldPrimaryInteract(object obj, ref Movement playerController)
+    public override void HoldPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.HoldPrimaryInteract(obj, ref playerController);
+        base.HoldPrimaryInteract(obj, ref inventory);
     }
 
-    public override void EndPrimaryInteract(object obj, ref Movement playerController)
+    public override void EndPrimaryInteract(object obj, ref Inventory inventory)
     {
-        base.EndPrimaryInteract(obj, ref playerController);
+        base.EndPrimaryInteract(obj, ref inventory);
     }
-    public override void StartSecondaryInteract(ref Movement playerController)
+    public override void StartSecondaryInteract(ref Inventory inventory)
     {
-        base.StartSecondaryInteract(ref playerController);
-    }
-
-    public override void HoldSecondaryInteract(ref Movement playerController)
-    {
-        base.HoldSecondaryInteract(ref playerController);
+        base.StartSecondaryInteract(ref inventory);
     }
 
-    public override void EndSecondaryInteract(ref Movement playerController)
+    public override void HoldSecondaryInteract(ref Inventory inventory)
     {
-        base.EndSecondaryInteract(ref playerController);
+        base.HoldSecondaryInteract(ref inventory);
+    }
+
+    public override void EndSecondaryInteract(ref Inventory inventory)
+    {
+        base.EndSecondaryInteract(ref inventory);
     }
 }
