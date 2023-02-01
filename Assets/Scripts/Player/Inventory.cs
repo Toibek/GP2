@@ -34,7 +34,6 @@ public class Inventory : MonoBehaviour
     {
         if (Interactables.Closest != null)
         {
-            Interactables.Closest.StartPrimaryInteract(null,ref this);
             Debug.Log("Interacting with: " + Interactables.Closest);
         }
     }
