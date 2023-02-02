@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Catcher : MonoBehaviour
+public class Catcher : Ability
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void AbilityStart()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void AbilityStop()
     {
-        
+
     }
 }

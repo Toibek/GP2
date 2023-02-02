@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] List<CharacterSO> Characters;
     List<GameObject> players;
     void OnPlayerJoined(PlayerInput joined)
     {
@@ -12,8 +13,22 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(joined.gameObject.GetComponent<Movement>());
 
         if (players == null) players = new();
-        players.Add(joined.gameObject);
-        if (players.Count == 1) joined.gameObject.AddComponent<Pitcher>();
-        if (players.Count == 2) joined.gameObject.AddComponent<Catcher>();
+        GameObject go = joined.gameObject;
+        ApplyCharacter(go, Characters[players.Count]);
+        players.Add(go);
+    }
+    void OnPlayerLeft(PlayerInput left)
+    {
+        GameObject go = left.gameObject;
+        if (players.Contains(go))
+            players.Remove(go);
+    }
+    void ApplyCharacter(GameObject target, CharacterSO character)
+    {
+        for (int i = target.transform.childCount - 1; i >= 0; i--)
+            Destroy(target.transform.GetChild(i).gameObject);
+
+        Instantiate(character.prefab, target.transform.position, Quaternion.identity, target.transform);
+        target.GetComponent<Player>().ApplySettings(character);
     }
 }
