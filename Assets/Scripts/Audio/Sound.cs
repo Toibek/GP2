@@ -11,18 +11,9 @@ public class Sound
 
     [Range(0f, 1f)] // Adds a slider to the interface in unity that has values between 0 - 1 
     public float volume;
-    [Range(.1f, 3f)]
-    public float pitch;
 
     public bool loop;
 
     [HideInInspector]
     public AudioSource source;
-
-    public Type type;
-
-    public enum Type
-    {
-        Master, Music, Soundeffect, Ambient, Narration
-    }
 }

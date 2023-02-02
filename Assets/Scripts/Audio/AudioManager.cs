@@ -26,37 +26,29 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
 
+        // Loop through all the audio clips in the "Sounds" array
         foreach (Sound sound in Sounds)
         {
+            // Add an AudioSource component to the gameObject
             sound.source = gameObject.AddComponent<AudioSource>();
+            // Assign the audio clip and properties to the newly added AudioSource component
             sound.source.clip = sound.clip;
             sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
         }
-    }
-
-    // Function to play audio clips by index
-    public void PlaySound(int index)
-    {
-        // Set the audio clip based on the index
-        AudioSource.clip = Sounds[index].clip;
-        // Play the audio clip
-        AudioSource.Play();
     }
 
     // Function to play audio clips by name
     public void PlaySound(string name)
     {
+        // Loop through all the audio clips in the "Sounds" array
         foreach (Sound sound in Sounds)
         {
+            // If the name of the audio clip matches the input name
             if (sound.name == name)
             {
+                // Play the audio clip
                 sound.source.Play();
             }
         }
