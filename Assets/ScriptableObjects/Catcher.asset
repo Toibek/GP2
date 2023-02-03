@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Catcher
   MovementAcceleration: 100
   MovementSpeed: 5
-  Mass: 10
+  Mass: 20
   prefab: {fileID: 798668047311375118, guid: 1cacf71260b3897468e54f60a85434d5, type: 3}
