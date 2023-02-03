@@ -6,16 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] List<CharacterSO> Characters;
+    [SerializeField] List<Vector3> spawnPoints;
     List<GameObject> players;
     void OnPlayerJoined(PlayerInput joined)
     {
-        Debug.Log("player joined: " + joined);
-        Debug.Log(joined.gameObject.GetComponent<Movement>());
-
         if (players == null) players = new();
         GameObject go = joined.gameObject;
+        go.transform.position = spawnPoints[players.Count];
         ApplyCharacter(go, Characters[players.Count]);
         players.Add(go);
+
+        if (players.Count == 2)
+            GetComponent<PlayerInputManager>().DisableJoining();
     }
     void OnPlayerLeft(PlayerInput left)
     {

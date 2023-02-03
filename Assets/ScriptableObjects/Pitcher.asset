@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Pitcher
   MovementAcceleration: 150
   MovementSpeed: 7
-  Mass: 10
+  Mass: 14.57
   prefab: {fileID: 797555661008972966, guid: f4c2bf211a3027847a70015b25e8b300, type: 3}

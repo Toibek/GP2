@@ -8,12 +8,14 @@ public class Player : MonoBehaviour
     Movement movement;
     Ability ability;
     PlayerManager manager;
+    CharacterSO settings;
     public void Init(PlayerManager man)
     {
         manager = man;
     }
     public void ApplySettings(CharacterSO settings)
     {
+        this.settings = settings;
         movement = GetComponent<Movement>();
         movement.settings = settings;
 
@@ -34,6 +36,6 @@ public class Player : MonoBehaviour
     }
     private void OnPause()
     {
-        Destroy(gameObject);
+        ApplySettings(settings);
     }
 }

@@ -3,27 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class AIBehavior : MonoBehaviour
 {
     [Space]
     [Header("Behavior Variables")]
+
     [Range(0f,100f)]
     [SerializeField]
-    private float _detectRadius;
+    [Tooltip("Detection range of gameobjects to avoid")]
+    private float _detectRadius = 5f;
+    
+    [Range(0f, 20f)]
+    [SerializeField]
+    [Tooltip("How far from player it will try to run")]
+    private float _runLength = 3f;
+
+    [Range(1f, 3f)]
+    [SerializeField]
+    [Tooltip("How close to destination untill it consider it on the destionation")]
+    private float _stopDistance = 1f;
+
+    [SerializeField]
+    [Tooltip("Will Move away from gameobjects with this layer")]
+    private LayerMask _playerMask;
 
     [Space]
     [Header("Chaches")]
-    [SerializeField]
     private NavMeshAgent _agent;
-    private Collider[] Hits = new Collider[2];
+    private Collider[] Hits = new Collider[4];
 
-    [Space]
-    [SerializeField]
     private Transform RunFromTransform;
 
-    public LayerMask PlayerMask;
 
     [ContextMenu("TestMovement")]
     public void TestMove()
@@ -41,6 +53,8 @@ public class AIBehavior : MonoBehaviour
             _agent = GetComponent<NavMeshAgent>();
         }
         Hits = new Collider[2];
+
+        if (_agent) _agent.stoppingDistance = _stopDistance;
     }
 
     private void Update()
@@ -56,7 +70,7 @@ public class AIBehavior : MonoBehaviour
         {
             _agent.SetDestination(
                     transform.position
-                    - (RunFromTransform.position - transform.position).normalized * 3f
+                    - (RunFromTransform.position - transform.position).normalized * _runLength
                     );
             //if (NavMesh.Raycast(transform.position, RunFromTransform.position, out NavMeshHit hit, NavMesh.AllAreas))
             //{
@@ -81,18 +95,17 @@ public class AIBehavior : MonoBehaviour
 
         if (_detectRadius != 0)
         {
-            if (Physics.OverlapSphereNonAlloc(transform.position, _detectRadius, Hits, PlayerMask) > 0)
+            if (Physics.OverlapSphereNonAlloc(transform.position, _detectRadius, Hits, _playerMask) > 0)
             {
                 int index = -1;
                 float lastDistance = float.MaxValue;
                 for (int i = 0; i < Hits.Length; i++)
                 {
-                    if (Hits[i] != null)
-                    if (lastDistance > (Hits[i].transform.position - transform.position).sqrMagnitude)
-                        {
-                            lastDistance = (Hits[i].transform.position - transform.position).sqrMagnitude;
-                            index = i;
-                        }
+                    if (Hits[i] != null && lastDistance > (Hits[i].transform.position - transform.position).sqrMagnitude)
+                    {
+                        lastDistance = (Hits[i].transform.position - transform.position).sqrMagnitude;
+                        index = i;
+                    }
                 }
                 RunFromTransform = Hits[index].transform;
             }

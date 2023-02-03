@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, settings.MovementSpeed);
+            if (rb.velocity.magnitude >= 0.1f)
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(rb.velocity, Vector3.up), 180 * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
         moveRoutine = null;
