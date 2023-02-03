@@ -5,7 +5,7 @@ using UnityEngine;
 using BehaviorTree;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody))]
 public class PebbleCreature : BehaviorTree.Tree
 {
     //Tree
@@ -50,6 +50,7 @@ public class PebbleCreature : BehaviorTree.Tree
     private LayerMask _playerMask = 1<<3;
     
     private NavMeshAgent _agent;
+    private Rigidbody _rb;
     //
 
     private void Awake()
@@ -60,6 +61,10 @@ public class PebbleCreature : BehaviorTree.Tree
             _agent = GetComponent<NavMeshAgent>();
         }
 
+        if (!_rb)
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
         if (_agent) _agent.stoppingDistance = _stopDistance;
     }
 
@@ -67,16 +72,17 @@ public class PebbleCreature : BehaviorTree.Tree
     {
         Node root = new Selector(new List<Node>
         {
+            new RotateTowardsVelocity(_rb, 100f),
             new Sequence(new List<Node>
             {
                 new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                new RunFromPlayer(transform, _agent, _runLength)
+                new MoveToPosition(_rb, _runLength)
             }),
 
             new Sequence(new List<Node>
             {
-                new WaitForNode(_idleMovementFrequency.x,_idleMovementFrequency.y),
-                new IdleMove(transform, _agent,_idleMovement)
+                new WaitForNode(_idleMovementFrequency.x,_idleMovementFrequency.y)
+                //new IdleMove(transform, _agent,_idleMovement)
             })
         });
         return root;
