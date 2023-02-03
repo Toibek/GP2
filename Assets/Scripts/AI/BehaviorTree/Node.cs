@@ -16,18 +16,19 @@ namespace BehaviorTree
         protected NodeState state;
 
         public Node Parent;
-        protected List<Node> children;
+        protected List<Node> children = new List<Node>();
 
         private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
         public Node()
         {
             Parent = null;
+            children = new List<Node>();
         }
         public Node (List<Node> children)
         {
-            for (int i = 0; i < children.Count; i++)
+            foreach(Node node in children)
             {
-                _Attach(children[i]);
+                _Attach(node);
             }
         }
 
@@ -43,6 +44,7 @@ namespace BehaviorTree
         {
             _dataContext[key] = value;
         }
+
         public object GetData(string key)
         {
             object value = null;

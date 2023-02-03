@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
         go.transform.position = spawnPoints[players.Count];
         ApplyCharacter(go, Characters[players.Count]);
         players.Add(go);
+        GameManager.Instance.PlayerJoined(go);
 
         if (players.Count == 2)
             GetComponent<PlayerInputManager>().DisableJoining();
