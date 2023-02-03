@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     }
     public void ApplySettings(CharacterSO settings)
     {
+        this.settings = settings;
         movement = GetComponent<Movement>();
         movement.settings = settings;
 

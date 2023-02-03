@@ -48,6 +48,9 @@ MonoBehaviour:
   Characters:
   - {fileID: 11400000, guid: 13bcd7f469a96e9448d8c004ea3f89ae, type: 2}
   - {fileID: 11400000, guid: 70c1070e3465f4c41b1a5e7342bfb80b, type: 2}
+  spawnPoints:
+  - {x: 2, y: 0, z: 0}
+  - {x: -2, y: 0, z: 0}
 --- !u!114 &7687985156749089310
 MonoBehaviour:
   m_ObjectHideFlags: 0
