@@ -23,7 +23,9 @@ namespace BehaviorTree
         {
             Parent = null;
             children = new List<Node>();
+            _dataContext = new Dictionary<string, object>();
         }
+
         public Node (List<Node> children)
         {
             foreach(Node node in children)
@@ -42,6 +44,7 @@ namespace BehaviorTree
 
         public void SetData(string key, object value)
         {
+            if (_dataContext == null) _dataContext = new Dictionary<string, object>();
             _dataContext[key] = value;
         }
 

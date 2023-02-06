@@ -48,16 +48,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectRadius: 5
-  _runLength: 3
+  _runLength: 15
   _stopDistance: 1
   _maxPlayerCount: 4
   _idleMovement: 3
+  _isAwakeOnStart: 1
   _idleMovementFrequency: {x: 3, y: 10}
-  _gizmoDetectRadius: 0
-  _gizmoIdleMovement: 0
   _playerMask:
     serializedVersion: 2
     m_Bits: 8
+  _gizmoDetectRadius: 0
+  _gizmoIdleMovement: 0
 --- !u!65 &1686297959018943437
 BoxCollider:
   m_ObjectHideFlags: 0

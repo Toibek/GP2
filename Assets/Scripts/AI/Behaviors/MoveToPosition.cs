@@ -23,13 +23,17 @@ public class MoveToPosition : Node
         if (RunFromTransform != null)
         {
             Vector3 newPosFromRigidbody =
-                - (new Vector3(RunFromTransform.position.x,0, RunFromTransform.position.z) - new Vector3(_rb.position.x,0, _rb.position.z)).normalized
+                
+                -( 
+                    new Vector3 (RunFromTransform.position.x,0,RunFromTransform.position.z) 
+                -   new Vector3(_rb.position.x,0, _rb.position.z)
+                ).normalized
                 * _runSpeed;
 
             Vector3 newVel = newPosFromRigidbody + Vector3.up * _rb.velocity.y;
 
             _rb.velocity = Vector3.SmoothDamp(_rb.velocity, newVel, ref _currentVelocity, _smoothDampSpeed);
-            Debug.Log(_rb.velocity);
+            //Debug.Log(_rb.velocity);
             return NodeState.SUCCESS;
             //if (NavMesh.Raycast(transform.position, RunFromTransform.position, out NavMeshHit hit, NavMesh.AllAreas))
             //{

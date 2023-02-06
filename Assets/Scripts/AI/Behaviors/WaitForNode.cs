@@ -14,19 +14,35 @@ public class WaitForNode : Node
     private float _moveAfterMin = 2f;
     private float _moveAfterMax = 4f;
 
-    public WaitForNode(float movmentFreqenceMin, float movementFrequenceMax) : base()
+    private string _boolKeyToActivate;
+
+    public WaitForNode(float movmentFreqenceMin, float movementFrequenceMax, string boolKey) : base()
     {
+        _boolKeyToActivate = boolKey;
         _moveAfterMin = movmentFreqenceMin;
         _moveAfterMax = movementFrequenceMax;
+
     }
 
     public override NodeState Evaluate()
     {
+        try
+        {
+            if (!(bool)Parent.GetData(_boolKeyToActivate)) return NodeState.SUCCESS;
+
+        }
+        catch
+        {
+            if (Parent != null) Parent.SetData(_boolKeyToActivate, true);
+
+        }
+
         _moveTimer += Time.deltaTime;
         if (_moveTimer > _moveAfterSec)
         {
             _moveTimer = 0;
             _moveAfterSec = Random.Range(_moveAfterMin, _moveAfterMax);
+            Parent.SetData(_boolKeyToActivate, false);
             return NodeState.SUCCESS;
         }
         return NodeState.FAILURE;

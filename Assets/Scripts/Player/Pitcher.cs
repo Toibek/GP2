@@ -29,6 +29,7 @@ public class Pitcher : Ability
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") return;
+        if (other.attachedRigidbody == null) return;
         if (hittableObjects == null) hittableObjects = new();
         if (!hittableObjects.Contains(other.attachedRigidbody)) hittableObjects.Add(other.attachedRigidbody);
     }

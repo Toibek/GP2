@@ -16,6 +16,8 @@ public class PebbleCenter : MonoBehaviour
     }
     void Update()
     {
+        if (pebbles.Count <= 0) return;
+
         Vector3 position = Vector3.zero;
         for (int i = 0; i < pebbles.Count; i++)
         {

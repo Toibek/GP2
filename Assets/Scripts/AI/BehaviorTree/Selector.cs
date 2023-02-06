@@ -28,10 +28,10 @@ namespace BehaviorTree
                         continue;
                     case NodeState.SUCCESS:
                         state = NodeState.SUCCESS;
-                        continue;
+                        return state;
                     case NodeState.RUNNING:
                         state = NodeState.RUNNING;
-                        continue;
+                        return state;
                     default:
                         continue;
                 }

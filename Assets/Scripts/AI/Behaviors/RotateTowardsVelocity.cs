@@ -16,7 +16,7 @@ public class RotateTowardsVelocity : Node
 
     public override NodeState Evaluate()
     {
-        if (_rb.velocity.sqrMagnitude > 0.5f)_rb.rotation = Quaternion.RotateTowards(_rb.rotation,Quaternion.LookRotation(new Vector3(_rb.velocity.x,0,_rb.velocity.z),Vector3.up), _rotationAngelsDelta * Time.deltaTime);
+        if (_rb.velocity.sqrMagnitude > 0.5f)_rb.MoveRotation( Quaternion.RotateTowards(_rb.rotation,Quaternion.LookRotation(new Vector3(_rb.velocity.x,0,_rb.velocity.z),Vector3.up), _rotationAngelsDelta * Time.deltaTime));
         return NodeState.SUCCESS;
     }
 }
