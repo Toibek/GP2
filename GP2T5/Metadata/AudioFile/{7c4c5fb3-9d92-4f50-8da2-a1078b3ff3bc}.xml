@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7c4c5fb3-9d92-4f50-8da2-a1078b3ff3bc}">
+		<property name="assetPath">
+			<value>s_footstep_rock_06.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.35294784580498867</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8eb3118a-ce8f-4519-bdaf-aaf22bbff5b2}</destination>
+		</relationship>
+	</object>
+</objects>

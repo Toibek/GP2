@@ -15,6 +15,9 @@ public class IdleMove : Node
 
     private bool _GenerateNewPos;
 
+
+    private float _movedForSeconds;
+    private float _resetMovePositionAfter = 5f;
     private float _moveArea;
     private float _stopDistance;
 
@@ -29,6 +32,15 @@ public class IdleMove : Node
 
     public override NodeState Evaluate()
     {
+
+        _movedForSeconds += Time.deltaTime;
+
+        if (_movedForSeconds > _resetMovePositionAfter)
+        {
+            _movedForSeconds = 0;
+            _GenerateNewPos = true;
+        }
+
         if (_GenerateNewPos)
         {
             newPosition = 
@@ -41,6 +53,7 @@ public class IdleMove : Node
             _GenerateNewPos = false;
         }
 
+
         if ((newPosition - _rb.position).sqrMagnitude > _stopDistance * _stopDistance)
         {
 
@@ -48,6 +61,7 @@ public class IdleMove : Node
         }
         else
         {
+            _movedForSeconds = 0;
             Parent.SetData("ReachedIdlePos", true);
             _GenerateNewPos = true;
         }

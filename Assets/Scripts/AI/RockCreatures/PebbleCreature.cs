@@ -16,10 +16,16 @@ public class PebbleCreature : BehaviorTree.Tree
     [Tooltip("Detection range of gameobjects to avoid")]
     private float _detectRadius = 5f;
 
-    [Range(0f, 20f)]
+    [Range(1f, 5f)]
+    [SerializeField]
+    [Tooltip("how close to ground you need to be for it to register that rock is on the ground")]
+    private float _groundCheckDistance = 2f;
+    [Range(3f, 30f)]
     [SerializeField]
     [Tooltip("How far it will run after going out of range from player")]
-    private float _runLength = 3f;
+    private float _runSpeed = 6f;
+    [SerializeField]
+    private float _rotationalSpeed = 100f;
 
     [Range(1f, 3f)]
     [SerializeField]
@@ -46,10 +52,13 @@ public class PebbleCreature : BehaviorTree.Tree
     [Tooltip("Will Move away from gameobjects with this layer")]
     private LayerMask _playerMask = 1<<3;
     [Header("Gizmos")]
+    [Header("Note:\n Red -> Detection Range \n Yellow -> Walk Idle \n Blue -> Ground Check")]
     [SerializeField]
     private bool _gizmoDetectRadius;
     [SerializeField]
     private bool _gizmoIdleMovement;
+    [SerializeField]
+    private bool _GizmoGroundCheck;
 
     private NavMeshAgent _agent;
     private Rigidbody _rb;
@@ -74,14 +83,15 @@ public class PebbleCreature : BehaviorTree.Tree
     {
         Node root = new Sequence(new List<Node>
         {
+            new CheckForGround(transform),
             new IsAwake(_isAwakeOnStart, transform, _detectRadius, _maxPlayerCount, _playerMask),
-            new RotateTowardsVelocity(_rb, 100f),
+            new RotateTowardsVelocity(_rb, _rotationalSpeed),
             new Selector(new List<Node>
             {
                 new Sequence(new List<Node>
                 {
                     new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                    new MoveToPosition(_rb, _runLength)
+                    new MoveToPosition(_rb, _runSpeed)
                 }),
 
                 new Sequence(new List<Node>
@@ -98,7 +108,22 @@ public class PebbleCreature : BehaviorTree.Tree
     private void OnDrawGizmos()
     {
 
-        if (_gizmoDetectRadius && _detectRadius != 0) Gizmos.DrawWireSphere(transform.position, _detectRadius);
-        if (_gizmoIdleMovement && _idleMovement != 0) Gizmos.DrawWireCube(transform.position, new Vector3(_idleMovement,0.1f, _idleMovement));
+        if (_gizmoDetectRadius && _detectRadius != 0)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _detectRadius);
+        }
+
+        if (_gizmoIdleMovement && _idleMovement != 0) 
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(transform.position, new Vector3(_idleMovement, 0.1f, _idleMovement)); 
+        }
+
+        if (_GizmoGroundCheck) 
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 2f);
+        }
     }
 }
