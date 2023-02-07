@@ -8,7 +8,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody))]
 public class PebbleCreature : BehaviorTree.Tree
 {
-    public static bool Debug = false;
+    public static bool Debug = true;
     //Tree
     [Header("Note: READ ME! \n \n *Tree Settings don't change in Play Time \n *Variables have tooltips")]
     [Header("Tree Settings")]
@@ -26,7 +26,7 @@ public class PebbleCreature : BehaviorTree.Tree
     [Range(0.1f, 5f)]
     [SerializeField]
     [Tooltip("how close to ground you need to be for it to register that rock is on the ground")]
-    private float _groundCheckRadius= 0.5f;
+    private float _groundCheckRadius = 0.5f;
 
     [Range(3f, 30f)]
     [SerializeField]
@@ -63,11 +63,11 @@ public class PebbleCreature : BehaviorTree.Tree
 
     [SerializeField]
     [Tooltip("How often they move. X is min value Y is max Value \n (How Often it will decide to move after x->y Seconds)")]
-    private Vector2 _idleMovementFrequency = new Vector2(3f,10f);
+    private Vector2 _idleMovementFrequency = new Vector2(3f, 10f);
 
     [SerializeField]
     [Tooltip("Will Move away from gameobjects with this layer")]
-    private LayerMask _playerMask = 1<<3;
+    private LayerMask _playerMask = 1 << 3;
 
     [Header("Gizmos")]
     [Header("Note:" +
@@ -81,7 +81,7 @@ public class PebbleCreature : BehaviorTree.Tree
     [SerializeField]
     private bool _gizmoDetectRadius = false;
     [SerializeField]
-    private bool _gizmoIdleMovement  = false;
+    private bool _gizmoIdleMovement = false;
     [SerializeField]
     private bool _GizmoGroundCheck = false;
     [SerializeField]
@@ -114,7 +114,7 @@ public class PebbleCreature : BehaviorTree.Tree
                 new CheckForGround(transform, _groundCheckDistance, _groundCheckRadius),
                 new GravityNode(_rb)
             }),
-            
+
             new CheckForGround(transform, _groundCheckDistance, _groundCheckRadius),
             new IsAwake(_isAwakeOnStart, transform, _detectRadius, _maxPlayerCount, _playerMask),
             new RotateTowardsVelocity(_rb, _rotationalSpeed),
@@ -137,7 +137,7 @@ public class PebbleCreature : BehaviorTree.Tree
                 new StopMovement(_rb),
             })
         });
-        
+
         return root;
     }
 
@@ -150,13 +150,13 @@ public class PebbleCreature : BehaviorTree.Tree
             Gizmos.DrawWireSphere(transform.position, _detectRadius);
         }
 
-        if (_gizmoIdleMovement && _idleMovement != 0) 
+        if (_gizmoIdleMovement && _idleMovement != 0)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(transform.position, new Vector3(_idleMovement, 0.1f, _idleMovement)); 
+            Gizmos.DrawWireCube(transform.position, new Vector3(_idleMovement, 0.1f, _idleMovement));
         }
 
-        if (_GizmoGroundCheck) 
+        if (_GizmoGroundCheck)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, _groundCheckRadius);
@@ -165,7 +165,7 @@ public class PebbleCreature : BehaviorTree.Tree
 
         if (_gizmoRunLenght && _runLength != 0)
         {
-            Gizmos.color = Color.white; 
+            Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(transform.position, _runLength);
 
         }
