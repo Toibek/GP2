@@ -68,7 +68,7 @@ public class CameraControll : MonoBehaviour
         
     }
 
-    static bool VisibleFromCamera(Renderer renderer, Camera camera)
+    static bool VisibleFromCamera(Renderer renderer, Camera camera, Vector3 bee)
     {
         Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(camera);
         return GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds);
@@ -83,9 +83,11 @@ public class CameraControll : MonoBehaviour
             Debug.Log("Nope");
 
         rend = player1.transform.GetChild(0).GetComponent<Renderer>();
-        if (!VisibleFromCamera(rend, Camera.main))
+        if (!VisibleFromCamera(rend, Camera.main, currentPosition))
         {
-            Debug.Log("Yes");
+            play1Pos = hit.point;
+            play1Pos.y += 5;
+            player1.transform.position = play1Pos;
         }
 
 
