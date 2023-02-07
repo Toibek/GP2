@@ -19,6 +19,7 @@ public class RunFromPlayer : Node
     public override NodeState Evaluate()
     {
         Transform RunFromTransform = (Transform)GetData("Player");
+        Debug.Log("Run From Player Movement");
         if (RunFromTransform != null)
         {
             _agent.SetDestination(

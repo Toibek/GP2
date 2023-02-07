@@ -91,7 +91,7 @@ public class PebbleCreature : BehaviorTree.Tree
                 new Sequence(new List<Node>
                 {
                     new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                    new MoveToPosition(_rb, _runSpeed)
+                    new MoveAwayFromPosition(_rb, _runSpeed)
                 }),
 
                 new Sequence(new List<Node>

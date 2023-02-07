@@ -32,7 +32,7 @@ public class IdleMove : Node
 
     public override NodeState Evaluate()
     {
-
+        Debug.Log("Idle Movement");
         _movedForSeconds += Time.deltaTime;
 
         if (_movedForSeconds > _resetMovePositionAfter)
