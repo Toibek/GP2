@@ -280,7 +280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29af694b6c05de499d838a095630e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 500
+  chargeTime: 1
+  force: {x: 100, y: 200}
+  curForce: 0
   hittableObjects: []
 --- !u!135 &1016085452719468209
 SphereCollider:

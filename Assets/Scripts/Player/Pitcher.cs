@@ -4,10 +4,36 @@ using UnityEngine;
 
 public class Pitcher : Ability
 {
-    [SerializeField] float force;
-    [SerializeField] List<Rigidbody> hittableObjects;
+    [SerializeField] private float chargeTime;
+    [SerializeField] private Vector2 force;
+    [SerializeField] private List<Rigidbody> hittableObjects;
+    private float curForce;
+    private Coroutine forceRoutine;
     public override void AbilityStart()
     {
+        forceRoutine = StartCoroutine(ForceCalc());
+    }
+    private IEnumerator ForceCalc()
+    {
+        while (true)
+        {
+            for (float f = 0; f < chargeTime; f += Time.deltaTime)
+            {
+                curForce = ((f / chargeTime) * (force.y - force.x)) + force.x;
+                yield return new WaitForEndOfFrame();
+            }
+            for (float f = chargeTime; f >= 0; f -= Time.deltaTime)
+            {
+                curForce = ((f / chargeTime) * (force.y - force.x)) + force.x;
+                yield return new WaitForEndOfFrame();
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+    public override void AbilityStop()
+    {
+        StopCoroutine(forceRoutine);
+        Debug.Log("Pitcher stop: " + curForce);
         for (int i = hittableObjects.Count - 1; i >= 0; i--)
         {
             if (hittableObjects[i] == null)
@@ -19,12 +45,8 @@ public class Pitcher : Ability
             if (dot < -0.3f) continue;
 
             Vector3 direction = (hittableObjects[i].transform.transform.position - transform.position + new Vector3(0, 2, 0) + transform.forward).normalized;
-            hittableObjects[i].AddForce(direction * force);
+            hittableObjects[i].AddForce(direction * curForce);
         }
-    }
-    public override void AbilityStop()
-    {
-
     }
     private void OnTriggerEnter(Collider other)
     {
