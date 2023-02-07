@@ -26,9 +26,14 @@ public class WaitForNode : Node
 
     public override NodeState Evaluate()
     {
+
         try
         {
-            if (!(bool)Parent.GetData(_boolKeyToActivate)) return NodeState.SUCCESS;
+            if (!(bool)Parent.GetData(_boolKeyToActivate))
+            {
+                if (PebbleCreature.Debug) Debug.Log("WaitForNode Found Key");
+                return NodeState.SUCCESS;
+            }
 
         }
         catch
@@ -36,7 +41,7 @@ public class WaitForNode : Node
             if (Parent != null) Parent.SetData(_boolKeyToActivate, true);
 
         }
-
+        if (PebbleCreature.Debug) Debug.Log("WaitForNode");
         _moveTimer += Time.deltaTime;
         if (_moveTimer > _moveAfterSec)
         {

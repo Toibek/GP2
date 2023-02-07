@@ -11,11 +11,19 @@ public class MoveAwayFromPosition : Node
     private string _moveToPositionSaveVariable;
     private float _smoothDampSpeed = 0.6f;
     private float _runSpeed;
-    public MoveAwayFromPosition(Rigidbody rigidbody, float runSpeed, string moveToPositionSaveVariable = "RequestedNewPosition") : base() 
+    private float _runLength;
+    public MoveAwayFromPosition(Rigidbody rigidbody, float runSpeed,float runLength, string moveToPositionSaveVariable = "RequestedNewPosition", float smoothDampSpeed = 0.6f) : base() 
     {
         _rb = rigidbody;
         _runSpeed = runSpeed;
+
+        if (runLength != 0)
+            _runLength = runLength;
+        else
+            _runLength = 1;
+
         _moveToPositionSaveVariable = moveToPositionSaveVariable;
+        _smoothDampSpeed = smoothDampSpeed;
     }
 
     public override NodeState Evaluate()
@@ -24,36 +32,46 @@ public class MoveAwayFromPosition : Node
         Transform RunFromTransform = (Transform)GetData("Player");
         if (RunFromTransform != null)
         {
+            if (PebbleCreature.Debug) Debug.Log("MoveAway");
             Vector3 newPosFromRigidbody =
                 
-                -( 
-                    new Vector3 (RunFromTransform.position.x,0,RunFromTransform.position.z) 
-                -   new Vector3(_rb.position.x,0, _rb.position.z)
-                ).normalized
-                * _runSpeed;
+                ( 
+                new Vector3(_rb.position.x,0, _rb.position.z)
+                - new Vector3 (RunFromTransform.position.x,0,RunFromTransform.position.z) 
+                ).normalized;
 
-            Parent.SetData(_moveToPositionSaveVariable, _rb.transform.TransformPoint(newPosFromRigidbody));
+            Node parentToUse = this;
+            for(int i = 0; i < 2; i++)
+            {
+                if (parentToUse.Parent != null)
+                parentToUse = parentToUse.Parent;
+            }
+            parentToUse.ClearData(_moveToPositionSaveVariable);
+            parentToUse.SetData(_moveToPositionSaveVariable, _rb.position + (newPosFromRigidbody * _runLength));
             //Debug.Log(newPosFromRigidbody);
 
-            Vector3 newVel = newPosFromRigidbody * 10f + Vector3.up * _rb.velocity.y;
+            Vector3 newVel = newPosFromRigidbody * _runSpeed + Vector3.up * _rb.velocity.y;
+
+            if (GetData("CurrentVelocity") != null && (Vector3)GetData("CurrentVelocity") != null)
+            {
+                _currentVelocity = (Vector3)GetData("CurrentVelocity");
+            }
 
             _rb.velocity = Vector3.SmoothDamp(_rb.velocity, newVel, ref _currentVelocity, _smoothDampSpeed);
-            //Debug.Log(_rb.velocity);
+
+            GetRootNode().SetData("CurrentVelocity", _currentVelocity);
+
             return NodeState.SUCCESS;
+
             //if (NavMesh.Raycast(transform.position, RunFromTransform.position, out NavMeshHit hit, NavMesh.AllAreas))
             //{
-            //    _agent.SetDestination(
-            //                transform.position
-            //                - (hit.position - transform.position).normalized * 3f
-            //     );
+            //  Closest Point to navMesh here with Hit.position
             //}
             //else
             //{
-            //    _agent.SetDestination(
-            //        transform.position
-            //        - (RunFromTransform.position - transform.position).normalized * 3f
-            //        );
+            //  It's on the navMesh here
             //}
+
         }
         return NodeState.FAILURE;
 

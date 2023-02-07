@@ -92,6 +92,16 @@ namespace BehaviorTree
             }
             return false;
         }
+
+        public Node GetRootNode()
+        {
+            Node root = this;
+            while (root.Parent != null)
+            {
+                root = root.Parent;
+            }
+            return root;
+        }
     }
 }
 
