@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{94da52c5-e94e-4778-b4dd-4d3cd88ff801}">
+		<property name="assetPath">
+			<value>s_footstep_snow_06.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.61764172335600909</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8eb3118a-ce8f-4519-bdaf-aaf22bbff5b2}</destination>
+		</relationship>
+	</object>
+</objects>
