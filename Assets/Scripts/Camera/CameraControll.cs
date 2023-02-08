@@ -86,25 +86,21 @@ public class CameraControll : MonoBehaviour
     
     void CameraRay()
     {
-        Ray ray = new Ray(currentPosition, transform.forward);
-        if(Physics.Raycast(ray, out RaycastHit hit))
-            minCamPosition.z = hit.point.z - 20;
-        if (play1Pos.z < minCamPosition.z || play2Pos.z < minCamPosition.z)
-            Debug.Log("Nope");
-
         rend = player1.GetComponent<Renderer>();
         rend2 = player2.GetComponent<Renderer>();
+        Ray ray = new Ray(currentPosition, transform.forward);
+        Physics.Raycast(ray, out RaycastHit hit);
         if (!VisibleFromCamera(rend, Camera.main))
         {
             play1Pos = hit.point;
-            play1Pos.y += 5;
+            play1Pos.y += 2;
             player1.transform.position = play1Pos;
         }
         
         if (!VisibleFromCamera(rend2, Camera.main))
         {
             play2Pos = hit.point;
-            play2Pos.y += 5;
+            play2Pos.y += 2;
             player2.transform.position = play2Pos;
         }
     }
@@ -122,7 +118,7 @@ public class CameraControll : MonoBehaviour
                 break;
             case 2:
 
-                jointPosition = (play2Pos + play1Pos) / 2;
+                jointPosition = (play1Pos + play2Pos)/2;
                     lookAtPosition = Vector3.SmoothDamp(lookAtPosition ,jointPosition,ref velocity, 0.5f);
                 currentPosition.x = jointPosition.x;
                 currentPosition.z = jointPosition.z + startPosition.z; 
