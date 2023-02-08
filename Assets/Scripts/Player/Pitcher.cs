@@ -33,7 +33,6 @@ public class Pitcher : Ability
     public override void AbilityStop()
     {
         StopCoroutine(forceRoutine);
-        Debug.Log("Pitcher stop: " + curForce);
         for (int i = hittableObjects.Count - 1; i >= 0; i--)
         {
             if (hittableObjects[i] == null)
