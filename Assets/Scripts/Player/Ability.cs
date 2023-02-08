@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    public abstract void AbilityStart();
-    public abstract void AbilityStop();
+    public abstract void Primary();
+    public abstract void Secondary();
 }

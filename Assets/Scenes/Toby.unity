@@ -286,6 +286,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865360850}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.UI.Selectable, UnityEngine.UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7687985156749089311, guid: 40c6a30cd949f204ca3d330c45cc46b6,
         type: 3}
       propertyPath: m_RootOrder
@@ -622,6 +662,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -921,6 +986,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -994,6 +1084,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -1071,6 +1186,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -1144,6 +1284,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -1221,6 +1386,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -1296,6 +1486,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -1369,6 +1584,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -1547,6 +1787,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -1554,6 +1819,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 806c60879db671a44b8c764b5ab51741, type: 3}
+--- !u!1 &1139857184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139857186}
+  - component: {fileID: 1139857185}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1139857185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139857184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e73cd430eabd4744b0702cb6df87605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1139857186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139857184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1232897752 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1999951725, guid: 40c6a30cd949f204ca3d330c45cc46b6,
@@ -1626,6 +1938,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -1703,6 +2040,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -1776,6 +2138,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -2056,6 +2443,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -2129,6 +2541,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -2206,6 +2643,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -2279,6 +2741,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -2373,7 +2860,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1865360851}
   m_OnClick:
     m_PersistentCalls:
@@ -2490,6 +2977,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -2563,6 +3075,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -2640,6 +3177,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -2715,6 +3277,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_Name
@@ -2788,6 +3375,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
@@ -2869,6 +3481,31 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoRunLenght
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _isAwakeOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _GizmoGroundCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoDetectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _gizmoIdleMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,

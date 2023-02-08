@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     {
         set { moving = value; if (moveRoutine == null) moveRoutine = StartCoroutine(MoveEnum()); }
     }
-    Vector2 moving;
+    private Vector2 moving;
     private void Start()
     {
         rb = GetComponentInChildren<Rigidbody>();
@@ -21,7 +21,6 @@ public class Movement : MonoBehaviour
     {
         while (moving != Vector2.zero)
         {
-            Debug.Log(settings);
             rb.AddForce(new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, settings.MovementSpeed);
             if (rb.velocity.magnitude >= 0.1f)

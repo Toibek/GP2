@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] UnityEvent OnAllPlayersJoined;
     [SerializeField] List<CharacterSO> Characters;
     private List<PlayerInput> PlayerInputs;
     private List<GameObject> players;
@@ -16,6 +18,11 @@ public class PlayerManager : MonoBehaviour
     {
         if (PlayerInputs == null) PlayerInputs = new();
         PlayerInputs.Add(joined);
+        if (PlayerInputs.Count == 2)
+        {
+            OnAllPlayersJoined?.Invoke();
+            GetComponent<PlayerInputManager>().DisableJoining();
+        }
     }
     private void OnPlayerLeft(PlayerInput left)
     {

@@ -23,19 +23,21 @@ public class Player : MonoBehaviour
 
         ability = GetComponentInChildren<Ability>();
     }
+    private void OnPause()
+    {
+        SetCharacter(settings);
+    }
 
     private void OnMove(InputValue value)
     {
         movement.Move = value.Get<Vector2>();
     }
-    private void OnPrimary(InputValue value)
+    private void OnPrimary()
     {
-        float input = value.Get<float>();
-        if (input == 1) ability.AbilityStart();
-        else ability.AbilityStop();
+        ability.Primary();
     }
-    private void OnPause()
+    private void OnSecondary()
     {
-        SetCharacter(settings);
+        ability.Secondary();
     }
 }
