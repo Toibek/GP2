@@ -89,7 +89,6 @@ public class PebbleCreature : BehaviorTree.Tree
     [Tooltip("How often they move. X is min value Y is max Value \n (How Often it will decide to move after x->y Seconds)")]
     protected Vector2 _idleMovementFrequency = new Vector2(3f,10f);
 
-
     [Header("States")]
     [Space]
 
@@ -126,6 +125,9 @@ public class PebbleCreature : BehaviorTree.Tree
     private bool _gizmoRunLenght = false;
 
     private Rigidbody _rb;
+    [Header("Debuging")]
+    [SerializeField]
+    private Transform test;
     //
 
     public bool IsTamed => _root.GetData(TreeVariables.Tamed) != null ? (bool)_root.GetData(TreeVariables.Tamed) : _isTamedOnStart;
@@ -151,6 +153,7 @@ public class PebbleCreature : BehaviorTree.Tree
     [ContextMenu("Set Tamed True")]
     internal void SetTamedTrue()
     {
+        _root.SetData(TreeVariables.FollowTransform, test);
         _root.SetData(TreeVariables.Tamed, true);
     }
 
@@ -175,6 +178,11 @@ public class PebbleCreature : BehaviorTree.Tree
         throw new System.Exception("not implimented 'SetNewFollow' yet");
     }
 
+    public void Stun(float seconds)
+    {
+        _root.SetData(TreeVariables.Dazed, seconds);
+    }
+
     public static void ChangeFollowTargetOnTamed(Transform newTarget)
     {
         if (creatures.Count == 0) return;
@@ -190,11 +198,12 @@ public class PebbleCreature : BehaviorTree.Tree
     {
         Node root = new Sequence(new List<Node>
         {
+
             new Selector(new List<Node> {
                 new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
                 new GravityNode(_rb)
             }),
-            
+            new Dazed(),
             new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
             new IsAwake(_isAwakeOnStart, transform, _detectRadius, _maxPlayerCount, _playerMask),
             new RotateTowardsVelocity(_rb, _rotationalSpeed),
@@ -202,12 +211,9 @@ public class PebbleCreature : BehaviorTree.Tree
             {
                 new Sequence(new List<Node> {
                     new IsTamed(_isTamedOnStart),
-                    new Selector(new List<Node>{
-                            new Sequence(new List<Node>
-                            {
-                                new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength)
-                            }),
+                    new Selector(new List<Node>
+                    {
+                            new MoveTowardsTransform(_rb, _runSpeed, _stopDistance, TreeVariables.FollowTransform),
 
                             new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
 
@@ -227,7 +233,7 @@ public class PebbleCreature : BehaviorTree.Tree
                             new Sequence(new List<Node>
                             {
                                 new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength)
+                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength),
                             }),
 
                             new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
