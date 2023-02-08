@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ec9b79fa-c35f-4fb4-bcdb-169deb00511e}">
+		<property name="assetPath">
+			<value>birds_flapping_away.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.3846258503401359</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8eb3118a-ce8f-4519-bdaf-aaf22bbff5b2}</destination>
+		</relationship>
+	</object>
+</objects>

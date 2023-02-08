@@ -16,6 +16,8 @@ public class CameraControll : MonoBehaviour
     //Object positions
     private Vector3 play1Pos;
     private Vector3 play2Pos;
+    private Vector3 heightDifferenceP1;
+    private Vector3 heightDifferenceP2;
     
 
     //Camera positions
@@ -68,7 +70,7 @@ public class CameraControll : MonoBehaviour
         
     }
 
-    static bool VisibleFromCamera(Renderer renderer, Camera camera)
+    static bool VisibleFromCamera(Renderer renderer, Camera camera, Vector3 bee)
     {
         Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(camera);
         return GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds);
@@ -83,9 +85,11 @@ public class CameraControll : MonoBehaviour
             Debug.Log("Nope");
 
         rend = player1.transform.GetChild(0).GetComponent<Renderer>();
-        if (!VisibleFromCamera(rend, Camera.main))
+        if (!VisibleFromCamera(rend, Camera.main, currentPosition))
         {
-            Debug.Log("Yes");
+            play1Pos = hit.point;
+            play1Pos.y += 5;
+            player1.transform.position = play1Pos;
         }
 
 
@@ -99,7 +103,7 @@ public class CameraControll : MonoBehaviour
             case 1:
                 jointPosition = play1Pos;
                 currentPosition.x = play1Pos.x;
-                currentPosition.y = startPosition.y;
+                currentPosition.y = startPosition.y + play1Pos.y;
                 currentPosition.z = startPosition.z + play1Pos.z;
                 break;
             case 2: 
@@ -107,13 +111,13 @@ public class CameraControll : MonoBehaviour
                 currentPosition.x = jointPosition.x;
                 currentPosition.z = jointPosition.z + startPosition.z; 
                 //Makes the camera tilt up and down based on the distance between the players and the cube
-                currentPosition.y = startPosition.y + (Vector3.Distance(play1Pos, play2Pos) / 5);
+                heightDifferenceP1.y = play1Pos.y;
+                heightDifferenceP2.y = play2Pos.y;
+                currentPosition.y = startPosition.y + (Vector3.Distance(play1Pos, play2Pos) / 5) + Vector3.Distance(heightDifferenceP1,heightDifferenceP2);
                 break;
             default:
                 break;
         }
-        //Calculates a point where the camera is supposed to look that is more focused on the herd, rather than the players.
-       
 
         //A coded roof that keeps the camera from going to high
         if (currentPosition.y > MaxHeight)

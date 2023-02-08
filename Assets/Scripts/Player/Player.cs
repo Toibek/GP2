@@ -13,13 +13,13 @@ public class Player : MonoBehaviour
     {
         manager = man;
     }
-    public void ApplySettings(CharacterSO settings)
+    public void SetCharacter(CharacterSO settings)
     {
         this.settings = settings;
-        movement = GetComponent<Movement>();
+        movement = GetComponentInChildren<Movement>();
         movement.settings = settings;
 
-        GetComponent<Rigidbody>().mass = settings.Mass;
+        GetComponentInChildren<Rigidbody>().mass = settings.Mass;
 
         ability = GetComponentInChildren<Ability>();
     }
@@ -36,6 +36,6 @@ public class Player : MonoBehaviour
     }
     private void OnPause()
     {
-        ApplySettings(settings);
+        SetCharacter(settings);
     }
 }

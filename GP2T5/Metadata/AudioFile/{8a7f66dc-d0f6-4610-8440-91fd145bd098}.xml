@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8a7f66dc-d0f6-4610-8440-91fd145bd098}">
+		<property name="assetPath">
+			<value>water_drop_reverbereated_02.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.2857142857142858</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8eb3118a-ce8f-4519-bdaf-aaf22bbff5b2}</destination>
+		</relationship>
+	</object>
+</objects>

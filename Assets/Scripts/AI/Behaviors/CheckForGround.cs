@@ -8,11 +8,13 @@ public class CheckForGround : Node
 
     private Transform _thisTransform;
     private RaycastHit[] _result = new RaycastHit[1];
+    private LayerMask _groundLayer;
     private float _raycastDistance;
     private float _radius;
 
-    public CheckForGround(Transform thisTransform, float raycastDistanceToGround = 2f, float radius = 1f) : base()
+    public CheckForGround(Transform thisTransform,LayerMask groundLayerMask, float raycastDistanceToGround = 2f, float radius = 1f) : base()
     {
+        _groundLayer = groundLayerMask;
         _raycastDistance = raycastDistanceToGround;
         _thisTransform = thisTransform;
         _result = new RaycastHit[1];
@@ -22,7 +24,7 @@ public class CheckForGround : Node
     public override NodeState Evaluate()
     {
         Collider[] result = new Collider[10];
-        if (Physics.OverlapSphereNonAlloc(_thisTransform.position, _radius, result, 1<<0 , QueryTriggerInteraction.Ignore) > 0) // Checks for default layer atm
+        if (Physics.OverlapSphereNonAlloc(_thisTransform.position, _radius, result, _groundLayer, QueryTriggerInteraction.Ignore) > 0) // Checks for default layer atm
         {
             int childrenCount = _thisTransform.childCount;
             Transform[] childrenTransform = new Transform[childrenCount];

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 798668047311375153}
   - component: {fileID: 798668047311375152}
   - component: {fileID: 798668047311375119}
+  - component: {fileID: 2397387709751342675}
+  - component: {fileID: -8554016045320449971}
   m_Layer: 3
   m_Name: Catcher
   m_TagString: Player
@@ -98,6 +100,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2397387709751342675
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798668047311375118}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &-8554016045320449971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798668047311375118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f060521cc171f49884c4926028d469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8028884836051188789
 GameObject:
   m_ObjectHideFlags: 0

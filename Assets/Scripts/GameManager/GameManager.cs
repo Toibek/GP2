@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Player1;
-    public GameObject Player2;
-    public GameObject Herd;
+    internal GameObject Player1;
+    internal GameObject Player2;
+
+    public emptyDelegate OnGameStart;
     public emptyDelegate OnPlayerJoined;
 
     public delegate void emptyDelegate();
@@ -23,12 +24,15 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        Herd = GameObject.FindGameObjectWithTag("Herd");
     }
     public void PlayerJoined(GameObject player)
     {
         if (Player1 == null) Player1 = player;
         else if (Player2 == null) Player2 = player;
         OnPlayerJoined?.Invoke();
+    }
+    public void GameStart()
+    {
+        OnGameStart?.Invoke();
     }
 }

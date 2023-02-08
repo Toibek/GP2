@@ -3,78 +3,116 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
-using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PebbleCreature : BehaviorTree.Tree
 {
     public static bool Debug = false;
+    public static List<PebbleCreature> creatures = new List<PebbleCreature>();
     //Tree
     [Header("Note: READ ME! \n \n *Tree Settings don't change in Play Time \n *Variables have tooltips")]
     [Header("Tree Settings")]
+    [Space]
 
+
+    [Header("Detections")]
+    [Space]
+
+
+    [Range(0.1f, 5f)]
+    [SerializeField]
+    [Tooltip("how close to ground you need to be for it to register that rock is on the ground")]
+    protected float _groundCheckDistance = 2f;
+
+    [Range(0.1f, 5f)]
+    [SerializeField]
+    [Tooltip("how close to ground you need to be for it to register that rock is on the ground")]
+    protected float _groundCheckRadius= 0.5f;
+
+    [SerializeField]
+    [Tooltip("Which Layer the rock will check for ground on")]
+    protected LayerMask _groundLayerMask = 1<<0;
+    [Space]
     [Range(0f, 100f)]
     [SerializeField]
     [Tooltip("Detection range of gameobjects to avoid")]
-    private float _detectRadius = 5f;
-
-    [Range(0.1f, 5f)]
-    [SerializeField]
-    [Tooltip("how close to ground you need to be for it to register that rock is on the ground")]
-    private float _groundCheckDistance = 2f;
-
-    [Range(0.1f, 5f)]
-    [SerializeField]
-    [Tooltip("how close to ground you need to be for it to register that rock is on the ground")]
-    private float _groundCheckRadius= 0.5f;
-
-    [Range(3f, 30f)]
-    [SerializeField]
-    [Tooltip("How fast the rock will be")]
-    private float _runSpeed = 6f;
-
-    [Range(0f, 30f)]
-    [SerializeField]
-    [Tooltip("How far it will run after going out of range from player (0 = Disabled)")]
-    private float _runLength = 3f;
-
-    [SerializeField]
-    [Tooltip("How fast the rock will turn in angles")]
-    private float _rotationalSpeed = 100f;
-
-    [Range(1f, 3f)]
-    [SerializeField]
-    [Tooltip("How close to destination until it consider it on the destionation")]
-    private float _stopDistance = 1f;
+    protected float _detectRadius = 5f;
 
     [Range(1, 8)]
     [SerializeField]
     [Tooltip("Max amount of Players it will check for")]
-    private int _maxPlayerCount = 4;
-
-    [Range(1f, 10f)]
-    [SerializeField]
-    [Tooltip("How far it will go each idle movement iterration \n(how far it will move everytime it decides to move while idle)")]
-    private float _idleMovement = 3f;
-
-    [SerializeField]
-    [Tooltip("Will determen if the pebble is sleeping on start")]
-    private bool _isAwakeOnStart = true;
-
-    [SerializeField]
-    [Tooltip("How often they move. X is min value Y is max Value \n (How Often it will decide to move after x->y Seconds)")]
-    private Vector2 _idleMovementFrequency = new Vector2(3f,10f);
+    protected int _maxPlayerCount = 4;
 
     [SerializeField]
     [Tooltip("Will Move away from gameobjects with this layer")]
-    private LayerMask _playerMask = 1<<3;
+    protected LayerMask _playerMask = 1<<3;
+
+
+    [Header("Movement")]
+    [Space]
+
+
+    [Range(3f, 30f)]
+    [SerializeField]
+    [Tooltip("How fast the rock will be")]
+    protected float _runSpeed = 6f;
+
+    [Range(0f, 30f)]
+    [SerializeField]
+    [Tooltip("How far it will run after going out of range from player (0 = Disabled)")]
+    protected float _runLength = 3f;
+
+    [SerializeField]
+    [Tooltip("How fast the rock will turn in angles")]
+    protected float _rotationalSpeed = 100f;
+
+    [Space]
+
+    [Range(1f, 3f)]
+    [SerializeField]
+    [Tooltip("How close to destination until it consider it on the destionation")]
+    protected float _stopDistance = 1f;
+
+    [Range(1f, 10f)]
+    [SerializeField]
+    [Tooltip("How close rock will follow to follow target")]
+    protected float _followDistance = 1f;
+
+    [Space]
+
+    [Range(1f, 10f)]
+    [SerializeField]
+    [Tooltip("How far it will go each idle iterration \n(how far it could move everytime it decides to move while idle)")]
+    protected float _idleWalkDistance = 3f;
+
+    [SerializeField]
+    [Tooltip("How often they move. X is min value Y is max Value \n (How Often it will decide to move after x->y Seconds)")]
+    protected Vector2 _idleMovementFrequency = new Vector2(3f,10f);
+
+
+    [Header("States")]
+    [Space]
+
+
+    [SerializeField]
+    [Tooltip("Will determen if the pebble is sleeping on start")]
+    protected bool _isAwakeOnStart = true;
+
+    [SerializeField]
+    [Tooltip("Will determen if the pebble is Tamed on start")]
+    protected bool _isTamedOnStart = false;
+
 
     [Header("Gizmos")]
-    [Header("Note:" +
+   
+    [Header(
+        "Note:" +
         "\n Red -> Detection Range " +
         "\n Yellow -> Walk Idle " +
         "\n Blue -> Ground Check" +
-        "\n White Run Length")]
+        "\n White Run Length")
+    ]
+
     [SerializeField]
     private bool _removeGizmoOnPlay = false;
     [Space]
@@ -90,6 +128,8 @@ public class PebbleCreature : BehaviorTree.Tree
     private Rigidbody _rb;
     //
 
+    public bool IsTamed => _root.GetData(TreeVariables.Tamed) != null ? (bool)_root.GetData(TreeVariables.Tamed) : _isTamedOnStart;
+
     private void Awake()
     {
         if (!_rb)
@@ -104,6 +144,46 @@ public class PebbleCreature : BehaviorTree.Tree
             _GizmoGroundCheck = false;
             _gizmoRunLenght = false;
         }
+
+        creatures.Add(this);
+    }
+
+    [ContextMenu("Set Tamed True")]
+    internal void SetTamedTrue()
+    {
+        _root.SetData(TreeVariables.Tamed, true);
+    }
+
+    [ContextMenu("Set Tamed False")]
+    internal void SetTamedFalse()
+    {
+        _root.SetData(TreeVariables.Tamed, false);
+    }
+
+    public void SetTamedState(bool isTamed)
+    {
+        _root.SetData(TreeVariables.Tamed, isTamed);
+    }
+
+    public void SetAwakeState(bool isAwake)
+    {
+        _root.SetData(TreeVariables.Tamed, isAwake);
+    }
+
+    public void SetNewFollow(Transform target)
+    {
+        throw new System.Exception("not implimented 'SetNewFollow' yet");
+    }
+
+    public static void ChangeFollowTargetOnTamed(Transform newTarget)
+    {
+        if (creatures.Count == 0) return;
+
+        for(int i = 0; i < creatures.Count; i++)
+        {
+            if (creatures[i].IsTamed)
+                creatures[i].SetNewFollow(newTarget);
+        }
     }
 
     protected override Node SetupTree()
@@ -111,30 +191,56 @@ public class PebbleCreature : BehaviorTree.Tree
         Node root = new Sequence(new List<Node>
         {
             new Selector(new List<Node> {
-                new CheckForGround(transform, _groundCheckDistance, _groundCheckRadius),
+                new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
                 new GravityNode(_rb)
             }),
             
-            new CheckForGround(transform, _groundCheckDistance, _groundCheckRadius),
+            new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
             new IsAwake(_isAwakeOnStart, transform, _detectRadius, _maxPlayerCount, _playerMask),
             new RotateTowardsVelocity(_rb, _rotationalSpeed),
             new Selector(new List<Node>
             {
-                new Sequence(new List<Node>
-                {
-                    new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                    new MoveAwayFromPosition(_rb, _runSpeed, _runLength)
+                new Sequence(new List<Node> {
+                    new IsTamed(_isTamedOnStart),
+                    new Selector(new List<Node>{
+                            new Sequence(new List<Node>
+                            {
+                                new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
+                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength)
+                            }),
+
+                            new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
+
+                            new Sequence(new List<Node>
+                            {
+                                new WaitForNode(_idleMovementFrequency.x,_idleMovementFrequency.y, "ReachedIdlePos"),
+                                new IdleMove(transform, _rb, _idleWalkDistance, _stopDistance, _runSpeed)
+                            }),
+
+                            new StopMovement(_rb)
+                    }),
                 }),
 
-                new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
+                new Sequence(new List<Node> {
+                    new IsNotTamed(_isTamedOnStart),
+                    new Selector(new List<Node>{
+                            new Sequence(new List<Node>
+                            {
+                                new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
+                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength)
+                            }),
 
-                new Sequence(new List<Node>
-                {
-                    new WaitForNode(_idleMovementFrequency.x,_idleMovementFrequency.y, "ReachedIdlePos"),
-                    new IdleMove(transform, _rb, _idleMovement, _stopDistance, _runSpeed)
-                }),
+                            new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
 
-                new StopMovement(_rb),
+                            new Sequence(new List<Node>
+                            {
+                                new WaitForNode(_idleMovementFrequency.x,_idleMovementFrequency.y, "ReachedIdlePos"),
+                                new IdleMove(transform, _rb, _idleWalkDistance, _stopDistance, _runSpeed)
+                            }),
+
+                            new StopMovement(_rb)
+                    }),
+                })
             })
         });
         
@@ -150,10 +256,10 @@ public class PebbleCreature : BehaviorTree.Tree
             Gizmos.DrawWireSphere(transform.position, _detectRadius);
         }
 
-        if (_gizmoIdleMovement && _idleMovement != 0) 
+        if (_gizmoIdleMovement && _idleWalkDistance != 0) 
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(transform.position, new Vector3(_idleMovement, 0.1f, _idleMovement)); 
+            Gizmos.DrawWireCube(transform.position, new Vector3(_idleWalkDistance, 0.1f, _idleWalkDistance)); 
         }
 
         if (_GizmoGroundCheck) 
