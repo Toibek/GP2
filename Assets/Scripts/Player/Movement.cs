@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     internal CharacterSO settings;
-
+    [SerializeField] bool AlwaysMoveable;
     [SerializeField] float jumpForce;
     [SerializeField] LayerMask groundingLayers;
 
@@ -29,9 +29,8 @@ public class Movement : MonoBehaviour
     }
     public void Jump()
     {
-        if (Physics.SphereCast(new Ray(transform.position, -transform.up), 0.5f, 0.6f, groundingLayers))
+        if (Physics.SphereCast(new Ray(transform.position, Vector3.down), 0.5f, 0.6f, groundingLayers))
         {
-            Debug.Log("Jumping");
             rb.AddForce(0, jumpForce, 0);
         }
     }
@@ -39,8 +38,12 @@ public class Movement : MonoBehaviour
     {
         while (moving != Vector2.zero)
         {
-            rb.AddForce(new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration);
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, settings.MovementSpeed);
+            if (AlwaysMoveable || Physics.SphereCast(new Ray(transform.position, Vector3.down), 0.5f, 0.6f, groundingLayers))
+            {
+                rb.AddForce(new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration);
+                Vector3 movVel = Vector3.ClampMagnitude(rb.velocity, settings.MovementSpeed);
+                rb.velocity = new(movVel.x, rb.velocity.y, movVel.z);
+            }
             yield return new WaitForFixedUpdate();
         }
         moveRoutine = null;

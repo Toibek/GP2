@@ -17,8 +17,9 @@ public class Montis : Ability
     {
         if (heldObject == null)
         {
-            heldObject = ClosestLiftable().transform;
-            if (heldObject == null) return;
+            var lift = ClosestLiftable();
+            if (lift == null) return;
+            heldObject = lift.transform;
             heldObject.position = transform.position + transform.up * 2;
             heldObject.parent = transform;
             if (heldObject.TryGetComponent(out Rigidbody rb))
@@ -42,8 +43,19 @@ public class Montis : Ability
     public override void Secondary()
     {
         if (heldObject == null) return;
-        Vector3 direction = (heldObject.transform.transform.position - transform.position + new Vector3(0, 2, 0) + transform.forward).normalized;
-        heldObject.GetComponentInChildren<Rigidbody>().AddForce(direction * throwForce);
+
+        heldObject.parent = null;
+        if (heldObject.TryGetComponent(out Rigidbody rb))
+        {
+            rb.isKinematic = false;
+        }
+
+        Vector3 direction = transform.forward;
+        heldObject.transform.position = transform.position + (transform.forward * 2);
+        heldObject.gameObject.GetComponent<Liftable>().Throw(direction * throwForce);
+
+        heldObject = null;
+
     }
     private Liftable ClosestLiftable()
     {

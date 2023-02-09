@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnAllPlayersJoined;
     [SerializeField] private List<CharacterSO> Characters;
+    [SerializeField] private Vector3[] spawnPoints = new Vector3[2];
     private List<PlayerInput> PlayerInputs;
     private List<GameObject> players;
     private void Start()
@@ -35,7 +36,7 @@ public class PlayerManager : MonoBehaviour
         for (int i = target.transform.childCount - 1; i >= 0; i--)
             Destroy(target.transform.GetChild(i).gameObject);
 
-        Instantiate(character.prefab, target.transform.position, Quaternion.identity, target.transform);
+        Instantiate(character.prefab, spawnPoints[players.Count], Quaternion.identity, target.transform);
         target.GetComponent<Player>().SetCharacter(character);
     }
     private void SetUpCharacters()

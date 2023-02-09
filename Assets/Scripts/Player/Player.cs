@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
         movement = GetComponentInChildren<Movement>();
         movement.settings = settings;
 
-        GetComponentInChildren<Rigidbody>().mass = settings.Mass;
 
         ability = GetComponentInChildren<Ability>();
     }
