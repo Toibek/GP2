@@ -8,8 +8,7 @@ public class CheckpointManager : MonoBehaviour
     private List<GameObject> checkPointList;
     public GameObject startingCheckpoint;
     private GameObject currentCheckpoint;
-    public GameObject player;
-    
+
     private void Awake()
     {
         checkPointList = new List<GameObject>();
@@ -40,7 +39,7 @@ public class CheckpointManager : MonoBehaviour
             
     }
 
-    void LoadLastCheckpoint()
+    public void LoadLastCheckpoint(GameObject player)
     {
         player.transform.position = currentCheckpoint.transform.position;
     }
