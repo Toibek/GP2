@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] bool StartWhenConnected;
     internal GameObject Player1;
     internal GameObject Player2;
 

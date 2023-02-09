@@ -18,6 +18,7 @@ public class Montis : Ability
         if (heldObject == null)
         {
             heldObject = ClosestLiftable().transform;
+            if (heldObject == null) return;
             heldObject.position = transform.position + transform.up * 2;
             heldObject.parent = transform;
             if (heldObject.TryGetComponent(out Rigidbody rb))
@@ -34,6 +35,7 @@ public class Montis : Ability
             {
                 rb.isKinematic = false;
             }
+            heldObject = null;
         }
     }
 
@@ -65,12 +67,18 @@ public class Montis : Ability
             if (!liftableOjbects.Contains(lift))
                 liftableOjbects.Add(lift);
         }
-        if (pickableObjects == null) pickableObjects = new();
-        if (!pickableObjects.Contains(other.attachedRigidbody)) pickableObjects.Add(other.attachedRigidbody);
     }
     internal void OnTriggerExit(Collider other)
     {
-        if (pickableObjects == null) pickableObjects = new();
-        if (pickableObjects.Contains(other.attachedRigidbody)) pickableObjects.Remove(other.attachedRigidbody);
+        if (other.TryGetComponent(out Liftable lift))
+        {
+            if (liftableOjbects.Contains(lift))
+                liftableOjbects.Remove(lift);
+        }
+    }
+
+    public override void Tertiary()
+    {
+        Debug.Log("Montis don't have a third skill, silly!");
     }
 }

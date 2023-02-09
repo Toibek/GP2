@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a704b9203ad80434799177fe631d4c27, type: 3}
-  m_Name: Catcher
+  m_Name: Flumine
   m_EditorClassIdentifier: 
-  Name: Catcher
-  MovementAcceleration: 174
-  MovementSpeed: 7.06
+  Name: Pitcher
+  MovementAcceleration: 300
+  MovementSpeed: 7
   Mass: 20
-  prefab: {fileID: 798668047311375118, guid: 1cacf71260b3897468e54f60a85434d5, type: 3}
+  prefab: {fileID: 797555661008972966, guid: f4c2bf211a3027847a70015b25e8b300, type: 3}

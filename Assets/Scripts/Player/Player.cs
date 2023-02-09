@@ -27,10 +27,13 @@ public class Player : MonoBehaviour
     {
         SetCharacter(settings);
     }
-
     private void OnMove(InputValue value)
     {
         movement.Move = value.Get<Vector2>();
+    }
+    private void OnJump()
+    {
+        movement.Jump();
     }
     private void OnPrimary()
     {
@@ -39,5 +42,9 @@ public class Player : MonoBehaviour
     private void OnSecondary()
     {
         ability.Secondary();
+    }
+    private void OnTertiary()
+    {
+        ability.Tertiary();
     }
 }

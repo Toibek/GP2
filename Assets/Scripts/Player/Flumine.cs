@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Flumine : Ability
 {
-    [SerializeField] float jumpForce;
-    [SerializeField] LayerMask groundingLayers;
     private Rigidbody rb;
 
     private List<Rigidbody> pickableObjects;
@@ -15,8 +13,7 @@ public class Flumine : Ability
     }
     public override void Primary()
     {
-        if (Physics.SphereCast(new Ray(transform.position, -transform.up), 0.5f, 0.5f, groundingLayers))
-            rb.AddForce(0, jumpForce, 0);
+
     }
 
     public override void Secondary()
@@ -34,5 +31,10 @@ public class Flumine : Ability
     {
         if (pickableObjects == null) pickableObjects = new();
         if (pickableObjects.Contains(other.attachedRigidbody)) pickableObjects.Remove(other.attachedRigidbody);
+    }
+
+    public override void Tertiary()
+    {
+
     }
 }

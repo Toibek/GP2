@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] UnityEvent OnAllPlayersJoined;
-    [SerializeField] List<CharacterSO> Characters;
+    [SerializeField] private UnityEvent OnAllPlayersJoined;
+    [SerializeField] private List<CharacterSO> Characters;
     private List<PlayerInput> PlayerInputs;
     private List<GameObject> players;
     private void Start()
@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour
         for (int i = 0; i < PlayerInputs.Count; i++)
         {
             GameObject go = PlayerInputs[i].gameObject;
+            go.name = Characters[players.Count].name;
             ApplyCharacter(go, Characters[players.Count]);
             players.Add(go);
             GameManager.Instance.PlayerJoined(go.transform.GetChild(0).gameObject);

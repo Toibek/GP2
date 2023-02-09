@@ -6,4 +6,5 @@ public abstract class Ability : MonoBehaviour
 {
     public abstract void Primary();
     public abstract void Secondary();
+    public abstract void Tertiary();
 }
