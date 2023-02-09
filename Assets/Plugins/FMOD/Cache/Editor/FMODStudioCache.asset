@@ -202,6 +202,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-5890245525496732403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/AmbiencePads
+  m_EditorClassIdentifier: 
+  Path: event:/Music/AmbiencePads
+  Guid:
+    Data1: 405572468
+    Data2: 1105697759
+    Data3: -1939532923
+    Data4: 1522059008
+  Banks:
+  - {fileID: -3693492760959302281}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 84741
 --- !u!114 &-4772433328122147025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +363,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638114659197964248
+  lastModified: 638115476670483280
   FileSizes: []
   Exists: 1
 --- !u!114 &-3259432426594543156
@@ -584,15 +611,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Master.strings.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
-  Name: Desktop/Master.strings
+  Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638114659197984199
+  lastModified: 638115476670493026
   FileSizes:
   - Name: 
-    Value: 1618
+    Value: 1774
   Exists: 1
 --- !u!114 &-769251451979741401
 MonoBehaviour:
@@ -674,12 +701,14 @@ MonoBehaviour:
   - {fileID: -3095588338481662842}
   - {fileID: 1996875023382564211}
   - {fileID: -2269502374373946535}
+  - {fileID: -5890245525496732403}
+  - {fileID: 4138041303734323478}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3693492760959302281}
   StringsBanks:
   - {fileID: -1584159591121331319}
-  cacheTime: 638114659197984199
+  cacheTime: 638115476670493026
   cacheVersion: 131601
 --- !u!114 &503731139438174838
 MonoBehaviour:
@@ -842,6 +871,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3164525647211506600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LapideCollision/LapideSize
+  m_EditorClassIdentifier: 
+  Name: LapideSize
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3162107422
+    data2: 4123446439
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &3196227816072192766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,6 +974,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 529
+--- !u!114 &4138041303734323478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Ambience/SnowyPeak
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Ambience/SnowyPeak
+  Guid:
+    Data1: 1843829696
+    Data2: 1190843713
+    Data3: 2040590263
+    Data4: -1651606740
+  Banks:
+  - {fileID: -3693492760959302281}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8602166880379782327}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26117
 --- !u!114 &4351695685621989098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,10 +1216,11 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 3164525647211506600}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1058
 --- !u!114 &8360752583130073601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1265,30 @@ MonoBehaviour:
   ID:
     data1: 4171170588
     data2: 3556921084
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8602166880379782327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SnowyPeak/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 107145857
+    data2: 1629839083
   Type: 0
   IsGlobal: 0
   Labels: []
