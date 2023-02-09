@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{1e45ef19-8b72-4c9a-b722-b434bba23916}">
+		<property name="name">
+			<value>LapideSize</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1a0a0491-5ab3-4dca-bfd8-cceb32bbc31d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{fb4cb93d-6f88-4711-832b-6a00ee9d5fcc}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{fb4cb93d-6f88-4711-832b-6a00ee9d5fcc}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
