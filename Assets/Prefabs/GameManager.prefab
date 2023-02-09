@@ -46,12 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183648e16e5367641ae63f86d27cb47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAllPlayersJoined:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1999951725}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   Characters:
   - {fileID: 11400000, guid: 13bcd7f469a96e9448d8c004ea3f89ae, type: 2}
   - {fileID: 11400000, guid: 70c1070e3465f4c41b1a5e7342bfb80b, type: 2}
-  spawnPoints:
-  - {x: 2, y: 0, z: 0}
-  - {x: -2, y: 0, z: 0}
 --- !u!114 &7687985156749089310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1b04339c1ccff4cbf01d7fb484c167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
-  Herd: {fileID: 0}
+  StartWhenConnected: 1

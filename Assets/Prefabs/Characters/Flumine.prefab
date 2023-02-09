@@ -5022,8 +5022,9 @@ GameObject:
   - component: {fileID: 797555661008972965}
   - component: {fileID: 4025094917554271248}
   - component: {fileID: -8421091689547832725}
+  - component: {fileID: -733732615571880148}
   m_Layer: 3
-  m_Name: Pitcher
+  m_Name: Flumine
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5138,6 +5139,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f060521cc171f49884c4926028d469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AlwaysMoveable: 1
+  jumpForce: 750
+  groundingLayers:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!114 &-733732615571880148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797555661008972966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f832bbcc6bb24b143a3acb36841a193d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3208368577411765849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5235,9 +5253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29af694b6c05de499d838a095630e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTime: 1
-  force: {x: 100, y: 200}
-  hittableObjects: []
 --- !u!135 &1016085452719468209
 SphereCollider:
   m_ObjectHideFlags: 0

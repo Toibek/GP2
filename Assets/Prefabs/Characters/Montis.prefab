@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2397387709751342675}
   - component: {fileID: -8554016045320449971}
   m_Layer: 3
-  m_Name: Catcher
+  m_Name: Montis
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f060521cc171f49884c4926028d469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AlwaysMoveable: 1
+  jumpForce: 250
+  groundingLayers:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &8028884836051188789
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a33814ec078a84292472bec34ab4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwForce: 15
 --- !u!135 &5934844501308796227
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -19,23 +19,31 @@ public class Player : MonoBehaviour
         movement = GetComponentInChildren<Movement>();
         movement.settings = settings;
 
-        GetComponentInChildren<Rigidbody>().mass = settings.Mass;
 
         ability = GetComponentInChildren<Ability>();
-    }
-
-    private void OnMove(InputValue value)
-    {
-        movement.Move = value.Get<Vector2>();
-    }
-    private void OnPrimary(InputValue value)
-    {
-        float input = value.Get<float>();
-        if (input == 1) ability.AbilityStart();
-        else ability.AbilityStop();
     }
     private void OnPause()
     {
         SetCharacter(settings);
+    }
+    private void OnMove(InputValue value)
+    {
+        movement.Move = value.Get<Vector2>();
+    }
+    private void OnJump()
+    {
+        movement.Jump();
+    }
+    private void OnPrimary()
+    {
+        ability.Primary();
+    }
+    private void OnSecondary()
+    {
+        ability.Secondary();
+    }
+    private void OnTertiary()
+    {
+        ability.Tertiary();
     }
 }
