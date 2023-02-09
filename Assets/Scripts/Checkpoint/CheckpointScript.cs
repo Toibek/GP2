@@ -5,12 +5,22 @@ using UnityEngine;
 
 public class CheckpointScript : MonoBehaviour
 {
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         
-    //         CheckpointManager.instance.UpdateCheckPoint(gameObject);
-    //     }
-    // }
+    [SerializeField]private bool kill;
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.isTrigger)
+            return;
+            
+        if (other.CompareTag("Player")) 
+            switch (kill)
+            {
+              case true:
+                  CheckpointManager.instance.LoadLastCheckpoint(other.gameObject);
+                  break;
+            
+              case false:
+                  CheckpointManager.instance.UpdateCheckPoint(gameObject); 
+                  break;
+            }
+    }
 }
