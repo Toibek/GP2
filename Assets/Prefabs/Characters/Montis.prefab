@@ -132,7 +132,7 @@ MonoBehaviour:
   jumpForce: 250
   groundingLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 256
 --- !u!1 &8028884836051188789
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8028884836051188789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a33814ec078a84292472bec34ab4c0, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b0faeef1f3f32439e83a3f910aa51a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 15

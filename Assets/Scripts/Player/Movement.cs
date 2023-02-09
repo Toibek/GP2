@@ -25,7 +25,9 @@ public class Movement : MonoBehaviour
     {
         //fu im lazy <3
         if (rb.velocity.magnitude >= 0.1f)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(rb.velocity, Vector3.up), 360 * Time.deltaTime);
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(new Vector3(rb.velocity.x, 0, rb.velocity.z), Vector3.up), 360 * Time.deltaTime);
+        }
     }
     public void Jump()
     {
