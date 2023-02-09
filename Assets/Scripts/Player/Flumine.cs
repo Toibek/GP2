@@ -37,7 +37,7 @@ public class Flumine : Ability
     }
     internal void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out AIBehavior ai))
+        if (other.TryGetComponent(out PebbleCreature ai))
         {
             if (nearbyLapides == null) nearbyLapides = new();
             if (!nearbyLapides.Contains(ai))
