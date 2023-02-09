@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LinusScene.unity
-    guid: 3315feb7db83c204a9020e263d3c34a5
+    path: Assets/Max/MaxPlaytest.unity
+    guid: 761468c8d89fea643a5500939fc0e6a0
   m_configObjects: {}
