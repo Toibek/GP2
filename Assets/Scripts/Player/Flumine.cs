@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flumine : Ability
 {
+    [SerializeField] private GameObject prefabOrangeBubble;
+    [SerializeField] private GameObject prefabBlueBubble;
     private Rigidbody rb;
 
     private List<Rigidbody> pickableObjects;
@@ -15,6 +17,8 @@ public class Flumine : Ability
     }
     public override void Primary()
     {
+        GameObject go = Instantiate(prefabBlueBubble, transform.position, Quaternion.identity);
+        go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
         for (int i = 0; i < nearbyLapides.Count; i++)
         {
             nearbyLapides[i].SetAwakeState(true);
@@ -22,16 +26,20 @@ public class Flumine : Ability
     }
     public override void Secondary()
     {
-        for (int i = 0; i < nearbyInteractable.Count; i++)
-        {
-            nearbyInteractable[i].Interact();
-        }
+        if (nearbyInteractable != null)
+            for (int i = 0; i < nearbyInteractable.Count; i++)
+            {
+                nearbyInteractable[i].Interact();
+            }
     }
     public override void Tertiary()
     {
+        GameObject go = Instantiate(prefabOrangeBubble, transform.position, Quaternion.identity);
+        go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
         for (int i = 0; i < nearbyLapides.Count; i++)
         {
-            nearbyLapides[i].SetAwakeState(true);
+            nearbyLapides[i].SetAwakeState(false);
+
         }
 
     }
