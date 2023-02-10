@@ -171,7 +171,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _Falloff_Size: 0.24
+    - _Falloff_Size: 0.136
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -244,7 +244,7 @@ Material:
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _cutout_Size: 0.19
+    - _cutout_Size: 0.17
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
@@ -256,8 +256,10 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Player1ScreenPosition: {r: 0.79, g: 0.39, b: 0, a: 0}
-    - _Player2ScreenPosition: {r: 0.16, g: 0.31, b: 0, a: 0}
+    - _Player1Position: {r: 1, g: -2, b: 26.65, a: 0}
+    - _Player1ScreenPosition: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Player2Position: {r: 0, g: 0, b: 0, a: 0}
+    - _Player2ScreenPosition: {r: -1, g: -1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}

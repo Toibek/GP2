@@ -7,7 +7,7 @@ public class CheckForGround : Node
 {
 
     private Transform _thisTransform;
-    private RaycastHit[] _result = new RaycastHit[1];
+    private RaycastHit[] _result = new RaycastHit[10];
     private LayerMask _groundLayer;
     private float _raycastDistance;
     private float _radius;
@@ -49,7 +49,7 @@ public class CheckForGround : Node
             }
         }
 
-        if (Physics.SphereCastNonAlloc(_thisTransform.position, _radius, Vector3.down,_result, _raycastDistance, 1<<0) > 0) // Checks for default layer atm
+        if (Physics.SphereCastNonAlloc(_thisTransform.position, _radius, Vector3.down,_result, _raycastDistance, _groundLayer) > 0) // Checks for default layer atm
         {
             if (PebbleCreature.Debug) Debug.Log("GroundCheckTrue raycast " + _result[0].transform.name);
 

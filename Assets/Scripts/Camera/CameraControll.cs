@@ -2,7 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 using Plane = UnityEngine.Plane;
 using Vector3 = UnityEngine.Vector3;
 
@@ -28,10 +31,11 @@ public class CameraControll : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 currentPosition;
     private Vector3 jointPosition;
-    private Vector3 minCamPosition;
+    private Vector3 savePosition;
     private Vector3 lookAtPosition;
     private Renderer rend;
     private Renderer rend2;
+    private NavMeshData _data;
 
     //Game Manager
     private GameManager gm;
@@ -77,29 +81,33 @@ public class CameraControll : MonoBehaviour
             play2Pos = player2.transform.position;
         
     }
-
+    
     static bool VisibleFromCamera(Renderer renderer, Camera camera)
     {
         Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(camera);
         return GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds);
     }
-    
+
     void CameraRay()
     {
         rend = player1.GetComponent<Renderer>();
         rend2 = player2.GetComponent<Renderer>();
         Ray ray = new Ray(currentPosition, transform.forward);
         Physics.Raycast(ray, out RaycastHit hit);
-        if (!VisibleFromCamera(rend, Camera.main))
+        NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 1f, NavMesh.AllAreas);
+        if (navHit.hit)
+            savePosition = navHit.position;
+
+            if (!VisibleFromCamera(rend, Camera.main))
         {
-            play1Pos = hit.point;
+            play1Pos = savePosition;
             play1Pos.y += 2;
             player1.transform.position = play1Pos;
         }
         
         if (!VisibleFromCamera(rend2, Camera.main))
         {
-            play2Pos = hit.point;
+            play2Pos = savePosition;
             play2Pos.y += 2;
             player2.transform.position = play2Pos;
         }

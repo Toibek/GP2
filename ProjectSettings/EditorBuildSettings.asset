@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Max/MaxPlaytest.unity
-    guid: 761468c8d89fea643a5500939fc0e6a0
+    path: Assets/Scenes/ViktorTest/Menu.unity
+    guid: ce17f5f0f62df27469c1c321c9cb6b68
+  - enabled: 1
+    path: Assets/Scenes/AlphaBuildScene.unity
+    guid: 91aad60b6b2290949bea66c658ef5c0a
   m_configObjects: {}

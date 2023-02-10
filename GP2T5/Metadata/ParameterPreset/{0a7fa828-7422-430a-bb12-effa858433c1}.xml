@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{0a7fa828-7422-430a-bb12-effa858433c1}">
+		<property name="name">
+			<value>IsPushing</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1a0a0491-5ab3-4dca-bfd8-cceb32bbc31d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c99b3a76-18a7-4f82-9691-e54d93437f92}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c99b3a76-18a7-4f82-9691-e54d93437f92}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
