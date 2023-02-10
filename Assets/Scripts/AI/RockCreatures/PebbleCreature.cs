@@ -176,9 +176,16 @@ public class PebbleCreature : BehaviorTree.Tree
         _root.SetData(TreeVariables.Tamed, false);
     }
 
-    public void SetTamedState(bool isTamed)
+    public void SetTamedState(bool isTamed, Transform followTarget = null)
     {
         _root.SetData(TreeVariables.Tamed, isTamed);
+        if (followTarget != null)
+            _root.SetData(TreeVariables.Player, followTarget);
+    }
+
+    public void SetFollowTarget(Transform followTarget)
+    {
+        _root.SetData(TreeVariables.Player, followTarget);
     }
 
     public void SetAwakeState(bool isAwake)
