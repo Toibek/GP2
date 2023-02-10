@@ -5257,6 +5257,10 @@ MonoBehaviour:
     type: 3}
   prefabBlueBubble: {fileID: 8616162431960305120, guid: bd456c7a1ffb0734f9a9377411cadc21,
     type: 3}
+  prefabWhiteBubble: {fileID: 8616162431960305120, guid: f0c6c141ab5535e48ae143734ad0db04,
+    type: 3}
+  prefabGreenBubble: {fileID: 8616162431960305120, guid: b6101162147c93541822ba2c87cd86d3,
+    type: 3}
 --- !u!135 &1016085452719468209
 SphereCollider:
   m_ObjectHideFlags: 0

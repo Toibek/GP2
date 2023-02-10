@@ -6,10 +6,12 @@ public class Flumine : Ability
 {
     [SerializeField] private GameObject prefabOrangeBubble;
     [SerializeField] private GameObject prefabBlueBubble;
+    [SerializeField] private GameObject prefabWhiteBubble;
+    [SerializeField] private GameObject prefabGreenBubble;
     private Rigidbody rb;
 
     private List<Rigidbody> pickableObjects;
-    private List<Interactable> nearbyInteractable;
+    private List<Interactable> nearbyInteractables;
     private List<PebbleCreature> nearbyLapides;
     private void Start()
     {
@@ -21,16 +23,30 @@ public class Flumine : Ability
         go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
         for (int i = 0; i < nearbyLapides.Count; i++)
         {
-            nearbyLapides[i].SetAwakeState(true);
+            nearbyLapides[i].SetAwakeState(false);
         }
     }
     public override void Secondary()
     {
-        if (nearbyInteractable != null)
-            for (int i = 0; i < nearbyInteractable.Count; i++)
+        if (nearbyInteractables != null && nearbyInteractables.Count > 0)
+        {
+            GameObject go = Instantiate(prefabWhiteBubble, transform.position, Quaternion.identity);
+            go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
+            for (int i = 0; i < nearbyInteractables.Count; i++)
             {
-                nearbyInteractable[i].Interact();
+                nearbyInteractables[i].Interact();
             }
+        }
+        else
+        {
+            GameObject go = Instantiate(prefabGreenBubble, transform.position, Quaternion.identity);
+            go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
+
+            for (int i = 0; i < nearbyLapides.Count; i++)
+            {
+                nearbyLapides[i].SetTamedState(true, transform);
+            }
+        }
     }
     public override void Tertiary()
     {
@@ -38,7 +54,7 @@ public class Flumine : Ability
         go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
         for (int i = 0; i < nearbyLapides.Count; i++)
         {
-            nearbyLapides[i].SetAwakeState(false);
+            nearbyLapides[i].SetAwakeState(true);
 
         }
 
@@ -53,9 +69,9 @@ public class Flumine : Ability
         }
         if (other.TryGetComponent(out Interactable interactable))
         {
-            if (nearbyInteractable == null) nearbyInteractable = new();
-            if (!nearbyInteractable.Contains(interactable))
-                nearbyInteractable.Add(interactable);
+            if (nearbyInteractables == null) nearbyInteractables = new();
+            if (!nearbyInteractables.Contains(interactable))
+                nearbyInteractables.Add(interactable);
         }
     }
     internal void OnTriggerExit(Collider other)
@@ -68,9 +84,9 @@ public class Flumine : Ability
         }
         if (other.TryGetComponent(out Interactable interactable))
         {
-            if (nearbyInteractable == null) nearbyInteractable = new();
-            if (nearbyInteractable.Contains(interactable))
-                nearbyInteractable.Remove(interactable);
+            if (nearbyInteractables == null) nearbyInteractables = new();
+            if (nearbyInteractables.Contains(interactable))
+                nearbyInteractables.Remove(interactable);
         }
     }
 }
