@@ -5253,6 +5253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83132648d3c0c304c9aba25f88df5f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabOrangeBubble: {fileID: 4362922588361910671, guid: 6f0a74103ef784b4eb91d91e03ff5602,
+    type: 3}
+  prefabBlueBubble: {fileID: 8616162431960305120, guid: bd456c7a1ffb0734f9a9377411cadc21,
+    type: 3}
 --- !u!135 &1016085452719468209
 SphereCollider:
   m_ObjectHideFlags: 0

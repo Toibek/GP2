@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/GameManager/LevelManager.cs.meta
-guid: c54400e63a0dd7e468a421dabceaadc9
-========
-guid: 7cc2aa0bec2433f4184d8d218585cb91
->>>>>>>> origin/master:Assets/Sceneloader.cs.meta
+guid: dd96b32402453ff48a160465b3c30490
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
