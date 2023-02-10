@@ -29,4 +29,9 @@ public static class TreeVariables
     /// </summary>
     public static string CurrentVelocity = "CurrentVelocity";
 
+
+    /// <summary>
+    /// IsAwake | Return Vector3
+    /// </summary>
+    public static string IsAwake = "IsAwake";
 }

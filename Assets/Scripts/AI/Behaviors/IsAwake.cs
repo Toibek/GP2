@@ -24,21 +24,31 @@ public class IsAwake : Node
 
     public override NodeState Evaluate()
     {
-        if (_isAwake) return NodeState.SUCCESS;
-        if (_detectRadius != 0)
+        if (GetData(TreeVariables.IsAwake) != null)
         {
-            if (Physics.OverlapSphereNonAlloc(_thisTransform.position, _detectRadius, Hits, _playerMask) > 0)
-            {
-                _isAwake = true;
-                return NodeState.SUCCESS;
-            }
-            else
-            {
-                ClearData("Player");
-                return NodeState.FAILURE;
-            }
+            _isAwake = (bool)GetData(TreeVariables.IsAwake);
         }
-        return NodeState.RUNNING;
+
+        if (_isAwake) 
+        {
+            GetRootNode().SetData(TreeVariables.IsAwake, _isAwake);
+            return NodeState.SUCCESS;
+        }
+        //if (_detectRadius != 0)
+        //{
+        //    if (Physics.OverlapSphereNonAlloc(_thisTransform.position, _detectRadius, Hits, _playerMask) > 0)
+        //    {
+        //        _isAwake = true;
+        //        return NodeState.SUCCESS;
+        //    }
+        //    else
+        //    {
+        //        ClearData("Player");
+        //        return NodeState.FAILURE;
+        //    }
+        //}
+        GetRootNode().SetData(TreeVariables.IsAwake, _isAwake);
+        return NodeState.FAILURE;
 
     }
 }
