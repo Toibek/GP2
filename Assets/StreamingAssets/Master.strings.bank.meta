@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/StreamingAssets/Master.strings.bank.meta
 guid: 79765183eb16ccc449494748d0572084
 labels:
 - FMOD
 DefaultImporter:
-========
-guid: 6f0a74103ef784b4eb91d91e03ff5602
-PrefabImporter:
->>>>>>>> origin/master:Assets/Prefabs/Bubbles/OrangeSphereEffect.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
