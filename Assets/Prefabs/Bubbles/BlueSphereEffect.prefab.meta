@@ -1,6 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/StreamingAssets/Master.bank.meta
+guid: 1e327cf9e3eff454a9dc9e0f9d550e5c
+labels:
+- FMOD
+DefaultImporter:
+========
 guid: bd456c7a1ffb0734f9a9377411cadc21
 PrefabImporter:
+>>>>>>>> origin/master:Assets/Prefabs/Bubbles/BlueSphereEffect.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
