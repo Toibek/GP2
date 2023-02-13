@@ -4,25 +4,27 @@ using UnityEngine;
 
 using BehaviorTree;
 
-public class CheckForPlayer : Node
+public class CheckForTransform : Node
 {
-    private LayerMask _playerMask;
+    private LayerMask _searchMask;
     private float _detectRadius;
+    private string _saveString;
     private Transform _thisTransform;
     private Collider[] Hits;
-    public CheckForPlayer(Transform thisTransform,float detectRadius,int howManyPlayerToCheckFor, LayerMask playerMask) : base()
+    public CheckForTransform(Transform thisTransform, float detectRadius, int howTransformsToCheckFor, LayerMask searchMask, string saveString = "") : base()
     {
         _detectRadius = detectRadius;
         _thisTransform = thisTransform;
-        _playerMask = playerMask;
-        Hits = new Collider[howManyPlayerToCheckFor];
+        _searchMask = searchMask;
+        _saveString = saveString;
+        Hits = new Collider[howTransformsToCheckFor];
     }
 
     public override NodeState Evaluate()
     {
         if (_detectRadius != 0)
         {
-            if (Physics.OverlapSphereNonAlloc(_thisTransform.position, _detectRadius, Hits, _playerMask) > 0)
+            if (Physics.OverlapSphereNonAlloc(_thisTransform.position, _detectRadius, Hits, _searchMask) > 0)
             {
                 int index = -1;
                 float lastDistance = float.MaxValue;
@@ -34,15 +36,15 @@ public class CheckForPlayer : Node
                         index = i;
                     }
                 }
-                Parent.SetData(TreeVariables.Player, Hits[index].transform);
+                GetRootNode().SetData(_saveString, Hits[index].transform);
                 return NodeState.SUCCESS;
             }
             else
             {
-                ClearData(TreeVariables.Player);
+                GetRootNode().ClearData(_saveString);
                 return NodeState.FAILURE;
             }
         }
-        return NodeState.RUNNING;
+        return NodeState.FAILURE;
     }
 }
