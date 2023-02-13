@@ -125,6 +125,7 @@ public class PebbleCreature : BehaviorTree.Tree
     private bool _gizmoRunLenght = false;
 
     private Rigidbody _rb;
+    private Animator _animator;
     [Header("Debuging")]
     [SerializeField]
     private Transform test;
@@ -137,6 +138,18 @@ public class PebbleCreature : BehaviorTree.Tree
         if (!_rb)
         {
             _rb = GetComponent<Rigidbody>();
+        }
+
+        if (!_animator)
+        {
+            if (TryGetComponent<Animator>(out _animator))
+            {
+                if (Debug) UnityEngine.Debug.Log($"Found Animator: {gameObject.name}");
+            }
+            else
+            {
+                UnityEngine.Debug.LogError($"No Animator On Pebble: {gameObject.name}");
+            }
         }
 
         if (_removeGizmoOnPlay)
@@ -163,14 +176,21 @@ public class PebbleCreature : BehaviorTree.Tree
         _root.SetData(TreeVariables.Tamed, false);
     }
 
-    public void SetTamedState(bool isTamed)
+    public void SetTamedState(bool isTamed, Transform followTarget = null)
     {
         _root.SetData(TreeVariables.Tamed, isTamed);
+        if (followTarget != null)
+            _root.SetData(TreeVariables.FollowTransform, followTarget);
+    }
+
+    public void SetFollowTarget(Transform followTarget)
+    {
+        _root.SetData(TreeVariables.FollowTransform, followTarget);
     }
 
     public void SetAwakeState(bool isAwake)
     {
-        _root.SetData(TreeVariables.Tamed, isAwake);
+        _root.SetData(TreeVariables.IsAwake, isAwake);
     }
 
     public void SetNewFollow(Transform target)
@@ -181,6 +201,23 @@ public class PebbleCreature : BehaviorTree.Tree
     public void Stun(float seconds)
     {
         _root.SetData(TreeVariables.Dazed, seconds);
+    }
+
+    public void DeleteThisInstance()
+    {
+        PebbleCreature.creatures.Remove(this);
+        Destroy(gameObject);
+    }
+
+    public static void DeleteAllPebbleCreatures()
+    {
+        if (creatures.Count == 0) return;
+
+        for (int i = creatures.Count - 1; i >= 0; i--)
+        {
+            creatures[i].DeleteThisInstance();
+        }
+
     }
 
     public static void ChangeFollowTargetOnTamed(Transform newTarget)
@@ -198,14 +235,14 @@ public class PebbleCreature : BehaviorTree.Tree
     {
         Node root = new Sequence(new List<Node>
         {
-
+            new AnimationNode(_animator, _rb),
             new Selector(new List<Node> {
                 new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
                 new GravityNode(_rb)
             }),
             new Dazed(),
             new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
-            new IsAwake(_isAwakeOnStart, transform, _detectRadius, _maxPlayerCount, _playerMask),
+            new IsAwake(_isAwakeOnStart),
             new RotateTowardsVelocity(_rb, _rotationalSpeed),
             new Selector(new List<Node>
             {
@@ -233,7 +270,7 @@ public class PebbleCreature : BehaviorTree.Tree
                             new Sequence(new List<Node>
                             {
                                 new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength),
+                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength, "Player"),
                             }),
 
                             new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
