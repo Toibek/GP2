@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    [SerializeField] private float globalHeightOffsetX;
-    [SerializeField] private float globalHeightOffsetY;
-    [SerializeField] private float globalHeightOffsetZ;
+    [SerializeField] private float globalHeightOffset;
     public static CheckpointManager instance;
     private List<GameObject> checkPointList;
     
@@ -32,7 +30,7 @@ public class CheckpointManager : MonoBehaviour
         currentCheckpoint = startingCheckpoint;
     }
 
-    public void UpdateCheckPoint(GameObject newCheckpoint, float offsetX, float offsetY, float offsetZ, bool indOffset)
+    public void UpdateCheckPoint(GameObject newCheckpoint, float offset, bool indOffset)
     {
         //If the new Checkpoint hasn't been activated before, add it to the list and make it the newest checkpoint
         if (!checkPointList.Contains(newCheckpoint))
@@ -45,14 +43,10 @@ public class CheckpointManager : MonoBehaviour
             switch (indOffset)
             {
                 case true:
-                    checkPointSpawn.x += offsetX;
-                    checkPointSpawn.y += offsetY;
-                    checkPointSpawn.z += offsetZ;
+                    checkPointSpawn.y += offset;
                     break;
                 case false:
-                    checkPointSpawn.x += globalHeightOffsetX;
-                    checkPointSpawn.y += globalHeightOffsetY;
-                    checkPointSpawn.z += globalHeightOffsetZ;
+                    checkPointSpawn.y += globalHeightOffset;
                     break;
             }
         }
