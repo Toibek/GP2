@@ -15,6 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Goal/Goal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactions/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactions/Liftable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -93,7 +94,8 @@
       <workItem from="1675848361248" duration="17642000" />
       <workItem from="1675871156015" duration="799000" />
       <workItem from="1675933252736" duration="16168000" />
-      <workItem from="1676017549178" duration="10948000" />
+      <workItem from="1676017549178" duration="11247000" />
+      <workItem from="1676282035234" duration="7443000" />
     </task>
     <servers />
   </component>

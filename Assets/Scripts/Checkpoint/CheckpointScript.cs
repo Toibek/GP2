@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckpointScript : MonoBehaviour
 {
+    [SerializeField] private bool useIndividualHeightOffset;
+    [SerializeField] private float individualHeightOffset;
     [SerializeField]private bool kill;
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +22,7 @@ public class CheckpointScript : MonoBehaviour
                   break;
             
               case false:
-                  CheckpointManager.instance.UpdateCheckPoint(gameObject); 
+                  CheckpointManager.instance.UpdateCheckPoint(gameObject, individualHeightOffset, useIndividualHeightOffset);
                   break;
             }
     }
