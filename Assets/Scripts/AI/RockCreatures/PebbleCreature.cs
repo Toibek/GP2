@@ -73,7 +73,7 @@ public class PebbleCreature : BehaviorTree.Tree
 
     [Range(0f, 30f)]
     [SerializeField]
-    [Tooltip("How far it will run after going out of range from player (0 = Disabled)")]
+    [Tooltip("How far it will run after going out of range from player (0 = Disabled | will disable Run after out of range of player)")]
     protected float _runLength = 3f;
 
     [SerializeField]

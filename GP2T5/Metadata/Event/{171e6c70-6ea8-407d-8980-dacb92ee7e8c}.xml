@@ -190,7 +190,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{d4f891a6-ddf0-43e0-8bd4-3ca4afacdbd4}">
 		<property name="volume">
-			<value>-25.5</value>
+			<value>-28</value>
 		</property>
 		<property name="name">
 			<value>Wind Calm</value>
@@ -325,6 +325,8 @@
 		<relationship name="sounds">
 			<destination>{b7d54824-7825-469e-9dbc-804b0a0cc76c}</destination>
 			<destination>{e1907478-5a17-4b6f-b9d9-f7707d8745e2}</destination>
+			<destination>{75fc5222-4d44-4e3a-8105-50aa2ee96ea0}</destination>
+			<destination>{ded9f038-22de-4c2a-91b1-ca4eb564d659}</destination>
 		</relationship>
 	</object>
 	<object class="Automator" id="{2eaf12bd-31fe-4849-8cb8-dd977fc7d55e}">
@@ -395,6 +397,16 @@
 	<object class="SingleSound" id="{e1907478-5a17-4b6f-b9d9-f7707d8745e2}">
 		<relationship name="audioFile">
 			<destination>{449ca4e0-a931-4d0a-b04a-1d74ca3ae94e}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{75fc5222-4d44-4e3a-8105-50aa2ee96ea0}">
+		<relationship name="audioFile">
+			<destination>{96704005-4bcc-4ef7-9c30-3dda0a382b5f}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{ded9f038-22de-4c2a-91b1-ca4eb564d659}">
+		<relationship name="audioFile">
+			<destination>{0d27b4c1-8055-4e07-94bd-1a09a78f985c}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{97f0ff2c-b4a1-4a4c-8b43-e38cb3c7db66}">
