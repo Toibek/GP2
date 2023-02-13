@@ -35,8 +35,8 @@ public class PebbleCreature : BehaviorTree.Tree
     [Space]
     [Range(0f, 100f)]
     [SerializeField]
-    [Tooltip("Detection range of gameobjects to avoid")]
-    protected float _detectRadius = 5f;
+    [Tooltip("Detection range of players to avoid")]
+    protected float _playerDetectRadius = 5f;
 
     [Range(1, 8)]
     [SerializeField]
@@ -47,6 +47,20 @@ public class PebbleCreature : BehaviorTree.Tree
     [Tooltip("Will Move away from gameobjects with this layer")]
     protected LayerMask _playerMask = 1<<3;
 
+
+    [Range(0f, 100f)]
+    [SerializeField]
+    [Tooltip("Detection range of interesting object to interact with")]
+    protected float _interestDetectRadius = 8f;
+
+    [Range(1, 30)]
+    [SerializeField]
+    [Tooltip("Max amount of interest it will check for")]
+    protected int _maxInterestCount = 8;
+
+    [SerializeField]
+    [Tooltip("Will Move towards gameobjects with this layer")]
+    protected LayerMask _interestMask = 1<<0;
 
     [Header("Movement")]
     [Space]
@@ -106,7 +120,8 @@ public class PebbleCreature : BehaviorTree.Tree
    
     [Header(
         "Note:" +
-        "\n Red -> Detection Range " +
+        "\n Red -> Player Detection Range " +
+        "\n cyan -> Interest Detection Range " +
         "\n Yellow -> Walk Idle " +
         "\n Blue -> Ground Check" +
         "\n White Run Length")
@@ -116,7 +131,9 @@ public class PebbleCreature : BehaviorTree.Tree
     private bool _removeGizmoOnPlay = false;
     [Space]
     [SerializeField]
-    private bool _gizmoDetectRadius = false;
+    private bool _gizmoPlayerDetectRadius = false;
+    [SerializeField]
+    private bool _gizmoInterestDetectRadius = false;
     [SerializeField]
     private bool _gizmoIdleMovement  = false;
     [SerializeField]
@@ -154,13 +171,22 @@ public class PebbleCreature : BehaviorTree.Tree
 
         if (_removeGizmoOnPlay)
         {
-            _gizmoDetectRadius = false;
+            _gizmoPlayerDetectRadius = false;
+            _gizmoInterestDetectRadius = false;
             _gizmoIdleMovement = false;
             _GizmoGroundCheck = false;
             _gizmoRunLenght = false;
         }
 
-        creatures.Add(this);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        if (AIManager.Exist)
+            AIManager.Instance.AddCreature(this);
+        else
+            UnityEngine.Debug.LogWarning($"Did not add PebbleCreature to AIManager Watch list {gameObject.name}");
     }
 
     [ContextMenu("Set Tamed True")]
@@ -269,8 +295,14 @@ public class PebbleCreature : BehaviorTree.Tree
                     new Selector(new List<Node>{
                             new Sequence(new List<Node>
                             {
-                                new CheckForPlayer(transform,_detectRadius,_maxPlayerCount,_playerMask),
-                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength, "Player"),
+                                new CheckForPlayer(transform,_playerDetectRadius,_maxPlayerCount,_playerMask),
+                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength, TreeVariables.Player),
+                            }),
+
+                            new Sequence(new List<Node>
+                            {
+                                new CheckForTransform(transform,_interestDetectRadius, _maxInterestCount, _interestMask, TreeVariables.InterestTarget),
+                                new MoveTowardsTransform(_rb, _runSpeed, _runLength, TreeVariables.InterestTarget),
                             }),
 
                             new MoveToPosition(_rb,"RequestedNewPosition", _runSpeed, _stopDistance, 0.1f),
@@ -293,10 +325,16 @@ public class PebbleCreature : BehaviorTree.Tree
     private void OnDrawGizmos()
     {
 
-        if (_gizmoDetectRadius && _detectRadius != 0)
+        if (_gizmoPlayerDetectRadius && _playerDetectRadius != 0)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _detectRadius);
+            Gizmos.DrawWireSphere(transform.position, _playerDetectRadius);
+        }
+
+        if (_gizmoInterestDetectRadius && _interestDetectRadius != 0)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, _interestDetectRadius);
         }
 
         if (_gizmoIdleMovement && _idleWalkDistance != 0) 

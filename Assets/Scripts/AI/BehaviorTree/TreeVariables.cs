@@ -29,9 +29,13 @@ public static class TreeVariables
     /// </summary>
     public static string CurrentVelocity = "CurrentVelocity";
 
-
     /// <summary>
-    /// IsAwake | Return Vector3
+    /// Is AI Awake "IsAwake"| Return Vector3
     /// </summary>
     public static string IsAwake = "IsAwake";
+
+    /// <summary>
+    /// does it have Interest "InterestTarget"| Return Transform
+    /// </summary>
+    public static string InterestTarget = "InterestTarget";
 }

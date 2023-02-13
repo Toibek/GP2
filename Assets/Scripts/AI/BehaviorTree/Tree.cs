@@ -8,12 +8,12 @@ namespace BehaviorTree
     {
         protected Node _root = null;
 
-        protected void Start()
+        protected virtual void Start()
         {
             _root = SetupTree();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (_root != null)
             {
