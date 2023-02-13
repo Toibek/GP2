@@ -242,7 +242,7 @@ public class PebbleCreature : BehaviorTree.Tree
             }),
             new Dazed(),
             new CheckForGround(transform,_groundLayerMask, _groundCheckDistance, _groundCheckRadius),
-            new IsAwake(_isAwakeOnStart, transform, _detectRadius, _maxPlayerCount, _playerMask),
+            new IsAwake(_isAwakeOnStart),
             new RotateTowardsVelocity(_rb, _rotationalSpeed),
             new Selector(new List<Node>
             {
