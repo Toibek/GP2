@@ -29,7 +29,7 @@ public class MoveAwayFromPosition : Node
     public override NodeState Evaluate()
     {
         //return base.Evaluate();
-        Transform RunFromTransform = (Transform)GetData("Player");
+        Transform RunFromTransform = (Transform)GetData(_moveToPositionSaveVariable);
         if (RunFromTransform != null)
         {
             if (PebbleCreature.Debug) Debug.Log("MoveAway");

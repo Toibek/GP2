@@ -38,7 +38,7 @@ public class CheckForGround : Node
                     }
                 }
             }
-            bool f = false;
+
             for (int i = 0; i < 10; i++)
             {
                 if (result[i] != null)

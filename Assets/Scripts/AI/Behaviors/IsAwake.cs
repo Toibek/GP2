@@ -8,18 +8,10 @@ public class IsAwake : Node
 {
 
     private bool _isAwake;
-    private Collider[] Hits = new Collider[4];
-    private float _detectRadius;
-    private Transform _thisTransform;
-    private LayerMask _playerMask;
 
-    public IsAwake(bool startsAwake, Transform thisTransform, float detectRadius, int howManyPlayerToCheckFor, LayerMask playerMask) : base()
+    public IsAwake(bool startsAwake) : base()
     {
         _isAwake = startsAwake;
-        _thisTransform = thisTransform;
-        _detectRadius = detectRadius;
-        Hits = new Collider[howManyPlayerToCheckFor];
-        _playerMask = playerMask;
     }
 
     public override NodeState Evaluate()
