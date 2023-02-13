@@ -78,6 +78,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-8478255562349035816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Ambience/SnowyPeak
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Ambience/SnowyPeak
+  Guid:
+    Data1: 1843829696
+    Data2: 1190843713
+    Data3: 2040590263
+    Data4: -1651606740
+  Banks:
+  - {fileID: -3693492760959302281}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1976850079609040905}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26117
 --- !u!114 &-8222685840238691092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +364,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638114663654545248
+  lastModified: 638115579700871810
   FileSizes: []
   Exists: 1
 --- !u!114 &-3259432426594543156
@@ -498,6 +526,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1976850079609040905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SnowyPeak/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 107145857
+    data2: 1629839083
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-1885632205347798338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,10 +641,34 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638114663654595297
+  lastModified: 638115579700891756
   FileSizes:
   - Name: 
-    Value: 1618
+    Value: 1876
+  Exists: 1
+--- !u!114 &-938037486011279345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LapideCollision/LapideSize
+  m_EditorClassIdentifier: 
+  Name: LapideSize
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3162107422
+    data2: 4123446439
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-769251451979741401
 MonoBehaviour:
@@ -618,6 +694,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-270448815049558989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Druids/RockPush
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Druids/RockPush
+  Guid:
+    Data1: 2106854564
+    Data2: 1123706234
+    Data3: -2113911917
+    Data4: 1073494261
+  Banks:
+  - {fileID: -3693492760959302281}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3286058053598887245}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4764
 --- !u!114 &-69740322234092882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,13 +778,43 @@ MonoBehaviour:
   - {fileID: -3095588338481662842}
   - {fileID: 1996875023382564211}
   - {fileID: -2269502374373946535}
+  - {fileID: 15714773122748585}
+  - {fileID: -270448815049558989}
+  - {fileID: -8478255562349035816}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3693492760959302281}
   StringsBanks:
   - {fileID: -1584159591121331319}
-  cacheTime: 638114663654595297
+  cacheTime: 638115579700891756
   cacheVersion: 131601
+--- !u!114 &15714773122748585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/AmbiencePads
+  m_EditorClassIdentifier: 
+  Path: event:/Music/AmbiencePads
+  Guid:
+    Data1: 405572468
+    Data2: 1105697759
+    Data3: -1939532923
+    Data4: 1522059008
+  Banks:
+  - {fileID: -3693492760959302281}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 84741
 --- !u!114 &503731139438174838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +996,30 @@ MonoBehaviour:
   ID:
     data1: 1190363645
     data2: 181130386
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3286058053598887245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/RockPush/IsPushing
+  m_EditorClassIdentifier: 
+  Name: IsPushing
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3315880128
+    data2: 37822674
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -1135,10 +1293,11 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: -938037486011279345}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1058
 --- !u!114 &8360752583130073601
 MonoBehaviour:
   m_ObjectHideFlags: 0
