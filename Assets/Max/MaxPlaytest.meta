@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Max/MaxPlaytest.meta
+guid: d3c0394a55a69aa4884984229d54e5f9
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+========
+guid: 941f37b2c7175534f96ab6cac5357294
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>>> origin/master:Assets/Animation/Pebble/PebbIdlePlaceholder.anim.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
