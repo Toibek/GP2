@@ -352,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91752688}
   m_LocalRotation: {x: 0.24192187, y: 0, z: 0, w: 0.9702957}
-  m_LocalPosition: {x: 1.38, y: 15.61, z: -21.4}
+  m_LocalPosition: {x: 1.38, y: 14.78, z: -25.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -603,6 +603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cdd4522ad43e84093edc38f0557644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalOffsetX: 0
+  globalOffsetY: 3
+  globalOffsetZ: 0
   startingCheckpoint: {fileID: 2001405446}
 --- !u!114 &91752699
 MonoBehaviour:
@@ -911,6 +914,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndividualHeightOffset: 0
+  indOffsetX: 0
+  indOffsetY: 0
+  indOffsetZ: 0
   kill: 0
 --- !u!65 &215734262
 BoxCollider:
@@ -945,7 +952,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8474bf551220f0e4993899dfdc95aed3, type: 2}
+  - {fileID: 2100000, guid: f29b9efacb0fa1b45a6ebd5778585717, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1434,6 +1441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndividualHeightOffset: 0
+  indOffsetX: 0
+  indOffsetY: 0
+  indOffsetZ: 0
   kill: 0
 --- !u!65 &360249526
 BoxCollider:
@@ -2128,6 +2139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndividualHeightOffset: 1
+  indOffsetX: 7
+  indOffsetY: 0
+  indOffsetZ: 0
   kill: 0
 --- !u!65 &1055065287
 BoxCollider:
@@ -2162,7 +2177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8474bf551220f0e4993899dfdc95aed3, type: 2}
+  - {fileID: 2100000, guid: 35e2a03bbcc6739409a02bb46883d128, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2200,7 +2215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055065285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.08, y: 0.39, z: 22.1}
+  m_LocalPosition: {x: -28.08, y: 0.39, z: 25.8}
   m_LocalScale: {x: 6.945408, y: 1.2750582, z: 5.7199}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2239,6 +2254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndividualHeightOffset: 0
+  indOffsetX: 0
+  indOffsetY: 0
+  indOffsetZ: 0
   kill: 1
 --- !u!65 &1114409524
 BoxCollider:
@@ -3107,6 +3126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndividualHeightOffset: 0
+  indOffsetX: 0
+  indOffsetY: 0
+  indOffsetZ: 0
   kill: 0
 --- !u!1 &2025953142
 GameObject:
@@ -3337,6 +3360,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIndividualHeightOffset: 1
+  indOffsetX: 0
+  indOffsetY: 7
+  indOffsetZ: 0
   kill: 0
 --- !u!65 &2068535704
 BoxCollider:
@@ -3409,7 +3436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068535702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.3, y: 0.39, z: 13.4}
+  m_LocalPosition: {x: -28.25, y: 0.39, z: 14.1}
   m_LocalScale: {x: 5.8593655, y: 1.1570549, z: 6.8324203}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class CheckpointScript : MonoBehaviour
 {
     [SerializeField] private bool useIndividualHeightOffset;
-    [SerializeField] private float individualHeightOffset;
+    [SerializeField] private float indOffsetX;
+    [SerializeField] private float indOffsetY;
+    [SerializeField] private float indOffsetZ;
     [SerializeField]private bool kill;
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +24,7 @@ public class CheckpointScript : MonoBehaviour
                   break;
             
               case false:
-                  CheckpointManager.instance.UpdateCheckPoint(gameObject, individualHeightOffset, useIndividualHeightOffset);
+                  CheckpointManager.instance.UpdateCheckPoint(gameObject, indOffsetX,indOffsetY ,indOffsetZ, useIndividualHeightOffset);
                   break;
             }
     }

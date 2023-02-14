@@ -39,8 +39,7 @@ public class CameraControll : MonoBehaviour
         gm.OnPlayerJoined += GetPlayers;
         playerCount = 0;
         
-        rend = player1.GetComponent<Renderer>();
-        rend2 = player2.GetComponent<Renderer>();
+        
         //Used by the code to remember the original position of the camera
         startPosition = transform.position;
         
@@ -51,6 +50,7 @@ public class CameraControll : MonoBehaviour
         if (gm.Player1 != null)
         {
             player1 = gm.Player1;
+            Debug.Log(player1.name);
             if(playerCount == 0)
                 playerCount += 1;
         }
@@ -64,6 +64,8 @@ public class CameraControll : MonoBehaviour
     private void Update()
     {
         if (!player1) return;
+        rend = player1.GetComponent<Renderer>();
+        rend2 = player2.GetComponent<Renderer>();
         SetPositionValue();
         SetCameraPosition();
         CameraRay();

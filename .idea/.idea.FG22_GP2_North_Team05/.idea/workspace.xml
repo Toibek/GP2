@@ -10,6 +10,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1fc37e1656ba496095eb0bb9814521861a000/4d/035b251f/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Max_Palsson_GP1/FG22FT_GP1_North_Team01/GP1_Team1/Assets/Max/Script/TestCameraSelection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../max.palsson_GP2_v3/FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../max.palsson_GP2_v3/FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/FMOD/src/Editor/EditorSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraControll.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -95,7 +97,8 @@
       <workItem from="1675871156015" duration="799000" />
       <workItem from="1675933252736" duration="16168000" />
       <workItem from="1676017549178" duration="11247000" />
-      <workItem from="1676282035234" duration="9618000" />
+      <workItem from="1676282035234" duration="11497000" />
+      <workItem from="1676297334269" duration="2586000" />
     </task>
     <servers />
   </component>
