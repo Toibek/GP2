@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class MoveZone : MonoBehaviour
 {
-    List<Transform> objectsToMove;
+    [SerializeField] private Vector3 constantMovement;
+    private List<Transform> objectsToMove;
+    private void FixedUpdate()
+    {
+        if (constantMovement != Vector3.zero)
+            Move(constantMovement * Time.deltaTime);
+    }
     public void Move(Vector3 dir)
     {
         if (objectsToMove == null) return;
