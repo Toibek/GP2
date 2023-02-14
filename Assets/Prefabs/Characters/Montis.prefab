@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 7026286751195717926}
   - component: {fileID: 8129612909418839445}
   - component: {fileID: 5934844501308796227}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 15
+  heldObject: {fileID: 0}
 --- !u!135 &5934844501308796227
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -5169,7 +5169,7 @@ GameObject:
   - component: {fileID: 8726364680787313319}
   - component: {fileID: 4128815240905598973}
   - component: {fileID: 1016085452719468209}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Punchbox
   m_TagString: Player
   m_Icon: {fileID: 0}
