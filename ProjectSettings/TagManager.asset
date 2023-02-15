@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Herd
   - Pebble
+  - Rock
+  - Grass
+  - Snow
+  - Water
   layers:
   - Default
   - TransparentFX

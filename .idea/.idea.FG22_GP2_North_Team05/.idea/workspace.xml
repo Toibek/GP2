@@ -16,6 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraControll.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/Killtrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Goal/Goal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactions/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -101,7 +102,7 @@
       <workItem from="1676282035234" duration="11497000" />
       <workItem from="1676297334269" duration="3277000" />
       <workItem from="1676365252760" duration="15625000" />
-      <workItem from="1676447937459" duration="1096000" />
+      <workItem from="1676447937459" duration="13682000" />
     </task>
     <servers />
   </component>

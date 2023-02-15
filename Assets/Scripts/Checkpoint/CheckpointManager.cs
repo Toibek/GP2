@@ -12,27 +12,18 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private float globalOffsetZ;
     public static CheckpointManager instance;
     private List<GameObject> checkPointList;
-    
-    public GameObject startingCheckpoint;
     private Vector3 checkPointSpawn;
+    [SerializeField]private List<GameObject> queueList;
     
-    //Pebble
-    private List<GameObject> pebblePointList;
-    private GameObject currentPebble;
-    private Vector3 pebblePointPosition;
 
     private void Awake()
     {
+        queueList = new List<GameObject>(); 
         checkPointList = new List<GameObject>();
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
-    }
-    private void Start()
-    {
-        checkPointList.Add(startingCheckpoint);
-        checkPointSpawn = startingCheckpoint.transform.position;
     }
 
     public void UpdateCheckPoint(GameObject newCheckpoint, float offsetX,float offsetY,float offsetZ, bool indOffset)
@@ -47,7 +38,6 @@ public class CheckpointManager : MonoBehaviour
             switch (indOffset)
             {
                 case true:
-                    
                     checkPointSpawn.x += offsetX;
                     checkPointSpawn.y += offsetY;
                     checkPointSpawn.z += offsetZ;
@@ -56,33 +46,32 @@ public class CheckpointManager : MonoBehaviour
                     checkPointSpawn.x += globalOffsetX;
                     checkPointSpawn.y += globalOffsetY;
                     checkPointSpawn.z += globalOffsetZ;
-                    
                     break;
             }
         }
     }
 
-    public void UpdatePebblePoint(GameObject newPebblepoint)
+    public void LoadLastCheckpoint(GameObject layer)
     {
-        if (!pebblePointList.Contains(newPebblepoint))
-        {
-            pebblePointList.Add(newPebblepoint);
-            currentPebble = newPebblepoint;
-            pebblePointPosition = currentPebble.transform.position;
-            Debug.Log("1");
-        }
+        queueList.Add(layer);
+        StartCoroutine(Countdown2(layer));
+        
     }
-    
-    public void LoadLastCheckpoint(GameObject player, string isPebble)
+
+    private IEnumerator Countdown2(GameObject queue)
     {
-        switch (isPebble)
+        while (!queueList.Contains(null))
         {
-            case "Pebble":
-                player.transform.position = pebblePointPosition;
-                break;
-            case "Player":
-                player.transform.position = checkPointSpawn;
-                break;
+            yield return new WaitForSeconds(1);
+            if (queueList.IndexOf(queue) == 0)
+            {
+                
+                queue.transform.position = checkPointSpawn;
+                queueList.Remove(queue);
+                break;    
+            }
+            yield return new WaitForSeconds(5);
+            
         }
     }
 }

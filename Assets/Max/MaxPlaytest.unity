@@ -605,7 +605,6 @@ MonoBehaviour:
   globalOffsetX: 0
   globalOffsetY: 3
   globalOffsetZ: 0
-  startingCheckpoint: {fileID: 2001405446}
 --- !u!114 &91752699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +618,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartWhenConnected: 1
+--- !u!1001 &93762834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _interestMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_Name
+      value: PebbleCreature (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 806c60879db671a44b8c764b5ab51741, type: 3}
 --- !u!1 &143516229
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
   isPebblepoint: 0
   useIndividualHeightOffset: 0
   indOffsetX: 0
@@ -1343,7 +1415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
   isPebblepoint: 0
   useIndividualHeightOffset: 0
   indOffsetX: 0
@@ -1718,6 +1789,154 @@ Transform:
   m_Father: {fileID: 69193220}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &712242059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _interestMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_Name
+      value: PebbleCreature (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 806c60879db671a44b8c764b5ab51741, type: 3}
+--- !u!1001 &748084714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _interestMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: m_Name
+      value: PebbleCreature (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 806c60879db671a44b8c764b5ab51741, type: 3}
 --- !u!1 &906016616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +2163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
   isPebblepoint: 0
   useIndividualHeightOffset: 1
   indOffsetX: 7
@@ -2040,7 +2258,7 @@ GameObject:
   - component: {fileID: 1114409526}
   - component: {fileID: 1114409525}
   - component: {fileID: 1114409524}
-  - component: {fileID: 1114409523}
+  - component: {fileID: 1114409528}
   m_Layer: 0
   m_Name: Checkpoint trigger (2)
   m_TagString: Untagged
@@ -2048,24 +2266,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1114409523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114409522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kill: 1
-  isPebblepoint: 0
-  useIndividualHeightOffset: 0
-  indOffsetX: 0
-  indOffsetY: 0
-  indOffsetZ: 0
 --- !u!65 &1114409524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2144,6 +2344,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114409528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114409522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc659184183181e47b3bce1ef772186b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208321497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,17 +2468,17 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.57
+      value: -10.4
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.94
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.97
+      value: 44.8
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2302,6 +2514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _interestMask.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2616,7 +2833,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2626,7 +2843,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.47
+      value: 44.6
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232153, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2662,6 +2879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
+        type: 3}
+      propertyPath: _interestMask.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2993,7 +3215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
   isPebblepoint: 1
   useIndividualHeightOffset: 0
   indOffsetX: 0
@@ -3265,8 +3486,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001405446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53, y: -0.03, z: -1.4}
-  m_LocalScale: {x: 6.945408, y: 1.2750582, z: 5.7199}
+  m_LocalPosition: {x: 0.53, y: -0.74, z: -1.4}
+  m_LocalScale: {x: 6.945408, y: 0.2512247, z: 5.7199}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3284,7 +3505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
   isPebblepoint: 0
   useIndividualHeightOffset: 0
   indOffsetX: 0
@@ -3519,7 +3739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f41b51d8aeb4c444ae715ac364813e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
   isPebblepoint: 0
   useIndividualHeightOffset: 1
   indOffsetX: 0
