@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Textures/Montis/Montis_Character_Material.001_BaseMap.png.meta
-guid: 6338a72c1b7853841a13c49fb3daefcb
-========
-guid: 750432a06d870f7499fd8304fc4a33fb
->>>>>>>> origin/master:Assets/Textures/Lapides/Lapide_Large/Lapide_Large_AO.png.meta
+guid: a46bac4c58962484cb99099de7c7be23
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
