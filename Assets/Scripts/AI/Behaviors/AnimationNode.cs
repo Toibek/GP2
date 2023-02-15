@@ -15,8 +15,10 @@ public class AnimationNode : Node
 
     public override NodeState Evaluate()
     {
-        if (_rb != null)
+        if (_animator != null && _rb != null)
             _animator.SetFloat("Velocity", _rb.velocity.magnitude);
+        else
+            return NodeState.SUCCESS;
         if (GetData(TreeVariables.IsAwake) != null)
             _animator.SetBool("IsAwake", (bool)GetData(TreeVariables.IsAwake));
         return NodeState.SUCCESS;

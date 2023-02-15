@@ -6,26 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class CheckpointScript : MonoBehaviour
 {
+    [Header("Is a checkpoint for Pebbles")]
+    [SerializeField] private bool isPebblepoint;
+    
+    [Header("Offset for player checkpoints")]
     [SerializeField] private bool useIndividualHeightOffset;
     [SerializeField] private float indOffsetX;
     [SerializeField] private float indOffsetY;
     [SerializeField] private float indOffsetZ;
-    [SerializeField]private bool kill;
     private void OnTriggerEnter(Collider other)
     {
         if(other.isTrigger)
             return;
-            
-        if (other.CompareTag("Player")) 
-            switch (kill)
-            {
-              case true:
-                  CheckpointManager.instance.LoadLastCheckpoint(other.gameObject);
-                  break;
-            
-              case false:
-                  CheckpointManager.instance.UpdateCheckPoint(gameObject, indOffsetX,indOffsetY ,indOffsetZ, useIndividualHeightOffset);
-                  break;
-            }
+
+        if (other.CompareTag("Player"))
+            CheckpointManager.instance.UpdateCheckPoint(gameObject, indOffsetX, indOffsetY, indOffsetZ, useIndividualHeightOffset);
+        
+        
+        
     }
 }
+
