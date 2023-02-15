@@ -15,7 +15,7 @@ public class AnimationNode : Node
 
     public override NodeState Evaluate()
     {
-        if (_animator != null)
+        if (_animator != null && _rb != null)
             _animator.SetFloat("Velocity", _rb.velocity.magnitude);
         else
             return NodeState.SUCCESS;
