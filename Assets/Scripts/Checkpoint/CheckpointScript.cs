@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class CheckpointScript : MonoBehaviour
 {
-    [Header("Does this point kill the entity?")]
-    [SerializeField]private bool kill;
-    
-    
     [Header("Is a checkpoint for Pebbles")]
     [SerializeField] private bool isPebblepoint;
     
@@ -23,29 +19,11 @@ public class CheckpointScript : MonoBehaviour
         if(other.isTrigger)
             return;
 
-        if (other.CompareTag("Player") || other.CompareTag("Pebble"))
-        {
-            string type = other.tag;
-            switch (kill)
-            {
-                case true:
-                    CheckpointManager.instance.LoadLastCheckpoint(other.gameObject, type);
-                    break;
-
-                case false:
-                    switch (isPebblepoint)
-                    {
-                        case false:
-                            CheckpointManager.instance.UpdateCheckPoint(gameObject, indOffsetX, indOffsetY, indOffsetZ,
-                                useIndividualHeightOffset);
-                            break;
-                        case true:
-                            Debug.Log(other.tag);
-                            CheckpointManager.instance.UpdatePebblePoint(gameObject);
-                            break;
-                    }
-                    break;
-            }
-        }
+        if (other.CompareTag("Player"))
+            CheckpointManager.instance.UpdateCheckPoint(gameObject, indOffsetX, indOffsetY, indOffsetZ, useIndividualHeightOffset);
+        
+        
+        
     }
 }
+
