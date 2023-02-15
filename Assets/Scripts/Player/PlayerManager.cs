@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnPlayerJoined(PlayerInput joined)
     {
-        if (PlayerInputs == null) PlayerInputs = new();
+        if (PlayerInputs == null) PlayerInputs = new List<PlayerInput>();
         PlayerInputs.Add(joined);
         if (PlayerInputs.Count == 2)
         {
@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     }
     private void SetUpCharacters()
     {
-        if (players == null) players = new();
+        if (players == null) players = new List<GameObject>();
         GetComponent<PlayerInputManager>().DisableJoining();
         for (int i = 0; i < PlayerInputs.Count; i++)
         {
