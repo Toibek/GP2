@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -825,7 +825,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh57588
+  m_Name: pb_Mesh34478
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
