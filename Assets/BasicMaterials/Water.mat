@@ -48,7 +48,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainNormal:
-        m_Texture: {fileID: 2800000, guid: b6f55ae739389114586c5b34725c1557, type: 3}
+        m_Texture: {fileID: 2800000, guid: 125da5b0027052d4d9d6391a47e85aad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondNormal:
@@ -70,7 +70,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _Alpha: 0.214
+    - _Alpha: 1
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
     - _AlphaSrcBlend: 1
@@ -81,7 +81,7 @@ Material:
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
-    - _Depth: 1
+    - _Depth: 170.5
     - _DepthOffsetEnable: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
@@ -89,7 +89,7 @@ Material:
     - _DstBlend: 10
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _Metalic: 0.6
+    - _Metalic: 1
     - _Normal_Strength: 10.68
     - _OpaqueCullMode: 2
     - _RayTracing: 0
@@ -98,8 +98,8 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _Scale: 0.09
-    - _Smoothness: 0.21
+    - _Scale: 0.1
+    - _Smoothness: 0
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -129,9 +129,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _DepthColor: {r: 0, g: 0.36792302, b: 0.9716981, a: 0}
+    - _DepthColor: {r: 0, g: 0.37401932, b: 0.972549, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Emission: {r: 0.5566038, g: 0.41220188, b: 0.41220188, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterColor: {r: 0.19339621, g: 0.50259423, b: 1, a: 0}
+    - _WaterColor: {r: 0.17354932, g: 0.21302746, b: 0.9433962, a: 0}
   m_BuildTextureStacks: []
