@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     internal CharacterSO settings;
+    internal Vector3 lookPoint;
     [SerializeField] bool AlwaysMoveable;
     [SerializeField] float jumpForce;
     [SerializeField] LayerMask groundingLayers;
@@ -24,7 +25,18 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         //fu im lazy <3
-        if (rb.velocity.magnitude >= 0.1f)
+        Vector3 lookDir;
+        if (lookPoint != Vector3.zero)
+        {
+            lookDir = lookPoint - transform.position;
+        }
+        else
+        {
+            lookDir = rb.velocity;
+        }
+        lookDir = new(lookDir.x, 0, lookDir.y);
+
+        if (lookDir.magnitude >= 0.1f)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(new Vector3(rb.velocity.x, 0, rb.velocity.z), Vector3.up), 360 * Time.deltaTime);
         }

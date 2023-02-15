@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fb5f03a4-fd89-4ee0-8527-7b221cb17d10}">
+		<property name="assetPath">
+			<value>s_music_strings_horns.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>68.571428571428569</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8eb3118a-ce8f-4519-bdaf-aaf22bbff5b2}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8931576323210262499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638120491335671520
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8521419698072329482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,7 +37,7 @@ MonoBehaviour:
     Data3: -1939532923
     Data4: 1522059008
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 1239876954293657269}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -70,7 +88,7 @@ MonoBehaviour:
     Data3: 2040590263
     Data4: -1651606740
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: -8931576323210262499}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -95,7 +113,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 0
+  Default: 1
   ID:
     data1: 4171170588
     data2: 3556921084
@@ -122,7 +140,7 @@ MonoBehaviour:
     Data3: -1758854734
     Data4: -611515549
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -150,7 +168,7 @@ MonoBehaviour:
     Data3: 1375300025
     Data4: 381008873
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -182,33 +200,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-6479912188566959236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/SelectPositive
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/SelectPositive
-  Guid:
-    Data1: -981004933
-    Data2: 1340513998
-    Data3: 16358816
-    Data4: 1209002478
-  Banks:
-  - {fileID: 6062643611790963009}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1804
 --- !u!114 &-6114862492492738961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +267,7 @@ MonoBehaviour:
     Data3: -866496892
     Data4: 493254289
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: -8931576323210262499}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -284,6 +275,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 25928
+--- !u!114 &-3386269055222826221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps(Lapide)/CurrentScene
+  m_EditorClassIdentifier: 
+  Name: CurrentScene
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3834043543
+    data2: 1039965217
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Forest
+  - Cave
+  Exists: 1
 --- !u!114 &-2862410903725664362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +324,24 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
+  Exists: 1
+--- !u!114 &-2436785193433431692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 638120491337565848
+  FileSizes: []
   Exists: 1
 --- !u!114 &-2115162920903896302
 MonoBehaviour:
@@ -355,7 +390,7 @@ MonoBehaviour:
     Data3: -1246789468
     Data4: 1604314094
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -435,6 +470,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-234048582602388423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MainMusic/Intensty
+  m_EditorClassIdentifier: 
+  Name: Intensty
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1447494057
+    data2: 125526407
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-94107080049893184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +513,7 @@ MonoBehaviour:
     Data3: -2113911917
     Data4: 1073494261
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -478,15 +537,17 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 680128047597393548}
   - {fileID: 6062643611790963009}
+  - {fileID: -8931576323210262499}
+  - {fileID: 1239876954293657269}
+  - {fileID: 3495981028596171442}
+  - {fileID: -2436785193433431692}
   EditorEvents:
   - {fileID: 8666768327188694656}
   - {fileID: 3981521930529568280}
   - {fileID: -1659964792046023960}
   - {fileID: 4944755394064185145}
   - {fileID: 4930481445354233107}
-  - {fileID: -6479912188566959236}
   - {fileID: -7746333760438163748}
-  - {fileID: 103684501321120676}
   - {fileID: -4999698982959756734}
   - {fileID: -7566555916461383134}
   - {fileID: 7090907082063133511}
@@ -494,40 +555,16 @@ MonoBehaviour:
   - {fileID: -8521419698072329482}
   - {fileID: -8150236805934599800}
   - {fileID: -94107080049893184}
+  - {fileID: 8479701610072440867}
+  - {fileID: 688572040882061942}
+  - {fileID: 1792203974429770940}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6062643611790963009}
   StringsBanks:
   - {fileID: 680128047597393548}
-  cacheTime: 638118949701884156
+  cacheTime: 638120491337565848
   cacheVersion: 131601
---- !u!114 &103684501321120676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/SelectNegative
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/SelectNegative
-  Guid:
-    Data1: -1339005806
-    Data2: 1217207987
-    Data3: -1835906637
-    Data4: 653004761
-  Banks:
-  - {fileID: 6062643611790963009}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1804
 --- !u!114 &680128047597393548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,11 +580,83 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638118949701884156
+  lastModified: 638120491335711419
   FileSizes:
   - Name: 
-    Value: 1876
+    Value: 2334
   Exists: 1
+--- !u!114 &688572040882061942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/SelectPositive
+  m_EditorClassIdentifier: 
+  Path: event:/UI/SelectPositive
+  Guid:
+    Data1: -981004933
+    Data2: 1340513998
+    Data3: 16358816
+    Data4: 1209002478
+  Banks:
+  - {fileID: -2436785193433431692}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1804
+--- !u!114 &1239876954293657269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638120491336339880
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1792203974429770940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/SelectNegative
+  m_EditorClassIdentifier: 
+  Path: event:/UI/SelectNegative
+  Guid:
+    Data1: -1339005806
+    Data2: 1217207987
+    Data3: -1835906637
+    Data4: 653004761
+  Banks:
+  - {fileID: -2436785193433431692}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1804
 --- !u!114 &3095582060174719245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +680,24 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
+  Exists: 1
+--- !u!114 &3495981028596171442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638120491337525957
+  FileSizes: []
   Exists: 1
 --- !u!114 &3981521930529568280
 MonoBehaviour:
@@ -618,7 +745,7 @@ MonoBehaviour:
     Data3: -1504548192
     Data4: 1032337860
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -645,7 +772,7 @@ MonoBehaviour:
     Data3: -874872695
     Data4: -1937838446
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: -8931576323210262499}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -673,7 +800,7 @@ MonoBehaviour:
     Data3: -241144154
     Data4: 1441666652
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -700,7 +827,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638118949701884156
+  lastModified: 638120491335691470
   FileSizes: []
   Exists: 1
 --- !u!114 &6161070885606743300
@@ -770,7 +897,7 @@ MonoBehaviour:
     Data3: 873802427
     Data4: -1726688464
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -779,6 +906,7 @@ MonoBehaviour:
   - {fileID: 6161070885606743300}
   - {fileID: 6456378073821126461}
   - {fileID: -7768890405469175351}
+  - {fileID: -3386269055222826221}
   MinDistance: 1
   MaxDistance: 20
   Length: 705
@@ -798,7 +926,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 0
+  Default: 1
   ID:
     data1: 4171170588
     data2: 3556921084
@@ -806,6 +934,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &8479701610072440867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MainMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMusic
+  Guid:
+    Data1: -636698918
+    Data2: 1309240287
+    Data3: 536470455
+    Data4: 688738720
+  Banks:
+  - {fileID: 1239876954293657269}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -234048582602388423}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 68571
 --- !u!114 &8543358808804760871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,7 +1005,7 @@ MonoBehaviour:
     Data3: 244065421
     Data4: -668115218
   Banks:
-  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

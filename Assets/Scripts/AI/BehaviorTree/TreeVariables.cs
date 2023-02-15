@@ -38,4 +38,15 @@ public static class TreeVariables
     /// does it have Interest "InterestTarget"| Return Transform
     /// </summary>
     public static string InterestTarget = "InterestTarget";
+
+
+    /// <summary>
+    /// where it picked up something "PickUpArea"| Return Vector3
+    /// </summary>
+    public static string PickUpArea = "PickUpArea";
+
+    /// <summary>
+    /// where it picked up something "PickUpArea"| Return Bool
+    /// </summary>
+    public static string HasPickedUp = "HasPickedUp";
 }

@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         else if (Player2 == null) Player2 = player;
         OnPlayerJoined?.Invoke();
     }
+    [ContextMenu("Start Game")]
     public void GameStart()
     {
         OnGameStart?.Invoke();
