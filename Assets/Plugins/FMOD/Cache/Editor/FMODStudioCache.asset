@@ -558,12 +558,14 @@ MonoBehaviour:
   - {fileID: 8479701610072440867}
   - {fileID: 688572040882061942}
   - {fileID: 1792203974429770940}
+  - {fileID: 9172458906841313971}
+  - {fileID: 7874706354619553000}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6062643611790963009}
   StringsBanks:
   - {fileID: 680128047597393548}
-  cacheTime: 638120491337565848
+  cacheTime: 638120651748275178
   cacheVersion: 131601
 --- !u!114 &680128047597393548
 MonoBehaviour:
@@ -580,10 +582,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638120491335711419
+  lastModified: 638120651746843190
   FileSizes:
   - Name: 
-    Value: 2334
+    Value: 2426
   Exists: 1
 --- !u!114 &688572040882061942
 MonoBehaviour:
@@ -696,7 +698,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638120491337525957
+  lastModified: 638120651748275178
   FileSizes: []
   Exists: 1
 --- !u!114 &3981521930529568280
@@ -827,7 +829,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638120491335691470
+  lastModified: 638120651746823107
   FileSizes: []
   Exists: 1
 --- !u!114 &6161070885606743300
@@ -934,6 +936,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &7874706354619553000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Environment/DrawbridgeSlam
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Environment/DrawbridgeSlam
+  Guid:
+    Data1: -1767154011
+    Data2: 1319287243
+    Data3: -1963751040
+    Data4: -43522026
+  Banks:
+  - {fileID: 3495981028596171442}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2778
 --- !u!114 &8479701610072440867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,3 +1043,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1058
+--- !u!114 &9172458906841313971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Environment/StoneDoorOpening
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Environment/StoneDoorOpening
+  Guid:
+    Data1: 1161223990
+    Data2: 1236882277
+    Data3: 714227338
+    Data4: 1811651097
+  Banks:
+  - {fileID: 3495981028596171442}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4807
