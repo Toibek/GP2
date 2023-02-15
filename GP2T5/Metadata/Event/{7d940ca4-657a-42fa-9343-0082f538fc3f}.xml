@@ -38,7 +38,7 @@
 			<destination>{922329e3-9090-48a0-a754-2d2a4a8e6d3b}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{9773fc04-3059-4104-a300-81ca4888f01f}</destination>
+			<destination>{66badb9d-8b85-4390-a8a9-b697886cb7dd}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{27415109-7cbc-4176-ab88-012d142c25bf}">
@@ -251,6 +251,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{8694c811-e595-48dc-bcc5-791d110d1d7b}">
+		<property name="volume">
+			<value>-6.5</value>
+		</property>
 		<property name="name">
 			<value>Into</value>
 		</property>
@@ -461,6 +464,9 @@
 		</relationship>
 		<relationship name="destination">
 			<destination>{70591af8-d0f7-4ed2-b777-16582b6848a3}</destination>
+		</relationship>
+		<relationship name="triggerConditions">
+			<destination>{8dd7d458-6417-4ffb-88d3-78513c874613}</destination>
 		</relationship>
 	</object>
 	<object class="NamedMarker" id="{7062d090-5462-4e30-8f5d-75f679763ac0}">
@@ -681,6 +687,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{e8be0bc8-5e53-41b5-9a60-25b2aac464c6}" />
 	<object class="ParameterCondition" id="{c474b38e-3ef5-4fdc-adcb-75cd40ec4b2d}">
+		<property name="minimum">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{c99b3a76-18a7-4f82-9691-e54d93437f92}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterCondition" id="{8dd7d458-6417-4ffb-88d3-78513c874613}">
 		<property name="minimum">
 			<value>1</value>
 		</property>

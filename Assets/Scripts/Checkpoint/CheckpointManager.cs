@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
+    
+    //Player
     [SerializeField] private float globalOffsetX;
     [SerializeField] private float globalOffsetY;
     [SerializeField] private float globalOffsetZ;
@@ -12,24 +14,25 @@ public class CheckpointManager : MonoBehaviour
     private List<GameObject> checkPointList;
     
     public GameObject startingCheckpoint;
-    private GameObject currentCheckpoint;
     private Vector3 checkPointSpawn;
+    
+    //Pebble
+    private List<GameObject> pebblePointList;
+    private GameObject currentPebble;
+    private Vector3 pebblePointPosition;
 
     private void Awake()
     {
         checkPointList = new List<GameObject>();
         if (instance == null)
-        {
             instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
     private void Start()
     {
-        currentCheckpoint = startingCheckpoint;
+        checkPointList.Add(startingCheckpoint);
+        checkPointSpawn = startingCheckpoint.transform.position;
     }
 
     public void UpdateCheckPoint(GameObject newCheckpoint, float offsetX,float offsetY,float offsetZ, bool indOffset)
@@ -40,8 +43,7 @@ public class CheckpointManager : MonoBehaviour
             //Adds checkpoint to the list
             checkPointList.Add(newCheckpoint);
             //Sets the current checkpoint variable to the new object
-            currentCheckpoint = newCheckpoint;
-            checkPointSpawn = currentCheckpoint.transform.position;
+            checkPointSpawn = newCheckpoint.transform.position;
             switch (indOffset)
             {
                 case true:
@@ -60,8 +62,27 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void LoadLastCheckpoint(GameObject player)
+    public void UpdatePebblePoint(GameObject newPebblepoint)
     {
-        player.transform.position = checkPointSpawn;
+        if (!pebblePointList.Contains(newPebblepoint))
+        {
+            pebblePointList.Add(newPebblepoint);
+            currentPebble = newPebblepoint;
+            pebblePointPosition = currentPebble.transform.position;
+            Debug.Log("1");
+        }
+    }
+    
+    public void LoadLastCheckpoint(GameObject player, string isPebble)
+    {
+        switch (isPebble)
+        {
+            case "Pebble":
+                player.transform.position = pebblePointPosition;
+                break;
+            case "Player":
+                player.transform.position = checkPointSpawn;
+                break;
+        }
     }
 }

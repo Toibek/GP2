@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sceneloader.cs.meta
+guid: 1c9225965c64af94fa0125797ca0b67c
+========
+guid: ed2440f530120e341b1cae72a7e1ae24
+>>>>>>>> origin/master:Assets/MovingObject.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

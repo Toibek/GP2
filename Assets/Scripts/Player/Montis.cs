@@ -5,7 +5,7 @@ using UnityEngine;
 public class Montis : Ability
 {
     [SerializeField] private float throwForce;
-    private Transform heldObject;
+    public Transform heldObject;
     List<Liftable> liftableOjbects;
 
     private List<Rigidbody> pickableObjects;
