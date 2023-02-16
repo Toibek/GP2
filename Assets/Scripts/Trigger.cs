@@ -10,11 +10,13 @@ public class Trigger : MonoBehaviour
     [System.Serializable]
     public enum ButtonOption
     {
-        Move,
+        Joystick,
         A,
         X,
         Y,
-        B
+        B,
+        WASD,
+        SPACE
     }
 
     // Declare a serialized field to store the button selection
@@ -35,9 +37,9 @@ public class Trigger : MonoBehaviour
             // Perform action based on the button selected in the Inspector
             switch (button)
             {
-                case ButtonOption.Move:
+                case ButtonOption.Joystick:
                     // Do action for move
-                    Debug.Log("Move");
+                    Debug.Log("MoveControler");
                     canvas.transform.GetChild(0);
                     canvas.transform.GetChild(0).gameObject.SetActive(true);
                     break;
@@ -64,6 +66,18 @@ public class Trigger : MonoBehaviour
                     Debug.Log("B");
                     canvas.transform.GetChild(4);
                     canvas.transform.GetChild(4).gameObject.SetActive(true);
+                    break;
+                case ButtonOption.WASD:
+                    // Do action for button WASD
+                    Debug.Log("B");
+                    canvas.transform.GetChild(5);
+                    canvas.transform.GetChild(5).gameObject.SetActive(true);
+                    break;
+                case ButtonOption.SPACE:
+                    // Do action for button SPACE
+                    Debug.Log("B");
+                    canvas.transform.GetChild(6);
+                    canvas.transform.GetChild(6).gameObject.SetActive(true);
                     break;
                 default:
                     break;
