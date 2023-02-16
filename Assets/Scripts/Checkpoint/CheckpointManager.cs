@@ -12,8 +12,9 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private float globalOffsetZ;
     public static CheckpointManager instance;
     private List<GameObject> checkPointList;
+    private GameObject checkPointSaver;
     private Vector3 checkPointSpawn;
-    [SerializeField]private List<GameObject> queueList;
+    private List<GameObject> queueList;
     
 
     private void Awake()
@@ -31,10 +32,12 @@ public class CheckpointManager : MonoBehaviour
         //If the new Checkpoint hasn't been activated before, add it to the list and make it the newest checkpoint
         if (!checkPointList.Contains(newCheckpoint))
         {
+            
             //Adds checkpoint to the list
             checkPointList.Add(newCheckpoint);
             //Sets the current checkpoint variable to the new object
-            checkPointSpawn = newCheckpoint.transform.position;
+            checkPointSaver = newCheckpoint;
+            checkPointSpawn = checkPointSaver.transform.position;
             switch (indOffset)
             {
                 case true:
@@ -53,19 +56,19 @@ public class CheckpointManager : MonoBehaviour
 
     public void LoadLastCheckpoint(GameObject layer)
     {
-        queueList.Add(layer);
+        queueList.Add(layer); 
         StartCoroutine(Countdown2(layer));
-        
+
     }
 
     private IEnumerator Countdown2(GameObject queue)
     {
+        //Can be fixed with putting it in update
         while (!queueList.Contains(null))
         {
             yield return new WaitForSeconds(1);
             if (queueList.IndexOf(queue) == 0)
             {
-                
                 queue.transform.position = checkPointSpawn;
                 queueList.Remove(queue);
                 break;    

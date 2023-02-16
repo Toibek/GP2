@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Max/MaxPlaytest/NavMesh.asset.meta
 guid: 9d16de5125ae17e4399b26ceb94a687c
-========
-guid: abefbe197bd4e8b41bb404360ebb8e07
->>>>>>>> origin/master:Assets/BasicMaterials/Bubble/Blue Bubble.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 23800000
