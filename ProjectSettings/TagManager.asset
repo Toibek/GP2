@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Herd
   - Pebble
+  - Rock
+  - Grass
+  - Snow
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Pickable item
   - Interactible
   - Ground
-  - 
+  - Trigger
   - 
   - 
   - 

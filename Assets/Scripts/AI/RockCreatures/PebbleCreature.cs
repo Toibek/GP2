@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BehaviorTree;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody),typeof(Animator),typeof(WalkOnPlatform))]
 public class PebbleCreature : BehaviorTree.Tree
 {
     public static bool Debug = false;
@@ -31,7 +31,7 @@ public class PebbleCreature : BehaviorTree.Tree
 
     [SerializeField]
     [Tooltip("Which Layer the rock will check for ground on")]
-    protected LayerMask _groundLayerMask = 1<<0;
+    protected LayerMask _groundLayerMask = 1<<8;
     [Space]
     [Range(0f, 100f)]
     [SerializeField]
@@ -60,7 +60,7 @@ public class PebbleCreature : BehaviorTree.Tree
 
     [SerializeField]
     [Tooltip("Will Move towards gameobjects with this layer")]
-    protected LayerMask _interestMask = 1<<0;
+    protected LayerMask _interestMask = 0;
 
     [Header("Movement")]
     [Space]
@@ -296,7 +296,7 @@ public class PebbleCreature : BehaviorTree.Tree
                             new Sequence(new List<Node>
                             {
                                 new CheckForPlayer(transform,_playerDetectRadius,_maxPlayerCount,_playerMask),
-                                new MoveAwayFromPosition(_rb, _runSpeed, _runLength, TreeVariables.Player),
+                                new MoveAwayFromTransform(_rb, _runSpeed, _runLength, TreeVariables.Player),
                             }),
 
                             new Sequence(new List<Node>

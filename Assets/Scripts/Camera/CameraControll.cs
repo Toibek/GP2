@@ -61,7 +61,7 @@ public class CameraControll : MonoBehaviour
             playerCount += 1;
         }
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (!player1) return;
         rend = player1.GetComponent<Renderer>();

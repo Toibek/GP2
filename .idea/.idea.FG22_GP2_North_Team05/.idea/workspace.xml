@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1fc37e1656ba496095eb0bb9814521861a000/4d/035b251f/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/a3/35f39d69/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Max_Palsson_GP1/FG22FT_GP1_North_Team01/GP1_Team1/Assets/Max/Script/TestCameraSelection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../max.palsson_GP2_v3/FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../max.palsson_GP2_v3/FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointScript.cs" root0="FORCE_HIGHLIGHTING" />
@@ -16,12 +17,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraControll.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/CheckpointScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint/Killtrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Goal/Goal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactions/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactions/Liftable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Transition/Blocktransition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.9/Editor/BuildProcessors/HDRPPreprocessShaders.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -98,7 +101,9 @@
       <workItem from="1675933252736" duration="16168000" />
       <workItem from="1676017549178" duration="11247000" />
       <workItem from="1676282035234" duration="11497000" />
-      <workItem from="1676297334269" duration="2586000" />
+      <workItem from="1676297334269" duration="3277000" />
+      <workItem from="1676365252760" duration="15625000" />
+      <workItem from="1676447937459" duration="25307000" />
     </task>
     <servers />
   </component>

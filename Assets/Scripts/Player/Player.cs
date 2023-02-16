@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
     Movement movement;
     Ability ability;
     PlayerManager manager;
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
     }
     private void OnPause()
     {
-        SetCharacter(settings);
+        GameManager.Instance.Pause();
     }
     private void OnMove(InputValue value)
     {
