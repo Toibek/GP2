@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BehaviorTree;
 
-[RequireComponent(typeof(Rigidbody),typeof(Animator))]
+[RequireComponent(typeof(Rigidbody),typeof(Animator),typeof(WalkOnPlatform))]
 public class PebbleCreature : BehaviorTree.Tree
 {
     public static bool Debug = false;

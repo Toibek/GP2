@@ -25,13 +25,14 @@ public class CameraControll : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 currentPosition;
     private Vector3 jointPosition;
-    private Vector3 savePosition;
+    public Vector3 savePosition;
     private Vector3 lookAtPosition;
     private Renderer rend;
     private Renderer rend2;
     private NavMeshData _data;
 
     //Game Manager
+    public static CameraControll CamControll;
     private GameManager gm;
     private void Start()
     {
@@ -91,7 +92,7 @@ public class CameraControll : MonoBehaviour
     {
         Ray ray = new Ray(currentPosition, transform.forward);
         Physics.Raycast(ray, out RaycastHit hit);
-        NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 1f, NavMesh.AllAreas);
+        NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 4f, NavMesh.AllAreas);
         if (navHit.hit)
             savePosition = navHit.position;
 
@@ -143,4 +144,6 @@ public class CameraControll : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position,currentPosition, ref velocity, 0.5f);
         transform.LookAt(lookAtPosition);
     }
+    
+    
 }

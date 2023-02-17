@@ -1,49 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class Drawbridge : MonoBehaviour
 {
-    public float TargetRot;
-    private bool button0Pressed = false;
-    private bool button1Pressed = false;
+    [Header("Moving object")]
+    [SerializeField] Vector3 EulerGoal;
+    [SerializeField] float moveTime;
+    [SerializeField] AnimationCurve moveCurve;
+    [SerializeField] UnityEvent OnMoveStart;
+    [SerializeField] UnityEvent<bool> OnMoveDone;
+    bool moveToGoal;
 
-    void Start()
+
+    Quaternion originalRotation;
+    Quaternion goalRotation;
+    Coroutine moving;
+    float time;
+    private void Start()
     {
-        
+        originalRotation = transform.rotation;
+        goalRotation = Quaternion.Euler(originalRotation.eulerAngles + EulerGoal);
     }
-
-    void Update()
+    [ContextMenu("Switch")]
+    public void Switch()
     {
-        if(button0Pressed && button1Pressed)
+        moveToGoal = !moveToGoal;
+        if (moving == null)
+            moving = StartCoroutine(Move());
+    }
+    [ContextMenu("To goal")]
+    public void ToGoal()
+    {
+        moveToGoal = true;
+        if (moving == null)
+            moving = StartCoroutine(Move());
+    }
+    [ContextMenu("To start")]
+    public void ToStart()
+    {
+        moveToGoal = false;
+        if (moving == null)
+            moving = StartCoroutine(Move());
+    }
+    public void SetMove(bool toGoal)
+    {
+        moveToGoal = toGoal;
+        if (moving == null)
+            moving = StartCoroutine(Move());
+    }
+    IEnumerator Move()
+    {
+        OnMoveStart?.Invoke();
+        while (time >= 0 && time <= moveTime)
         {
-            
+            if (moveToGoal) time += Time.deltaTime;
+            else time -= Time.deltaTime;
+
+            float v = moveCurve.Evaluate(time / moveTime);
+            transform.rotation = Quaternion.RotateTowards(originalRotation, goalRotation, EulerGoal.magnitude * v);
+
+            yield return new WaitForEndOfFrame();
         }
 
-        if (transform.rotation.eulerAngles.x != TargetRot)
+        if (time <= 0)
         {
-            //transform.rotation.eulerAngles
+            transform.rotation = originalRotation;
+            time = 0;
         }
-        Debug.Log(transform.rotation.eulerAngles.x);
-    }
+        else if (time >= moveTime)
+        {
+            transform.rotation = goalRotation;
+            time = moveTime;
+        }
 
-    public void OnPassCondition0()
-    {
-        button0Pressed = true;
-    }
-
-    public void OnPassCondition1()
-    {
-        button1Pressed = true;
-    }
-
-    public void OnFailCondition0()
-    {
-        button1Pressed = false;
-    }
-
-    public void OnFailCondition1()
-    {
-        button1Pressed = false;
+        OnMoveDone?.Invoke(moveToGoal);
+        moving = null;
     }
 }
