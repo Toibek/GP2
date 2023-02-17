@@ -1,6 +1,8 @@
 using UnityEngine.Audio;
 using System;
+using System.IO;
 using UnityEngine;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,11 +15,16 @@ public class AudioManager : MonoBehaviour
     // Singleton instance of the AudioManager
     public static AudioManager Instance;
 
-    // An array to store audio clips
-    public Sound[] Sounds;
+    private FMOD.Studio.Bus AmbienceBus;
+    private FMOD.Studio.Bus EnvironmentFXBus;
+    private FMOD.Studio.Bus FootStepsBus;
+    private FMOD.Studio.Bus UIBus;
 
-    // The AudioSource component used to play audio clips
-    public AudioSource AudioSource;
+    // An array to store audio clips
+    public SoundDatabase Sounds;
+
+    private FMODUnity.EmitterGameEvent gameEventSound;
+     // if (AudioManager.Instance) AudioManager.Instance.SetVolume(volumeSlider.value, Sound.Type.Ambient);
 
     private void Awake()
     {
@@ -27,30 +34,107 @@ public class AudioManager : MonoBehaviour
             Instance = this;
         }
 
-        // Loop through all the audio clips in the "Sounds" array
-        foreach (Sound sound in Sounds)
+        AmbienceBus = RuntimeManager.GetBus("bus:/Ambience");
+        EnvironmentFXBus = RuntimeManager.GetBus("bus:/EnvironmentFX");
+        FootStepsBus = RuntimeManager.GetBus("bus:/Footsteps");
+        UIBus = RuntimeManager.GetBus("bus:/UI");
+
+        if (File.Exists(Application.persistentDataPath + "/"  + PlayerPrefsVariables.AmbientVolume))
         {
-            // Add an AudioSource component to the gameObject
-            sound.source = gameObject.AddComponent<AudioSource>();
-            // Assign the audio clip and properties to the newly added AudioSource component
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.loop = sound.loop;
+            float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.AmbientVolume);
+            AmbienceBus.setVolume(newVol);
+        }
+        if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.EnviormentFXVolume))
+        {
+            float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.EnviormentFXVolume);
+            EnvironmentFXBus.setVolume(newVol);
+        }
+        if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.FootStepsVolume))
+        {
+            float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.FootStepsVolume);
+            FootStepsBus.setVolume(newVol);
+        }
+        if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.UIVolume))
+        {
+            float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.UIVolume);
+            UIBus.setVolume(newVol);
         }
     }
 
-    // Function to play audio clips by name
-    public void PlaySound(string name)
+    public void SetVolume(float newVolume,Sound.Type type)
     {
-        // Loop through all the audio clips in the "Sounds" array
-        foreach (Sound sound in Sounds)
+        switch (type)
         {
-            // If the name of the audio clip matches the input name
-            if (sound.name == name)
-            {
-                // Play the audio clip
-                sound.source.Play();
-            }
+            case Sound.Type.Ambient:
+                PlayerPrefs.SetFloat(PlayerPrefsVariables.AmbientVolume, newVolume);
+                AmbienceBus.setVolume(newVolume);
+                break;
+            case Sound.Type.EnviromentFX:
+                PlayerPrefs.SetFloat(PlayerPrefsVariables.EnviormentFXVolume, newVolume);
+                AmbienceBus.setVolume(newVolume);
+                break;
+            case Sound.Type.Footsteps:
+                PlayerPrefs.SetFloat(PlayerPrefsVariables.FootStepsVolume, newVolume);
+                AmbienceBus.setVolume(newVolume);
+                break;
+            case Sound.Type.UI:
+                PlayerPrefs.SetFloat(PlayerPrefsVariables.UIVolume, newVolume);
+                AmbienceBus.setVolume(newVolume);
+                break;
+            case Sound.Type.Unassigned:
+                break;
         }
+    }
+
+    [ContextMenu("TestSound")]
+    private void PlayTesting()
+    {
+        if (!Application.isPlaying) return;
+        PlaySound(Sound.Names.SFX_Druids_DruidJump);
+    }
+
+
+    /// <summary>
+    /// Plays sound if sound could be found in sound Database
+    /// </summary>
+    /// <param name="name">Sound.Names.ExampleName</param>
+    public void PlaySound(Sound.Names name)
+    {
+        Sound sound = Sounds.GetSound(name);
+        if (sound == null) return;
+
+        var instanceOfSound = RuntimeManager.CreateInstance(sound.eventRef);
+        RuntimeManager.AttachInstanceToGameObject(instanceOfSound, Camera.main.transform);
+        instanceOfSound.start();
+    }
+
+    /// <summary>
+    /// Plays oneShotAttached if sound could be found
+    /// </summary>
+    /// <param name="name">Name of sound to play</param>
+    /// <param name="target">Gameobject Target that sound will follow</param>
+    
+    public void PlaySound(Sound.Names name, GameObject target)
+    {
+        Sound sound = Sounds.GetSound(name);
+        if (sound == null) return;
+
+        RuntimeManager.PlayOneShotAttached(sound.eventRef,target);
+
+    }
+
+    /// <summary>
+    /// Plays oneShot if sound could be found
+    /// </summary>
+    /// <param name="name">Name of sound to play</param>
+    /// <param name="target">sound origin</param>
+
+    public void PlaySound(Sound.Names name, Vector3 target)
+    {
+        Sound sound = Sounds.GetSound(name);
+        if (sound == null) return;
+
+        RuntimeManager.PlayOneShot(sound.eventRef, target);
+
     }
 }

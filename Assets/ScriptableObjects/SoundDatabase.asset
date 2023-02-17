@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9d9a5cd6ced694397b1806c0562657, type: 3}
+  m_Name: SoundDatabase
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 1
+    eventRef:
+      Guid:
+        Data1: 405572468
+        Data2: 1105697759
+        Data3: -1939532923
+        Data4: 1522059008
+      Path: event:/Music/AmbiencePads
+  - name: 2
+    eventRef:
+      Guid:
+        Data1: -636698918
+        Data2: 1309240287
+        Data3: 536470455
+        Data4: 688738720
+      Path: event:/Music/MainMusic
+  - name: 3
+    eventRef:
+      Guid:
+        Data1: -270090600
+        Data2: 1309167096
+        Data3: -866496892
+        Data4: 493254289
+      Path: event:/SFX/Ambience/Cavern
+  - name: 4
+    eventRef:
+      Guid:
+        Data1: 387869808
+        Data2: 1081962152
+        Data3: -874872695
+        Data4: -1937838446
+      Path: event:/SFX/Ambience/Main
+  - name: 5
+    eventRef:
+      Guid:
+        Data1: 1843829696
+        Data2: 1190843713
+        Data3: 2040590263
+        Data4: -1651606740
+      Path: event:/SFX/Ambience/SnowyPeak
+  - name: 6
+    eventRef:
+      Guid:
+        Data1: 591695649
+        Data2: 1334666817
+        Data3: 486911929
+        Data4: -875484271
+      Path: event:/SFX/Druids/DruidJump
+  - name: 7
+    eventRef:
+      Guid:
+        Data1: 2106854564
+        Data2: 1123706234
+        Data3: -2113911917
+        Data4: 1073494261
+      Path: event:/SFX/Druids/RockPush
+  - name: 8
+    eventRef:
+      Guid:
+        Data1: -1767154011
+        Data2: 1319287243
+        Data3: -1963751040
+        Data4: -43522026
+      Path: event:/SFX/Environment/DrawbridgeSlam
+  - name: 9
+    eventRef:
+      Guid:
+        Data1: -118215689
+        Data2: 1117126870
+        Data3: -426187605
+        Data4: 1640974362
+      Path: event:/SFX/Environment/MagicalChimes
+  - name: 10
+    eventRef:
+      Guid:
+        Data1: 383245692
+        Data2: 1157016315
+        Data3: -1758854734
+        Data4: -611515549
+      Path: event:/SFX/Environment/River
+  - name: 11
+    eventRef:
+      Guid:
+        Data1: 1161223990
+        Data2: 1236882277
+        Data3: 714227338
+        Data4: 1811651097
+      Path: event:/SFX/Environment/StoneDoorOpening
+  - name: 12
+    eventRef:
+      Guid:
+        Data1: -97619530
+        Data2: 1171376509
+        Data3: 1375300025
+        Data4: 381008873
+      Path: event:/SFX/Environment/WaterSplash
+  - name: 13
+    eventRef:
+      Guid:
+        Data1: -1061216962
+        Data2: 1113959805
+        Data3: -241144154
+        Data4: 1441666652
+      Path: event:/SFX/Footsteps/Footsteps(Druid)
+  - name: 14
+    eventRef:
+      Guid:
+        Data1: -901956711
+        Data2: 1324194826
+        Data3: -648965470
+        Data4: -628652519
+      Path: event:/SFX/Footsteps/Footsteps(Lapide)
+  - name: 15
+    eventRef:
+      Guid:
+        Data1: -694327287
+        Data2: 1276598151
+        Data3: 244065421
+        Data4: -668115218
+      Path: event:/SFX/Lapides/LapideCollision
+  - name: 16
+    eventRef:
+      Guid:
+        Data1: -170673626
+        Data2: 1289765430
+        Data3: -1246789468
+        Data4: 1604314094
+      Path: event:/SFX/Lapides/LapideHitReaction
+  - name: 17
+    eventRef:
+      Guid:
+        Data1: 731893977
+        Data2: 1181466650
+        Data3: -1504548192
+        Data4: 1032337860
+      Path: event:/SFX/Lapides/LapideOneShot
+  - name: 18
+    eventRef:
+      Guid:
+        Data1: -973130854
+        Data2: 1296742518
+        Data3: 760401323
+        Data4: 1868907434
+      Path: event:/SFX/Respawn
+  - name: 19
+    eventRef:
+      Guid:
+        Data1: -1339005806
+        Data2: 1217207987
+        Data3: -1835906637
+        Data4: 653004761
+      Path: event:/UI/SelectNegative
+  - name: 20
+    eventRef:
+      Guid:
+        Data1: -981004933
+        Data2: 1340513998
+        Data3: 16358816
+        Data4: 1209002478
+      Path: event:/UI/SelectPositive
