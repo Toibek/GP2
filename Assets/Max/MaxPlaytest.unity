@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHeight: 30
+  savePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &91752695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartWhenConnected: 1
+  GameIsPaused: 0
+  PauseMenuUI: {fileID: 0}
 --- !u!1001 &93762834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -683,7 +686,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: _interestMask.m_Bits
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -1587,14 +1590,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528385201}
-  m_LocalRotation: {x: 0.6168764, y: -0, z: -0, w: 0.7870601}
-  m_LocalPosition: {x: -5.3, y: -0.01, z: -6.31}
-  m_LocalScale: {x: 29.348969, y: 25.097036, z: 1.3476659}
+  m_LocalRotation: {x: 0.6157003, y: -0, z: -0, w: 0.78798044}
+  m_LocalPosition: {x: -5.4218, y: -0.4659, z: -7.9427}
+  m_LocalScale: {x: 29.591673, y: 28.422697, z: 1.3194265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 69193220}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 76.177, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.006, y: 0, z: 0}
 --- !u!1 &588416803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: _interestMask.m_Bits
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -1928,7 +1931,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: _interestMask.m_Bits
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2027,7 +2030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906016616}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2, y: -1.2, z: 8.459999}
+  m_LocalPosition: {x: -5.2, y: -1.2, z: 8.49}
   m_LocalScale: {x: 30.009298, y: 9.635272, z: 5.6120167}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2518,7 +2521,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: _interestMask.m_Bits
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
@@ -2883,7 +2886,7 @@ PrefabInstance:
     - target: {fileID: 7271363298802232155, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
       propertyPath: _interestMask.m_Bits
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271363298802232164, guid: 806c60879db671a44b8c764b5ab51741,
         type: 3}
