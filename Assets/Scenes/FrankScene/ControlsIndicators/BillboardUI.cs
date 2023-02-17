@@ -16,6 +16,9 @@ public class BillboardUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
+        Vector3 lookAtPosition = transform.position - _cam.transform.position;
+        lookAtPosition.x = 0; // ignore the y-axis
+        transform.rotation = Quaternion.LookRotation(lookAtPosition);
     }
+
 }
