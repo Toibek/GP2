@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: 1
-    clip:
+    eventRef:
       Guid:
         Data1: 405572468
         Data2: 1105697759
@@ -22,7 +22,7 @@ MonoBehaviour:
         Data4: 1522059008
       Path: event:/Music/AmbiencePads
   - name: 2
-    clip:
+    eventRef:
       Guid:
         Data1: -636698918
         Data2: 1309240287
@@ -30,7 +30,7 @@ MonoBehaviour:
         Data4: 688738720
       Path: event:/Music/MainMusic
   - name: 3
-    clip:
+    eventRef:
       Guid:
         Data1: -270090600
         Data2: 1309167096
@@ -38,7 +38,7 @@ MonoBehaviour:
         Data4: 493254289
       Path: event:/SFX/Ambience/Cavern
   - name: 4
-    clip:
+    eventRef:
       Guid:
         Data1: 387869808
         Data2: 1081962152
@@ -46,7 +46,7 @@ MonoBehaviour:
         Data4: -1937838446
       Path: event:/SFX/Ambience/Main
   - name: 5
-    clip:
+    eventRef:
       Guid:
         Data1: 1843829696
         Data2: 1190843713
@@ -54,7 +54,7 @@ MonoBehaviour:
         Data4: -1651606740
       Path: event:/SFX/Ambience/SnowyPeak
   - name: 6
-    clip:
+    eventRef:
       Guid:
         Data1: 591695649
         Data2: 1334666817
@@ -62,7 +62,7 @@ MonoBehaviour:
         Data4: -875484271
       Path: event:/SFX/Druids/DruidJump
   - name: 7
-    clip:
+    eventRef:
       Guid:
         Data1: 2106854564
         Data2: 1123706234
@@ -70,7 +70,7 @@ MonoBehaviour:
         Data4: 1073494261
       Path: event:/SFX/Druids/RockPush
   - name: 8
-    clip:
+    eventRef:
       Guid:
         Data1: -1767154011
         Data2: 1319287243
@@ -78,7 +78,7 @@ MonoBehaviour:
         Data4: -43522026
       Path: event:/SFX/Environment/DrawbridgeSlam
   - name: 9
-    clip:
+    eventRef:
       Guid:
         Data1: -118215689
         Data2: 1117126870
@@ -86,7 +86,7 @@ MonoBehaviour:
         Data4: 1640974362
       Path: event:/SFX/Environment/MagicalChimes
   - name: 10
-    clip:
+    eventRef:
       Guid:
         Data1: 383245692
         Data2: 1157016315
@@ -94,7 +94,7 @@ MonoBehaviour:
         Data4: -611515549
       Path: event:/SFX/Environment/River
   - name: 11
-    clip:
+    eventRef:
       Guid:
         Data1: 1161223990
         Data2: 1236882277
@@ -102,7 +102,7 @@ MonoBehaviour:
         Data4: 1811651097
       Path: event:/SFX/Environment/StoneDoorOpening
   - name: 12
-    clip:
+    eventRef:
       Guid:
         Data1: -97619530
         Data2: 1171376509
@@ -110,7 +110,7 @@ MonoBehaviour:
         Data4: 381008873
       Path: event:/SFX/Environment/WaterSplash
   - name: 13
-    clip:
+    eventRef:
       Guid:
         Data1: -1061216962
         Data2: 1113959805
@@ -118,7 +118,7 @@ MonoBehaviour:
         Data4: 1441666652
       Path: event:/SFX/Footsteps/Footsteps(Druid)
   - name: 14
-    clip:
+    eventRef:
       Guid:
         Data1: -901956711
         Data2: 1324194826
@@ -126,7 +126,7 @@ MonoBehaviour:
         Data4: -628652519
       Path: event:/SFX/Footsteps/Footsteps(Lapide)
   - name: 15
-    clip:
+    eventRef:
       Guid:
         Data1: -694327287
         Data2: 1276598151
@@ -134,7 +134,7 @@ MonoBehaviour:
         Data4: -668115218
       Path: event:/SFX/Lapides/LapideCollision
   - name: 16
-    clip:
+    eventRef:
       Guid:
         Data1: -170673626
         Data2: 1289765430
@@ -142,7 +142,7 @@ MonoBehaviour:
         Data4: 1604314094
       Path: event:/SFX/Lapides/LapideHitReaction
   - name: 17
-    clip:
+    eventRef:
       Guid:
         Data1: 731893977
         Data2: 1181466650
@@ -150,7 +150,7 @@ MonoBehaviour:
         Data4: 1032337860
       Path: event:/SFX/Lapides/LapideOneShot
   - name: 18
-    clip:
+    eventRef:
       Guid:
         Data1: -973130854
         Data2: 1296742518
@@ -158,7 +158,7 @@ MonoBehaviour:
         Data4: 1868907434
       Path: event:/SFX/Respawn
   - name: 19
-    clip:
+    eventRef:
       Guid:
         Data1: -1339005806
         Data2: 1217207987
@@ -166,7 +166,7 @@ MonoBehaviour:
         Data4: 653004761
       Path: event:/UI/SelectNegative
   - name: 20
-    clip:
+    eventRef:
       Guid:
         Data1: -981004933
         Data2: 1340513998

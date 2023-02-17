@@ -5,9 +5,9 @@ using UnityEngine;
 public static class PlayerPrefsVariables
 {
     /// <summary>
-    /// Gets Master Volume "MaterVolume" | return: float 
+    /// Gets Master Volume "AmbientVolume" | return: float 
     /// </summary>
-    public static string MasterVolume = "MasterVolume";
+    public static string AmbientVolume = "AmbientVolume";
 
     /// <summary>
     /// Gets EnviormentFX Volume "EnviormentFXVolume" | return: float 

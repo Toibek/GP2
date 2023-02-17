@@ -9,16 +9,16 @@ public class Sound
 {
 
     public Names name;
-    public EventReference clip;
+    public EventReference eventRef;
 
     public void PlayOneShot(Vector3 position)
     {
-        FMODUnity.RuntimeManager.PlayOneShot(clip,position);
+        FMODUnity.RuntimeManager.PlayOneShot(eventRef,position);
     }
 
     public void PlayOneShot(GameObject target)
     {
-        FMODUnity.RuntimeManager.PlayOneShotAttached(clip, target);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(eventRef, target);
     }
 
     public enum Names
@@ -48,7 +48,8 @@ public class Sound
 
     public enum Type
     {
-        Unassigend,
+        Unassigned,
+        Master,
         Ambient,
         EnviromentFX,
         Footsteps,
