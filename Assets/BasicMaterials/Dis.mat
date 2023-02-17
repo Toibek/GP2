@@ -104,7 +104,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 44cced520ecfd9f4292979a4fe8268c4, type: 3}
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
@@ -171,7 +171,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _Falloff_Size: 0.136
+    - _Falloff_Size: 0.054
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -244,7 +244,7 @@ Material:
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _cutout_Size: 0.17
+    - _cutout_Size: 0.1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
@@ -256,10 +256,10 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Player1Position: {r: 1, g: -2, b: 26.65, a: 0}
-    - _Player1ScreenPosition: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _Player2Position: {r: 0, g: 0, b: 0, a: 0}
-    - _Player2ScreenPosition: {r: -1, g: -1, b: 0, a: 0}
+    - _Player1Position: {r: 0, g: -1, b: 0, a: 0}
+    - _Player1ScreenPosition: {r: -0.0016420361, g: -0.002624672, b: -1, a: 0}
+    - _Player2Position: {r: 0, g: -1, b: 0, a: 0}
+    - _Player2ScreenPosition: {r: -0.0016420361, g: -0.002624672, b: -1, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}

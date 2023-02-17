@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Liftable : MonoBehaviour
 {
-    bool flying;
+    public bool flying;
     bool hadRb;
     Vector3 direction;
     Rigidbody rb;
