@@ -23,7 +23,6 @@ public class AudioManager : MonoBehaviour
     // An array to store audio clips
     public SoundDatabase Sounds;
 
-    private FMODUnity.EmitterGameEvent gameEventSound;
      // if (AudioManager.Instance) AudioManager.Instance.SetVolume(volumeSlider.value, Sound.Type.Ambient);
 
     private void Awake()
@@ -33,6 +32,7 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(gameObject);
 
         AmbienceBus = RuntimeManager.GetBus("bus:/Ambience");
         EnvironmentFXBus = RuntimeManager.GetBus("bus:/EnvironmentFX");
@@ -90,15 +90,42 @@ public class AudioManager : MonoBehaviour
     private void PlayTesting()
     {
         if (!Application.isPlaying) return;
-        PlaySound(Sound.Names.SFX_Druids_DruidJump);
+        PlayOneShotSound(Sound.Names.SFX_Druids_DruidJump);
     }
 
+    public static void S_PlayOneShotSound(Sound.Names name)
+    {
+        if (Instance == null) return;
+
+        Instance.PlayOneShotSound(name);
+    }
+    public static void S_PlayOneShotSound(int name)
+    {
+        if (Instance == null) return;
+        Debug.Log(((Sound.Names)name).ToString());
+
+        Instance.PlayOneShotSound((Sound.Names) name);
+    }
+
+    /// <summary>
+    /// Plays sound if sound could be found in sound Database
+    /// </summary>
+    /// <param name="name">exakt name</param>
+    public void PlayOneShotSound(string name)
+    {
+        Sound sound = Sounds.GetSound(name);
+        if (sound == null) return;
+
+        var instanceOfSound = RuntimeManager.CreateInstance(sound.eventRef);
+        RuntimeManager.AttachInstanceToGameObject(instanceOfSound, Camera.main.transform);
+        instanceOfSound.start();
+    }
 
     /// <summary>
     /// Plays sound if sound could be found in sound Database
     /// </summary>
     /// <param name="name">Sound.Names.ExampleName</param>
-    public void PlaySound(Sound.Names name)
+    public void PlayOneShotSound(Sound.Names name)
     {
         Sound sound = Sounds.GetSound(name);
         if (sound == null) return;

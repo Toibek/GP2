@@ -6,7 +6,17 @@ using UnityEngine;
 public class SoundDatabase : ScriptableObject
 {
     public Sound[] sounds;
-
+    public Sound GetSound(string nameOfSound)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name.ToString() == nameOfSound)
+            {
+                return sounds[i];
+            }
+        }
+        return null;
+    }
     public Sound GetSound(Sound.Names nameOfSound)
     {
         for(int i = 0; i < sounds.Length; i++)
