@@ -1,19 +1,57 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using FMODUnity;
+using FMOD;
+using FMOD;
 
 [System.Serializable]
 public class Sound
 {
 
-    public string name;
+    public Names name;
+    public EventReference clip;
 
-    public AudioClip clip;
+    public void PlayOneShot(Vector3 position)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(clip,position);
+    }
 
-    [Range(0f, 1f)] // Adds a slider to the interface in unity that has values between 0 - 1 
-    public float volume;
+    public void PlayOneShot(GameObject target)
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(clip, target);
+    }
 
-    public bool loop;
+    public enum Names
+    {
+        Unassigned,
+        Music_AmbientPads,
+        Music_MainMusic,
+        SFX_Ambient_Cavern,
+        SFX_Ambient_Main,
+        SFX_Ambient_SnowyPeak,
+        SFX_Druids_DruidJump,
+        SFX_Druids_RockPush,
+        SFX_Environment_DrawBridgeSlam,
+        SFX_Environment_MagicalChimes,
+        SFX_Environment_River,
+        SFX_Environment_StoneDoorOpening,
+        SFX_Environment_waterSplash,
+        SFX_Footsteps_FootstepsDruid,
+        SFX_Footsteps_FootstepsLapide,
+        SFX_Lapide_LapidCollision,
+        SFX_Lapide_LapideHitReaction,
+        SFX_Lapide_LapideOneShot,
+        SFX_Respawn,
+        UI_SelectNegative,
+        UI_SelectPositive
+    }
 
-    [HideInInspector]
-    public AudioSource source;
+    public enum Type
+    {
+        Unassigend,
+        Ambient,
+        EnviromentFX,
+        Footsteps,
+        UI
+    }
 }
