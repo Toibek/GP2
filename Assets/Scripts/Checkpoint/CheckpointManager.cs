@@ -11,16 +11,10 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private float globalOffsetY;
     [SerializeField] private float globalOffsetZ;
     public static CheckpointManager instance;
->>>> ORIGINAL //FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs#8
-    [SerializeField]private List<GameObject> checkPointList;
-==== THEIRS //FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs#9
-    private List<GameObject> checkPointList;
-==== YOURS //max.palsson_GP2v2/FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs
     [SerializeField]private List<GameObject> checkPointList;
     private GameObject checkPointSaver;
-<<<<
     private Vector3 checkPointSpawn;
-    [SerializeField]private List<GameObject> queueList;
+    private List<GameObject> queueList;
     
 
     private void Awake()
@@ -62,7 +56,6 @@ public class CheckpointManager : MonoBehaviour
 
     public void LoadLastCheckpoint(GameObject layer)
     {
->>>> ORIGINAL //FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs#8
         switch (tag)
         {
             case"Player":
@@ -73,25 +66,6 @@ public class CheckpointManager : MonoBehaviour
                 StartCoroutine(Countdown2(layer));
                 break;
         }
-==== THEIRS //FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs#9
-        queueList.Add(layer);
-        StartCoroutine(Countdown2(layer));
-==== YOURS //max.palsson_GP2v2/FG22_GP2_North_Team05/Assets/Scripts/Checkpoint/CheckpointManager.cs
-        switch (tag)
-        {
-            case"Player":
-                layer.transform.position = checkPointSpawn;
-                Debug.Log(layer.name);
-                Debug.Log(tag);
-                Debug.Log(layer.transform.position);
-                Debug.Log(checkPointSpawn);
-                break;
-            case "Pebble":
-                queueList.Add(layer);
-                StartCoroutine(Countdown2(layer));
-                break;
-        }
-<<<<
         
     }
 

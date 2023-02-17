@@ -5,15 +5,19 @@ namespace Checkpoint
 {
     public class Killtrigger : MonoBehaviour
     {
-        public Montis montis;
+        private Montis montis;
+        private CameraControll camControll;
         
         private void OnTriggerEnter(Collider other)
         {
             if(other.isTrigger)return;
-            if(montis == null)
-                montis = FindObjectOfType<Montis>();
             if (other.CompareTag("Player"))
             {
+                if(montis == null || camControll == null)
+                {
+                montis = FindObjectOfType<Montis>();
+                camControll = FindObjectOfType<CameraControll>();
+                }
                 if (montis.heldObject != null)
                 {
                     montis.heldObject.position = 
@@ -22,11 +26,11 @@ namespace Checkpoint
                     montis.heldObject.parent = null;
                     montis.heldObject = null;
                 }
-                CheckpointManager.instance.LoadLastCheckpoint(other.gameObject, other.tag);
+                other.gameObject.transform.position = camControll.savePosition;
             }
             if(other.CompareTag("Pebble"))
             {
-                CheckpointManager.instance.LoadLastCheckpoint(other.gameObject, other.tag);
+                CheckpointManager.instance.LoadLastCheckpoint(other.gameObject);
             }
         }
     }
