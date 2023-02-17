@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     Ability ability;
     PlayerManager manager;
     CharacterSO settings;
+
+    internal EmptyDelegate OnToggleReady;
+    internal IntDelegate OnCharacterChange;
     public void Init(PlayerManager man)
     {
         manager = man;
@@ -22,6 +25,16 @@ public class Player : MonoBehaviour
 
 
         ability = GetComponentInChildren<Ability>();
+    }
+    private void OnChangeCharacter(InputValue value)
+    {
+        int val = Mathf.RoundToInt(value.Get<float>());
+        if (val != 0)
+            OnCharacterChange?.Invoke(val);
+    }
+    private void OnSetReady()
+    {
+        OnToggleReady?.Invoke();
     }
     private void OnPause()
     {
@@ -48,3 +61,5 @@ public class Player : MonoBehaviour
         ability.Tertiary();
     }
 }
+public delegate void EmptyDelegate();
+public delegate void IntDelegate(int value);

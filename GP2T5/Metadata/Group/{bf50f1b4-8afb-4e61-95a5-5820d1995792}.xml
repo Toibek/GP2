@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{bf50f1b4-8afb-4e61-95a5-5820d1995792}">
+		<property name="name">
+			<value>LapideSFX</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{bafeb5f8-c046-4d42-8e84-3148f3c26807}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{de9bc530-9147-4bd4-af97-1cc47edc2104}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{455a85b2-e2db-4c6b-84b2-d4c5146d327f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{bafeb5f8-c046-4d42-8e84-3148f3c26807}">
+		<relationship name="effects">
+			<destination>{683f42bd-bc18-47f2-b597-f3f7a982c658}</destination>
+			<destination>{7cab011e-3910-46c2-81e1-baf57bc298e5}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{de9bc530-9147-4bd4-af97-1cc47edc2104}" />
+	<object class="MixerBusFader" id="{683f42bd-bc18-47f2-b597-f3f7a982c658}" />
+	<object class="MixerSend" id="{7cab011e-3910-46c2-81e1-baf57bc298e5}">
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{3eb4c975-d6b4-4194-bff4-60477d585bb3}</destination>
+		</relationship>
+	</object>
+</objects>
