@@ -7,7 +7,7 @@ namespace Checkpoint
     {
         private Montis montis;
         private CameraControll camControll;
-        
+
         private void OnTriggerEnter(Collider other)
         {
             if(other.isTrigger)return;
@@ -27,6 +27,7 @@ namespace Checkpoint
                     montis.heldObject = null;
                 }
                 other.gameObject.transform.position = camControll.savePosition;
+                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
             if(other.CompareTag("Pebble"))
             {

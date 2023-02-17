@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,7 +12,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private float globalOffsetY;
     [SerializeField] private float globalOffsetZ;
     public static CheckpointManager instance;
-    [SerializeField]private List<GameObject> checkPointList;
+    private List<GameObject> checkPointList;
     private GameObject checkPointSaver;
     private Vector3 checkPointSpawn;
     private List<GameObject> queueList;
@@ -54,19 +55,11 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void LoadLastCheckpoint(GameObject layer)
+    public void LoadLastCheckpoint(GameObject deadObject)
     {
-        switch (tag)
-        {
-            case"Player":
-                layer.transform.position = checkPointSpawn;
-                break;
-            case "Pebble":
-                queueList.Add(layer);
-                StartCoroutine(Countdown2(layer));
-                break;
-        }
-        
+        queueList.Add(deadObject); 
+        StartCoroutine(Countdown2(deadObject));
+
     }
 
     private IEnumerator Countdown2(GameObject queue)
@@ -77,12 +70,12 @@ public class CheckpointManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (queueList.IndexOf(queue) == 0)
             {
+                queue.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                queue.GetComponent<Liftable>().flying = false;
                 queue.transform.position = checkPointSpawn;
                 queueList.Remove(queue);
                 break;    
             }
-            yield return new WaitForSeconds(5);
-            
         }
     }
 }
