@@ -15,8 +15,32 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638120508336296264
+  lastModified: 638119872042593629
   FileSizes: []
+  Exists: 1
+--- !u!114 &-8821536011808666694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LapideCollision/CaveReverb
+  m_EditorClassIdentifier: 
+  Name: CaveReverb
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 1484770238
+    data2: 2233175786
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-8521419698072329482
 MonoBehaviour:
@@ -227,6 +251,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-5954737607230280043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps(Druid)/CaveReverb
+  m_EditorClassIdentifier: 
+  Name: CaveReverb
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 1484770238
+    data2: 2233175786
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-5882842108282546385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +299,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-5814519607956144136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Lapides/LapideSnore
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Lapides/LapideSnore
+  Guid:
+    Data1: -716966230
+    Data2: 1223498394
+    Data3: 1826385566
+    Data4: -1171950927
+  Banks:
+  - {fileID: 3495981028596171442}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &-4999698982959756734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +392,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638120508339612356
+  lastModified: 638119872043107685
   FileSizes: []
   Exists: 1
 --- !u!114 &-2115162920903896302
@@ -518,12 +593,14 @@ MonoBehaviour:
   - {fileID: -240785615664150446}
   - {fileID: 7694456258414362599}
   - {fileID: 4720880517244959327}
+  - {fileID: 1875089120448962248}
+  - {fileID: -5814519607956144136}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6062643611790963009}
   StringsBanks:
   - {fileID: 680128047597393548}
-  cacheTime: 638122224097211635
+  cacheTime: 638122438266048031
   cacheVersion: 131601
 --- !u!114 &680128047597393548
 MonoBehaviour:
@@ -540,10 +617,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638122224094224895
+  lastModified: 638122438265513260
   FileSizes:
   - Name: 
-    Value: 2508
+    Value: 2684
   Exists: 1
 --- !u!114 &688572040882061942
 MonoBehaviour:
@@ -587,7 +664,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638120508337413926
+  lastModified: 638122438265718758
   FileSizes: []
   Exists: 1
 --- !u!114 &1792203974429770940
@@ -617,6 +694,35 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1804
+--- !u!114 &1875089120448962248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/CaveReverbSnapshot
+  m_EditorClassIdentifier: 
+  Path: snapshot:/CaveReverbSnapshot
+  Guid:
+    Data1: 1581348802
+    Data2: 1316368023
+    Data3: 1189781406
+    Data4: -25554837
+  Banks:
+  - {fileID: 6062643611790963009}
+  - {fileID: 3495981028596171442}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3557068587133368239}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &3095582060174719245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,8 +786,32 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638122224097211635
+  lastModified: 638122438266048031
   FileSizes: []
+  Exists: 1
+--- !u!114 &3557068587133368239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/CaveReverbSnapshot/CaveReverb
+  m_EditorClassIdentifier: 
+  Name: CaveReverb
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 1484770238
+    data2: 2233175786
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &3981521930529568280
 MonoBehaviour:
@@ -736,7 +866,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1062
 --- !u!114 &4720880517244959327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +950,7 @@ MonoBehaviour:
   - {fileID: -5882842108282546385}
   - {fileID: 3307784966579847330}
   - {fileID: 7293744869835083407}
+  - {fileID: -5954737607230280043}
   MinDistance: 1
   MaxDistance: 20
   Length: 705
@@ -838,7 +969,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638122224094204783
+  lastModified: 638122438265513260
   FileSizes: []
   Exists: 1
 --- !u!114 &7090907082063133511
@@ -1021,6 +1152,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: 8543358808804760871}
+  - {fileID: -8821536011808666694}
   MinDistance: 1
   MaxDistance: 20
   Length: 1058

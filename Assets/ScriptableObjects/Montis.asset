@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Montis
   m_EditorClassIdentifier: 
   Name: Catcher
-  MovementAcceleration: 60
-  MovementDeceleration: 0
-  MovementSpeed: 6
+  MovementAcceleration: 300
+  MovementDeceleration: 50
+  MovementSpeed: 10
   prefab: {fileID: 798668047311375118, guid: 743655557a8ff6d40af465d4d8c0a0c0, type: 3}
