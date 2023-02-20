@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Note: \n" +
@@ -14,12 +15,19 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 _moveVector = Vector3.one;
     [Tooltip("Where on the area it will start")]
     [SerializeField]
-    [Range(0,1)]
+    [Range(0, 1)]
     private float _lerpValue = 0;
     private Vector3 _worldStartPos;
+    private Quaternion _startRot;
 
-    private Vector3 GetRunTimePosition => Vector3.Lerp(_worldStartPos, _worldStartPos + _moveVector, _lerpValue);
-    private Vector3 GetInspectorTimePosition => Vector3.Lerp(transform.position, transform.position + _moveVector, _lerpValue);
+    /// <summary>
+    /// Procentage tp end Position of platform
+    /// | 0 -> 1 | start -> end |
+    /// </summary>
+    public float LerpValue { get { return _lerpValue; } set { _lerpValue = value; } }
+
+    private Vector3 GetRunTimePosition => Vector3.Lerp(_worldStartPos, _worldStartPos + _startRot * _moveVector, _lerpValue);
+    private Vector3 GetInspectorTimePosition => Vector3.Lerp(transform.position, transform.position + transform.rotation * _moveVector, _lerpValue);
 
     private Vector3 _currentVelocity;
     private Rigidbody _rb;
@@ -38,6 +46,14 @@ public class MovingPlatform : MonoBehaviour
     {
         OldParents = new();
         _worldStartPos = transform.position;
+        _startRot = new Quaternion()
+        {
+            w = transform.rotation.w,
+            x = transform.rotation.x,
+            y = transform.rotation.y,
+            z = transform.rotation.z,
+            eulerAngles = transform.rotation.eulerAngles
+        };
         transform.position = GetRunTimePosition;
         if (TryGetComponent<Rigidbody>(out _rb))
         {
@@ -93,12 +109,14 @@ public class MovingPlatform : MonoBehaviour
         if (Application.isPlaying)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(_worldStartPos , _worldStartPos + _moveVector);
+            Gizmos.DrawLine(_worldStartPos , _worldStartPos + _startRot *_moveVector);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(GetRunTimePosition, transform.localScale);
         }
         else
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, transform.position + _moveVector);
+            Gizmos.DrawLine(transform.position, transform.position + transform.rotation * _moveVector);
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(GetInspectorTimePosition, transform.localScale);
         }
