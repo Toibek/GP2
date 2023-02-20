@@ -8,6 +8,7 @@ public class Liftable : MonoBehaviour
     bool hadRb;
     Vector3 direction;
     Rigidbody rb;
+    GameObject thrower;
     IEnumerator throwEnum()
     {
         while (flying)
@@ -22,7 +23,7 @@ public class Liftable : MonoBehaviour
         if (!hadRb) Destroy(rb);
         else rb.useGravity = true;
     }
-    public virtual void Throw(Vector3 direction)
+    public virtual void Throw(Vector3 direction, GameObject thrower)
     {
         if (TryGetComponent(out rb))
         {
@@ -32,6 +33,9 @@ public class Liftable : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody>();
         }
+        if (TryGetComponent(out Movement mov))
+            mov.disabled = true;
+        this.thrower = thrower;
         this.direction = direction;
         rb.useGravity = false;
         flying = true;
@@ -39,6 +43,12 @@ public class Liftable : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        flying = false;
+        if (collision.gameObject != thrower)
+        {
+            if (TryGetComponent(out Movement mov))
+                mov.disabled = false;
+            flying = false;
+            thrower = null;
+        }
     }
 }
