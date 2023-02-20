@@ -1,52 +1,60 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EnableDisableOnTrigger : MonoBehaviour
 {
-    public GameObject objectToToggleForFlumine;
-    public GameObject objectToToggleForMothis;
+    // Public variables to hold the objects that will be toggled
+    public GameObject objectToToggleForKeyboard;
+    public GameObject objectToToggleForControler;
 
+    // Private properties to get the player game objects from the GameManager
     private GameObject Player1 => GameManager.Instance.Player1;
     private GameObject Player2 => GameManager.Instance.Player2;
 
     // This method is called when a collider enters the trigger zone
     private void OnTriggerEnter(Collider other)
     {
+        // Check if the GameManager instance is null
         if (GameManager.Instance == null)
         {
+            // If it is, log an error and return
             Debug.LogError("Could not find gamemanager in the scene!");
             return;
         }
-        // Check if the entering collider is tagged as a "Player"
-        if (other.gameObject == Player1)
+
+        // Check if the entering collider has a keyboard
+        if (other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
         {
-            // Set the active state of the objectToToggle to true
-            objectToToggleForFlumine.SetActive(true);
+            // If it is, set the active state of objectToToggleForFlumine to true
+            objectToToggleForKeyboard.SetActive(true);
         }
-        if (other.gameObject == Player2)
+        else
         {
-            // Set the active state of the objectToToggle to true
-            objectToToggleForMothis.SetActive(true);
+            // If it is, set the active state of objectToToggleForMothis to true
+            objectToToggleForControler.SetActive(true);
         }
     }
 
     // This method is called when a collider exits the trigger zone
     private void OnTriggerExit(Collider other)
     {
+        // Check if the GameManager instance is null
         if (GameManager.Instance == null)
         {
+            // If it is, log an error and return
             Debug.LogError("Could not find gamemanager in the scene!");
             return;
         }
-        // Check if the exiting collider is tagged as a "Player"
-        if (other.gameObject == Player1)
+
+        if (other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
         {
-            // Set the active state of the objectToToggle to true
-            objectToToggleForFlumine.SetActive(false);
+            // If it is, set the active state of objectToToggleForFlumine to true
+            objectToToggleForKeyboard.SetActive(false);
         }
-        if (other.gameObject == Player2)
+        else
         {
-            // Set the active state of the objectToToggle to true
-            objectToToggleForMothis.SetActive(false);
+            // If it is, set the active state of objectToToggleForMothis to true
+            objectToToggleForControler.SetActive(false);
         }
     }
 }
