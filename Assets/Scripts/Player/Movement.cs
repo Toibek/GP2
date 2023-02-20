@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
     internal CharacterSO settings;
     internal Vector3 lookPoint;
-    [SerializeField] bool AlwaysMoveable;
+    internal bool disabled;
+
     [SerializeField] float jumpForce;
     [SerializeField] LayerMask groundingLayers;
-
+    Rigidbody rb;
     private Coroutine moveRoutine;
-    private Rigidbody rb;
+    Vector3 velocity;
     public Vector2 Move
     {
         set { moving = value; if (moveRoutine == null) moveRoutine = StartCoroutine(MoveEnum()); }
@@ -19,9 +21,8 @@ public class Movement : MonoBehaviour
     private Vector2 moving;
     private void Start()
     {
-        rb = GetComponentInChildren<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
-
     private void FixedUpdate()
     {
         //fu im lazy <3
@@ -32,33 +33,32 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            lookDir = rb.velocity;
+            lookDir = velocity;
         }
-        lookDir = new(lookDir.x, 0, lookDir.y);
+        lookDir = new(lookDir.x, 0, lookDir.z);
 
         if (lookDir.magnitude >= 0.1f)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(new Vector3(rb.velocity.x, 0, rb.velocity.z), Vector3.up), 360 * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
         }
     }
     public void Jump()
     {
-        if (Physics.SphereCast(new Ray(transform.position, Vector3.down), 0.5f, 0.6f, groundingLayers))
-        {
-            rb.AddForce(0, jumpForce, 0);
-        }
+        if (disabled) return;
+        rb.AddForce(0, jumpForce, 0);
     }
     private IEnumerator MoveEnum()
     {
-        while (moving != Vector2.zero)
+        while (moving != Vector2.zero || velocity != Vector3.zero)
         {
-            if (AlwaysMoveable || Physics.SphereCast(new Ray(transform.position, Vector3.down), 0.5f, 0.6f, groundingLayers))
-            {
-                rb.AddForce(new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration);
-                Vector3 movVel = Vector3.ClampMagnitude(rb.velocity, settings.MovementSpeed);
-                rb.velocity = new(movVel.x, rb.velocity.y, movVel.z);
-            }
             yield return new WaitForFixedUpdate();
+            if (disabled) continue;
+            if (moving != Vector2.zero)
+                velocity += new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration * Time.deltaTime;
+            else
+                velocity -= Vector3.ClampMagnitude(velocity.normalized, velocity.magnitude) * settings.MovementDeceleration * Time.deltaTime;
+            velocity = Vector3.ClampMagnitude(velocity, settings.MovementSpeed);
+            rb.velocity = new(velocity.x, rb.velocity.y, velocity.z);
         }
         moveRoutine = null;
     }

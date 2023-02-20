@@ -13,6 +13,10 @@ public class Montis : Ability
     {
         liftableOjbects = new();
     }
+    private void Update()
+    {
+        if (heldObject != null) heldObject.position = transform.position + transform.up * 2;
+    }
     public override void Primary()
     {
         if (heldObject == null)
@@ -21,7 +25,6 @@ public class Montis : Ability
             if (lift == null) return;
             heldObject = lift.transform;
             heldObject.position = transform.position + transform.up * 2;
-            heldObject.parent = transform;
             if (heldObject.TryGetComponent(out Rigidbody rb))
             {
                 rb.isKinematic = true;
@@ -30,7 +33,6 @@ public class Montis : Ability
         else
         {
             if (heldObject == null) return;
-            heldObject.parent = null;
             heldObject.position = transform.position + transform.forward;
             if (heldObject.TryGetComponent(out Rigidbody rb))
             {
@@ -44,15 +46,13 @@ public class Montis : Ability
     {
         if (heldObject == null) return;
 
-        heldObject.parent = null;
         if (heldObject.TryGetComponent(out Rigidbody rb))
         {
             rb.isKinematic = false;
         }
 
         Vector3 direction = transform.forward;
-        heldObject.transform.position = transform.position + (transform.forward * 2);
-        heldObject.gameObject.GetComponent<Liftable>().Throw(direction * throwForce);
+        heldObject.gameObject.GetComponent<Liftable>().Throw(direction * throwForce, transform.parent.gameObject);
 
         heldObject = null;
 

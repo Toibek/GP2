@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flumine
   m_EditorClassIdentifier: 
   Name: Pitcher
-  MovementAcceleration: 60
-  MovementDeceleration: 0
-  MovementSpeed: 6
+  MovementAcceleration: 300
+  MovementDeceleration: 50
+  MovementSpeed: 10
   prefab: {fileID: 797555661008972966, guid: 8b8e3d9005d0b1849982d20e485974df, type: 3}
