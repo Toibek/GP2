@@ -28,8 +28,8 @@ public class SeeThrough : MonoBehaviour
 
                 if (material == null) continue;
 
-                if (GameManager.Instance.Player1 != null) Debug.Log("Player 1" + Camera.main.WorldToScreenPoint(GameManager.Instance.Player1.transform.position));
-                if (GameManager.Instance.Player2 != null) Debug.Log("Player 2" + Camera.main.WorldToScreenPoint(GameManager.Instance.Player2.transform.position));
+                //if (GameManager.Instance.Player1 != null) Debug.Log("Player 1" + Camera.main.WorldToScreenPoint(GameManager.Instance.Player1.transform.position));
+                //if (GameManager.Instance.Player2 != null) Debug.Log("Player 2" + Camera.main.WorldToScreenPoint(GameManager.Instance.Player2.transform.position));
 
                 Vector3 ScreenPos1 = GameManager.Instance.Player1 != null ? Camera.main.WorldToScreenPoint(GameManager.Instance.Player1.transform.position) : new Vector3(-1, -1, -1);
                 Vector3 ScreenPos2 = GameManager.Instance.Player2 != null ? Camera.main.WorldToScreenPoint(GameManager.Instance.Player2.transform.position) : new Vector3(-1, -1, -1);
