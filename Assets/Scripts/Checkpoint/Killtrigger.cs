@@ -15,8 +15,8 @@ namespace Checkpoint
             {
                 if(montis == null || camControll == null)
                 {
-                montis = FindObjectOfType<Montis>();
-                camControll = FindObjectOfType<CameraControll>();
+                    montis = FindObjectOfType<Montis>();
+                    camControll = FindObjectOfType<CameraControll>();
                 }
                 if (montis.heldObject != null)
                 {
