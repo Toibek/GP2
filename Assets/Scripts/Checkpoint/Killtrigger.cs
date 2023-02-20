@@ -26,7 +26,17 @@ namespace Checkpoint
                     montis.heldObject.parent = null;
                     montis.heldObject = null;
                 }
-                other.gameObject.transform.position = camControll.savePosition;
+
+                if (other.gameObject.transform.GetChild(0).TryGetComponent(out montis))
+                {
+                    Debug.Log("l");
+                    other.gameObject.transform.position = camControll.play2Pos;
+                }
+                else
+                {
+                    Debug.Log("5");
+                    other.gameObject.transform.position = camControll.play1Pos;
+                }
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
             if(other.CompareTag("Pebble"))
