@@ -3,7 +3,17 @@ guid: 90769230b35e965429aa5dae9f0615d5
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Montis_Rig_Material.003
+    second: {fileID: 2100000, guid: 4a35aaa10972c7b459a2ed376667884c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Montis_Rig_Material.004
+    second: {fileID: 2100000, guid: 9a968043206e4ee438b6cdd03dd82d8a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
