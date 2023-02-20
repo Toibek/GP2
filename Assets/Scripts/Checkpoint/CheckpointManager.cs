@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CheckpointManager : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class CheckpointManager : MonoBehaviour
     private GameObject checkPointSaver;
     private Vector3 checkPointSpawn;
     private List<GameObject> queueList;
+    private GameObject selectedItem;
+    private Vector3 point;
     
 
     private void Awake()
@@ -55,27 +59,37 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void LoadLastCheckpoint(GameObject deadObject)
+    private void FixedUpdate()
     {
-        queueList.Add(deadObject); 
-        StartCoroutine(Countdown2(deadObject));
-
-    }
-
-    private IEnumerator Countdown2(GameObject queue)
-    {
-        //Can be fixed with putting it in update
-        while (!queueList.Contains(null))
+        if (queueList.Count > 0)
         {
-            yield return new WaitForSeconds(1);
-            if (queueList.IndexOf(queue) == 0)
-            {
-                queue.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                queue.GetComponent<Liftable>().flying = false;
-                queue.transform.position = checkPointSpawn;
-                queueList.Remove(queue);
-                break;    
+            if (selectedItem == null)
+            { 
+                selectedItem = queueList.First(); selectedItem.SetActive(true);
+                point.x = Random.Range(-checkPointSaver.transform.localScale.x/2f, checkPointSaver.transform.localScale.x/2f);
+                point.y = checkPointSaver.transform.position.y;
+                point.z = Random.Range(-checkPointSaver.transform.localScale.z/2f, checkPointSaver.transform.localScale.z/2f);
+
+                selectedItem.transform.position = checkPointSpawn + point;
+                selectedItem.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                selectedItem.GetComponent<Liftable>().flying = false;
+                queueList.Remove(selectedItem);
+                StartCoroutine(Countdown2());
+            
             }
         }
+    }
+
+    public void LoadLastCheckpoint(GameObject deadObject)
+    {
+        queueList.Add(deadObject);
+        deadObject.SetActive(false);
+    }
+
+    private IEnumerator Countdown2()
+    {
+        
+        yield return new WaitForSeconds(2);
+        selectedItem = null;
     }
 }
