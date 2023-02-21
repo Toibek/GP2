@@ -16,4 +16,4 @@ MonoBehaviour:
   MovementAcceleration: 300
   MovementDeceleration: 50
   MovementSpeed: 10
-  prefab: {fileID: 798668047311375118, guid: 743655557a8ff6d40af465d4d8c0a0c0, type: 3}
+  prefab: {fileID: 700430598857096356, guid: 4c692f7c3e359a64aba22b1f8da62a1c, type: 3}

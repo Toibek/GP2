@@ -14,12 +14,12 @@ public class CameraControll : MonoBehaviour
     private int playerCount;
 
     //Object positions
-    [HideInInspector]public Vector3 play1Pos;
-    [HideInInspector]public Vector3 play2Pos;
+    [HideInInspector] public Vector3 play1Pos;
+    [HideInInspector] public Vector3 play2Pos;
     private Vector3 heightDifferenceP1;
     private Vector3 heightDifferenceP2;
     private Vector3 velocity = Vector3.zero;
-    
+
 
     //Camera positions
     private Vector3 startPosition;
@@ -39,20 +39,15 @@ public class CameraControll : MonoBehaviour
         gm = GameManager.Instance;
         gm.OnPlayerJoined += GetPlayers;
         playerCount = 0;
-        
-        
         //Used by the code to remember the original position of the camera
         startPosition = transform.position;
-        
-        
     }
     private void GetPlayers()
     {
         if (gm.Player1 != null)
         {
             player1 = gm.Player1;
-            Debug.Log(player1.name);
-            if(playerCount == 0)
+            if (playerCount == 0)
                 playerCount += 1;
         }
 
@@ -65,8 +60,8 @@ public class CameraControll : MonoBehaviour
     private void LateUpdate()
     {
         if (!player1) return;
-        rend = player1.GetComponent<Renderer>();
-        rend2 = player2.GetComponent<Renderer>();
+        rend = player1.GetComponentInChildren<Renderer>();
+        rend2 = player2.GetComponentInChildren<Renderer>();
         SetPositionValue();
         SetCameraPosition();
         CameraRay();
@@ -77,11 +72,11 @@ public class CameraControll : MonoBehaviour
     {
         //Transform.position can't be used while adding value to a variable, so I made three Vector3's of the instead.
         play1Pos = player1.transform.position;
-        if(player2 != null)
+        if (player2 != null)
             play2Pos = player2.transform.position;
-        
+
     }
-    
+
     static bool VisibleFromCamera(Renderer renderer, Camera camera)
     {
         Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(camera);
@@ -91,31 +86,31 @@ public class CameraControll : MonoBehaviour
     void CameraRay()
     {
         Ray ray = new Ray(currentPosition, transform.forward);
-        Physics.Raycast(ray, out RaycastHit hit);
-        NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 4f, NavMesh.AllAreas);
-        
+        Physics.Raycast(ray, out RaycastHit hit, 100f ,  Physics.AllLayers, QueryTriggerInteraction.Ignore);
+        NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 1f, NavMesh.AllAreas);
+
         //Makes sure to only change the spawnposition if the camera is looking at the Navmesh
         if (navHit.hit)
             savePosition = navHit.position;
-        
+
         //Prepares the new position of the players to the cameras laser point
         play1Pos = savePosition;
         play2Pos = savePosition;
-        
+
         //Makes the players spawn on either side of the point
         play1Pos.x -= 1;
         play2Pos.x += 1;
-        
+
         //Makes sure that the characters don't spawn in the floor
         play1Pos.y += 2;
         play2Pos.y += 2;
-            
+
         if (!VisibleFromCamera(rend, Camera.main))
             player1.transform.position = play1Pos;
-        
+
         if (!VisibleFromCamera(rend2, Camera.main))
             player2.transform.position = play2Pos;
-        
+
     }
 
     //This function controls and calculates where the camera is supposed to be and where it's going go.
@@ -129,17 +124,17 @@ public class CameraControll : MonoBehaviour
                 currentPosition.y = startPosition.y + play1Pos.y;
                 currentPosition.z = startPosition.z + play1Pos.z;
                 break;
-            
-            
+
+
             case 2:
-                jointPosition = (play1Pos + play2Pos)/2;
-                    lookAtPosition = Vector3.SmoothDamp(lookAtPosition ,jointPosition,ref velocity, 0.5f);
+                jointPosition = (play1Pos + play2Pos) / 2;
+                lookAtPosition = Vector3.SmoothDamp(lookAtPosition, jointPosition, ref velocity, 0.5f);
                 currentPosition.x = jointPosition.x;
-                currentPosition.z = jointPosition.z + startPosition.z; 
+                currentPosition.z = jointPosition.z + startPosition.z;
                 //Makes the camera tilt up and down based on the distance between the players
                 heightDifferenceP1.y = play1Pos.y;
                 heightDifferenceP2.y = play2Pos.y;
-                currentPosition.y = (startPosition.y + (Vector3.Distance(play1Pos, play2Pos) / 5) + Vector3.Distance(heightDifferenceP1,heightDifferenceP2));
+                currentPosition.y = (startPosition.y + (Vector3.Distance(play1Pos, play2Pos) / 5) + Vector3.Distance(heightDifferenceP1, heightDifferenceP2));
                 break;
             default:
                 break;
@@ -148,7 +143,7 @@ public class CameraControll : MonoBehaviour
         if (currentPosition.y > MaxHeight)
             currentPosition.y = MaxHeight;
         //Puts the camera in the right place and makes it look at the calculated point that frame
-        transform.position = Vector3.SmoothDamp(transform.position,currentPosition, ref velocity, 0.5f);
+        transform.position = Vector3.SmoothDamp(transform.position, currentPosition, ref velocity, 0.5f);
         transform.LookAt(lookAtPosition);
     }
 }
