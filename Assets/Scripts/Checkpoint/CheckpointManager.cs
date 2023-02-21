@@ -84,6 +84,8 @@ public class CheckpointManager : MonoBehaviour
     {
         queueList.Add(deadObject);
         deadObject.SetActive(false);
+        //Play respawn sound
+        AudioManager.S_PlayOneShotSound(20);
     }
 
     private IEnumerator Countdown2()

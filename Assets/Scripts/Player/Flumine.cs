@@ -9,6 +9,7 @@ public class Flumine : Ability
     [SerializeField] private GameObject prefabWhiteBubble;
     [SerializeField] private GameObject prefabGreenBubble;
     private Rigidbody rb;
+    private Animator anim;
 
     private List<Rigidbody> pickableObjects;
     private List<Interactable> nearbyInteractables;
@@ -16,9 +17,11 @@ public class Flumine : Ability
     private void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
+        anim = GetComponentInParent<Animator>();
     }
     public override void Primary()
     {
+        anim.SetTrigger("InteractTrigger");
         GameObject go = Instantiate(prefabBlueBubble, transform.position, Quaternion.identity);
         go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
         for (int i = 0; i < nearbyLapides.Count; i++)
@@ -28,6 +31,7 @@ public class Flumine : Ability
     }
     public override void Secondary()
     {
+        anim.SetTrigger("InteractTrigger");
         if (nearbyInteractables != null && nearbyInteractables.Count > 0)
         {
             GameObject go = Instantiate(prefabWhiteBubble, transform.position, Quaternion.identity);
@@ -50,6 +54,7 @@ public class Flumine : Ability
     }
     public override void Tertiary()
     {
+        anim.SetTrigger("InteractTrigger");
         GameObject go = Instantiate(prefabOrangeBubble, transform.position, Quaternion.identity);
         go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
         for (int i = 0; i < nearbyLapides.Count; i++)

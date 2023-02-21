@@ -7,15 +7,17 @@ public class Montis : Ability
     [SerializeField] private float throwForce;
     public Transform heldObject;
     List<Liftable> liftableOjbects;
+    private Animator anim;
 
     private List<Rigidbody> pickableObjects;
     private void Start()
     {
         liftableOjbects = new();
+        anim = GetComponentInParent<Animator>();
     }
     private void Update()
     {
-        if (heldObject != null) heldObject.position = transform.position + transform.up * 2;
+        if (heldObject != null) heldObject.position = transform.position + transform.up * 1.5f + transform.forward * 1.5f;
     }
     public override void Primary()
     {
@@ -23,8 +25,11 @@ public class Montis : Ability
         {
             var lift = ClosestLiftable();
             if (lift == null) return;
+
+            anim.SetBool("IsHolding", true);
+
             heldObject = lift.transform;
-            heldObject.position = transform.position + transform.up * 2;
+            heldObject.position = transform.position + transform.up * 1.5f + transform.forward * 1.5f;
             if (heldObject.TryGetComponent(out Rigidbody rb))
             {
                 rb.isKinematic = true;
@@ -33,7 +38,8 @@ public class Montis : Ability
         else
         {
             if (heldObject == null) return;
-            heldObject.position = transform.position + transform.forward;
+            anim.SetBool("IsHolding", false);
+            heldObject.position = transform.position + transform.up * 1.5f + transform.forward * 1.5f;
             if (heldObject.TryGetComponent(out Rigidbody rb))
             {
                 rb.isKinematic = false;
@@ -51,6 +57,7 @@ public class Montis : Ability
             rb.isKinematic = false;
         }
 
+        anim.SetBool("IsHolding", false);
         Vector3 direction = transform.forward;
         heldObject.gameObject.GetComponent<Liftable>().Throw(direction * throwForce, transform.parent.gameObject);
 

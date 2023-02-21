@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
     private FMOD.Studio.Bus FootStepsBus;
     private FMOD.Studio.Bus UIBus;
 
+    private StudioEventEmitter _ambientEmitter;
     // An array to store audio clips
     public SoundDatabase Sounds;
 
@@ -91,6 +92,47 @@ public class AudioManager : MonoBehaviour
     {
         if (!Application.isPlaying) return;
         PlayOneShotSound(Sound.Names.SFX_Druids_DruidJump);
+    }
+
+    public static void S_PlayAmbientSound(Sound.Names name)
+    {
+        if (Instance == null) return;
+        Debug.Log(((Sound.Names)name).ToString());
+
+        Instance.PlayAmbientSound(name);
+    }
+
+    private void PlayAmbientSound(Sound.Names name)
+    {
+        Sound ambientSound = Sounds.GetSound(name);
+        if (_ambientEmitter)
+        {
+            _ambientEmitter.Stop();
+            _ambientEmitter.gameObject.name = "Stoping Ambient sound";
+            StartCoroutine("StopAmbient", _ambientEmitter.gameObject);
+        }
+
+        GameObject _obj = new GameObject();
+        _obj.transform.parent = transform;
+        _obj.name = "Playing Ambient: " + ambientSound.name.ToString();
+        _ambientEmitter = _obj.AddComponent<StudioEventEmitter>();
+
+        _ambientEmitter.EventReference = ambientSound.eventRef;
+
+        _ambientEmitter.Play();
+    }
+
+    private IEnumerator StopAmbient(GameObject obj)
+    {
+        float deleteAfter = 10f;
+
+        while (deleteAfter > 0)
+        {
+            deleteAfter -= Time.deltaTime;
+            yield return 0;
+        }
+        Destroy(obj);
+        yield return null;
     }
 
     public static void S_PlayOneShotSound(Sound.Names name)
