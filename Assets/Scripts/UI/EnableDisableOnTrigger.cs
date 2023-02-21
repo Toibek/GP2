@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 public class EnableDisableOnTrigger : MonoBehaviour
 {
     // Public variables to hold the objects that will be toggled
-    public GameObject objectToToggleForKeyboard;
-    public GameObject objectToToggleForControler;
+    public GameObject ToggleKeyboardFlumine;
+    public GameObject ToggleKeyboardMothis;
+    public GameObject ToggleControlerMothis;
+    public GameObject ToggleControlerFlumine;
 
     // Private properties to get the player game objects from the GameManager
     private GameObject Player1 => GameManager.Instance.Player1;
@@ -23,15 +25,25 @@ public class EnableDisableOnTrigger : MonoBehaviour
         }
 
         // Check if the entering collider has a keyboard
-        if (other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
+        if (other.gameObject == Player1 && other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
         {
             // If it is, set the active state of objectToToggleForFlumine to true
-            objectToToggleForKeyboard.SetActive(true);
+            ToggleKeyboardFlumine.SetActive(true);
         }
-        else
+        if (other.gameObject == Player2 && other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
         {
-            // If it is, set the active state of objectToToggleForMothis to true
-            objectToToggleForControler.SetActive(true);
+            // If it is, set the active state of objectToToggleForFlumine to true
+            ToggleKeyboardMothis.SetActive(true);
+        }
+        if (other.gameObject == Player2 && !other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
+        {
+            // If it is, set the active state of objectToToggleForFlumine to true
+            ToggleControlerMothis.SetActive(true);
+        }
+        if (other.gameObject == Player1 && !other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
+        {
+            // If it is, set the active state of objectToToggleForFlumine to true
+            ToggleControlerFlumine.SetActive(true);
         }
     }
 
@@ -46,15 +58,25 @@ public class EnableDisableOnTrigger : MonoBehaviour
             return;
         }
 
-        if (other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
+        if (other.gameObject == Player1 && other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
         {
             // If it is, set the active state of objectToToggleForFlumine to true
-            objectToToggleForKeyboard.SetActive(false);
+            ToggleKeyboardFlumine.SetActive(false);
         }
-        else
+        if (other.gameObject == Player2 && other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
         {
-            // If it is, set the active state of objectToToggleForMothis to true
-            objectToToggleForControler.SetActive(false);
+            // If it is, set the active state of objectToToggleForFlumine to true
+            ToggleKeyboardMothis.SetActive(false);
+        }
+        if (other.gameObject == Player2 && !other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
+        {
+            // If it is, set the active state of objectToToggleForFlumine to true
+            ToggleControlerMothis.SetActive(false);
+        }
+        if (other.gameObject == Player1 && !other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))
+        {
+            // If it is, set the active state of objectToToggleForFlumine to true
+            ToggleControlerFlumine.SetActive(false);
         }
     }
 }
