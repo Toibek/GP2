@@ -13,13 +13,13 @@ public class WaitForNode : Node
     private float _moveAfterMax = 4f;
 
     private string _boolKeyToActivate;
+    private string _testing;
 
     public WaitForNode(float movmentFreqenceMin, float movementFrequenceMax, string boolKey) : base()
     {
         _boolKeyToActivate = boolKey;
         _moveAfterMin = movmentFreqenceMin;
         _moveAfterMax = movementFrequenceMax;
-
     }
 
     public override NodeState Evaluate()

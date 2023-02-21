@@ -14,8 +14,8 @@ public class CameraControll : MonoBehaviour
     private int playerCount;
 
     //Object positions
-    private Vector3 play1Pos;
-    private Vector3 play2Pos;
+    [HideInInspector]public Vector3 play1Pos;
+    [HideInInspector]public Vector3 play2Pos;
     private Vector3 heightDifferenceP1;
     private Vector3 heightDifferenceP2;
     private Vector3 velocity = Vector3.zero;
@@ -93,22 +93,29 @@ public class CameraControll : MonoBehaviour
         Ray ray = new Ray(currentPosition, transform.forward);
         Physics.Raycast(ray, out RaycastHit hit);
         NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 4f, NavMesh.AllAreas);
+        
+        //Makes sure to only change the spawnposition if the camera is looking at the Navmesh
         if (navHit.hit)
             savePosition = navHit.position;
-
+        
+        //Prepares the new position of the players to the cameras laser point
+        play1Pos = savePosition;
+        play2Pos = savePosition;
+        
+        //Makes the players spawn on either side of the point
+        play1Pos.x -= 1;
+        play2Pos.x += 1;
+        
+        //Makes sure that the characters don't spawn in the floor
+        play1Pos.y += 2;
+        play2Pos.y += 2;
+            
         if (!VisibleFromCamera(rend, Camera.main))
-        {
-            play1Pos = savePosition;
-            play1Pos.y += 2;
             player1.transform.position = play1Pos;
-        }
         
         if (!VisibleFromCamera(rend2, Camera.main))
-        {
-            play2Pos = savePosition;
-            play2Pos.y += 2;
             player2.transform.position = play2Pos;
-        }
+        
     }
 
     //This function controls and calculates where the camera is supposed to be and where it's going go.
@@ -144,6 +151,4 @@ public class CameraControll : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position,currentPosition, ref velocity, 0.5f);
         transform.LookAt(lookAtPosition);
     }
-    
-    
 }

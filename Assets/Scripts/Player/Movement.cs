@@ -45,7 +45,8 @@ public class Movement : MonoBehaviour
     public void Jump()
     {
         if (disabled) return;
-        rb.AddForce(0, jumpForce, 0);
+        if (Physics.Raycast(transform.position, Vector3.down, 1.5f, groundingLayers))
+            rb.AddForce(0, jumpForce, 0);
     }
     private IEnumerator MoveEnum()
     {
