@@ -15,12 +15,12 @@ public class FollowPlayerMothis : MonoBehaviour
 
     private void SetTarget()
     {
-        if (Player2.GetComponentInChildren<Montis>() != null)
+        if (Player2.transform.GetChild(1).GetComponentInChildren<Montis>() != null)
         {
             Target = Player2;
         }
 
-        else if (Player1.GetComponentInChildren<Montis>() != null)
+        else if (Player1.transform.GetChild(0).GetComponentInChildren<Montis>() != null)
         {
             Target = Player1;
         }
@@ -31,5 +31,6 @@ public class FollowPlayerMothis : MonoBehaviour
         if (Target == null)
             return;
         transform.position = Target.transform.position;
+        Debug.Log(Target);
     }
 }
