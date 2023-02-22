@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class FreeMovingPlatformRotation : MonoBehaviour
 {
+    [SerializeField]
     private FreeMovingPlatform _freeMovingPlatform;
-    private float rotation;
+    [SerializeField]
+    private float rotation = 90f;
 
     public void Rotate()
     {
-        _freeMovingPlatform.Rotate(rotation);
+        if (_freeMovingPlatform != null)
+            _freeMovingPlatform.Rotate(rotation);
     }
 }

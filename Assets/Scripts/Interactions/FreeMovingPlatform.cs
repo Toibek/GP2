@@ -8,6 +8,8 @@ public class FreeMovingPlatform : MonoBehaviour
 {
     private Rigidbody _rb;
 
+    private Vector3 _velocity;
+
     [SerializeField]
     private Transform[] _overlapChecksRotation = new Transform[2];
     [SerializeField]
@@ -22,12 +24,15 @@ public class FreeMovingPlatform : MonoBehaviour
     private float _forwardSpeed = 1f;
     private float _speedTimer;
 
+    [SerializeField]
+    private LayerMask _collisionLayerMask = 1<<8;
 
     [SerializeField]
     private AnimationCurve _acceleration = AnimationCurve.Linear(0, 0, 1, 1);
 
     [SerializeField]
     private AnimationCurve _rotationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
     [Space]
     [Header("Moving Events")]
     [SerializeField]
@@ -36,6 +41,7 @@ public class FreeMovingPlatform : MonoBehaviour
     private UnityEngine.Events.UnityEvent OnMoveInterupted;
     [SerializeField]
     private UnityEngine.Events.UnityEvent OnMoveEnd;
+
     [Header("Rotation Events")]
     [SerializeField]
     private UnityEngine.Events.UnityEvent OnRotationStart;
@@ -57,6 +63,7 @@ public class FreeMovingPlatform : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        OldParents = new Dictionary<Transform, Transform>();
     }
 
     private void Update()
@@ -70,19 +77,30 @@ public class FreeMovingPlatform : MonoBehaviour
                 OnRotationInterupted.Invoke();
                 StartCoroutine("GoBack");
             }
-            _rb.velocity = Vector3.zero;
+            _velocity = Vector3.zero;
         }
         else
         {
             if (_isMovingForward && CheckOverlapMovingForward())
             {
-                Debug.Log("Moving Overlap forward");
+                StopMoveForward();
             }
-            if (_isMovingBackward && CheckOverlapMovingBackward())
+            else if (_isMovingBackward && CheckOverlapMovingBackward())
             {
-                Debug.Log("Moving Overlap backward");
+                StopMoveBackward();
+            }
+            else if (!_isMovingForward && !_isMovingBackward)
+            {
+                //_velocity = Vector3.zero;
             }
         }
+        transform.position += _velocity * Time.deltaTime;
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isRotating) return;
     }
 
     [ContextMenu("Move Forward")]
@@ -96,6 +114,7 @@ public class FreeMovingPlatform : MonoBehaviour
     {
         StartMoveBackward();
     }
+
     [ContextMenu("Rotation testing")]
     public void RotateTest()
     {
@@ -105,59 +124,65 @@ public class FreeMovingPlatform : MonoBehaviour
     public void StartMoveForward()
     {
         if (_isRotating) return;
+        Debug.Log("startMoveF");
         _isMovingForward = true;
         _speedTimer = 0;
-        _rb.constraints = RigidbodyConstraints.FreezeRotation;
+
         if (_isMovingBackward)
-            StopMoveBackward();
+            StopMoveBackward(true);
         _isMovingBackward = false;
+        _rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+
 
         StartCoroutine("MoveForward");
 
-        OnMoveStart.Invoke();
+        OnMoveStart?.Invoke();
     }
 
     public void StartMoveBackward()
     {
         if (_isRotating) return;
+        Debug.Log("startMoveB");
 
-        _speedTimer = 0;
         _isMovingBackward = true;
-        _rb.constraints = RigidbodyConstraints.FreezeRotation;
+        _speedTimer = 0;
 
         if (_isMovingForward)
-            StopMoveForward();
+            StopMoveForward(true);
         _isMovingForward = false;
+        _rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
 
         StartCoroutine("MoveBackward");
 
-        OnMoveStart.Invoke();
-        
+        OnMoveStart?.Invoke();
     }
 
     public void StopMoveForward(bool interupted = false)
     {
-        _rb.constraints = RigidbodyConstraints.FreezeAll;
+        _rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
         _isMovingForward = false;
 
         if (!interupted)
-            OnMoveEnd.Invoke();
+            OnMoveEnd?.Invoke();
         else if (interupted)
-            OnMoveInterupted.Invoke();
-
+            OnMoveInterupted?.Invoke();
+        _velocity = Vector3.zero;
+        Debug.Log("test");
         StopCoroutine("MoveForward");
     }
 
     public void StopMoveBackward(bool interupted = false)
     {
-        _rb.constraints = RigidbodyConstraints.FreezeAll;
+        _rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
         _isMovingBackward = false;
 
         if (!interupted)
-            OnMoveEnd.Invoke();
+            OnMoveEnd?.Invoke();
         else if (interupted)
-            OnMoveInterupted.Invoke();
-
+            OnMoveInterupted?.Invoke();
+        _velocity = Vector3.zero;
         StopCoroutine("MoveBackward");
     }
 
@@ -166,10 +191,16 @@ public class FreeMovingPlatform : MonoBehaviour
         while (true)
         {
             if (_speedTimer < _acceleration[_acceleration.length - 1].time)
+            {
                 _speedTimer += Time.deltaTime;
-            _rb.velocity = _acceleration.Evaluate(_speedTimer) * transform.forward * _forwardSpeed;
+            }
+            _velocity = _acceleration.Evaluate(_speedTimer) * transform.forward * _forwardSpeed;
+
+            Debug.Log("f");
+
             yield return new WaitForEndOfFrame();
         }
+        yield return 0;
     }
 
     private IEnumerator MoveBackward()
@@ -178,7 +209,7 @@ public class FreeMovingPlatform : MonoBehaviour
         {
             if (_speedTimer < _acceleration[_acceleration.length - 1].time)
                 _speedTimer += Time.deltaTime;
-            _rb.velocity = _acceleration.Evaluate(_speedTimer) * -transform.forward * _forwardSpeed;
+            _velocity = _acceleration.Evaluate(_speedTimer) * -transform.forward * _forwardSpeed;
             yield return new WaitForEndOfFrame();
         }
     }
@@ -211,6 +242,7 @@ public class FreeMovingPlatform : MonoBehaviour
         StopMoveForward();
         StopMoveBackward();
         StartCoroutine("Rotating", rotation);
+        OnRotationStart.Invoke();
     }
 
     internal IEnumerator Rotating(float rotation)
@@ -223,13 +255,14 @@ public class FreeMovingPlatform : MonoBehaviour
         while (_timer < 1)
         {
             _timer += Time.fixedDeltaTime;
-            _rb.MoveRotation(Quaternion.Lerp(lastRotation, newRotation, _rotationCurve.Evaluate(_timer)));
+            transform.rotation =(Quaternion.Lerp(lastRotation, newRotation, _rotationCurve.Evaluate(_timer)));
             
             yield return new WaitForFixedUpdate();
         }
-        _rb.MoveRotation(Quaternion.Lerp(lastRotation, newRotation, _rotationCurve.Evaluate(1f)));
+        transform.rotation = (Quaternion.Lerp(lastRotation, newRotation, _rotationCurve.Evaluate(1f)));
 
         _isRotating = false;
+        OnRotationEnd.Invoke();
         yield return 0;
     }
 
@@ -240,7 +273,7 @@ public class FreeMovingPlatform : MonoBehaviour
         for (int i = 0; i < _overlapChecksRotation.Length; i++)
         {
             pos = _overlapChecksRotation[i].transform.position;
-            if (Physics.OverlapBoxNonAlloc(pos, _overlapRotation, hits ,transform.rotation, LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore) != 0)
+            if (Physics.OverlapBoxNonAlloc(pos, _overlapRotation, hits ,transform.rotation, _collisionLayerMask, QueryTriggerInteraction.Collide) != 0)
             {
                 return true;
             }
@@ -253,7 +286,7 @@ public class FreeMovingPlatform : MonoBehaviour
         Vector3 pos = Vector3.zero;
         Collider[] hits = new Collider[2];
         pos = _overlapChecksMoving[0].transform.position;
-        if (Physics.OverlapBoxNonAlloc(pos, _overlapMoving, hits, transform.rotation, LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore) != 0)
+        if (Physics.OverlapBoxNonAlloc(pos, _overlapMoving, hits, transform.rotation, _collisionLayerMask, QueryTriggerInteraction.Collide) != 0)
         {
             return true;
         }
@@ -265,7 +298,7 @@ public class FreeMovingPlatform : MonoBehaviour
         Vector3 pos = Vector3.zero;
         Collider[] hits = new Collider[2];
         pos = _overlapChecksMoving[1].transform.position;
-        if (Physics.OverlapBoxNonAlloc(pos, _overlapMoving, hits, transform.rotation, LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore) != 0)
+        if (Physics.OverlapBoxNonAlloc(pos, _overlapMoving, hits, transform.rotation, _collisionLayerMask, QueryTriggerInteraction.Collide) != 0)
         {
             return true;
         }
@@ -280,12 +313,14 @@ public class FreeMovingPlatform : MonoBehaviour
         while (_timer < 1)
         {
             _timer += Time.fixedDeltaTime;
-            _rb.MoveRotation(Quaternion.Lerp(startRot, lastRotation, _rotationCurve.Evaluate(_timer)));
+            transform.rotation = (Quaternion.Lerp(startRot, lastRotation, _rotationCurve.Evaluate(_timer)));
             yield return new WaitForFixedUpdate();
         }
+        transform.rotation = (Quaternion.Lerp(startRot, lastRotation, _rotationCurve.Evaluate(_timer)));
 
         _isRotating = false;
         _isRotatingBack = false;
+        OnRotationEnd.Invoke();
         yield return 0;
     }
 
