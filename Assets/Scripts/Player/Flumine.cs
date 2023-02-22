@@ -41,16 +41,16 @@ public class Flumine : Ability
                 nearbyInteractables[i].Interact();
             }
         }
-        else
-        {
-            GameObject go = Instantiate(prefabGreenBubble, transform.position, Quaternion.identity);
-            go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
+        //else
+        //{
+        //    GameObject go = Instantiate(prefabGreenBubble, transform.position, Quaternion.identity);
+        //    go.GetComponent<SphereEffect>().Run(GetComponent<SphereCollider>().bounds.size.x);
 
-            for (int i = 0; i < nearbyLapides.Count; i++)
-            {
-                nearbyLapides[i].SetTamedState(true, transform);
-            }
-        }
+        //    for (int i = 0; i < nearbyLapides.Count; i++)
+        //    {
+        //        nearbyLapides[i].SetTamedState(true, transform);
+        //    }
+        //}
     }
     public override void Tertiary()
     {
