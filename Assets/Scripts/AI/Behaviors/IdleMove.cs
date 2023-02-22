@@ -55,6 +55,10 @@ public class IdleMove : Node
                         0,                                  // y
                         Random.Range(-_moveArea, _moveArea) // z
                     );
+            if (NavMesh.SamplePosition(_newPosition,out NavMeshHit hit, 3f, NavMesh.AllAreas))
+            {
+                _newPosition = hit.position;
+            }
             _GenerateNewPos = false;
         }
 
