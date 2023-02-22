@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Max/MaxPlaytest.unity
-    guid: 761468c8d89fea643a5500939fc0e6a0
+  - enabled: 1
+    path: Assets/Scenes/UIMainMenu.unity
+    guid: ebdda113e97302a4c886b3afdcd5198f
   - enabled: 1
     path: Assets/Scenes/AlphaBuildScene.unity
     guid: 91aad60b6b2290949bea66c658ef5c0a

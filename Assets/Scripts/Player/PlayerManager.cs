@@ -15,10 +15,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject prefabControllerIcon;
     [Header("Sprites")]
     [SerializeField] private Sprite P1ControllerIcon;
+    [SerializeField] private Sprite P1ReadyControllerIcon;
     [SerializeField] private Sprite P1KeyboardIcon;
+    [SerializeField] private Sprite P1ReadyKeyboardIcon;
     [Space]
     [SerializeField] private Sprite P2ControllerIcon;
+    [SerializeField] private Sprite P2ReadyControllerIcon;
     [SerializeField] private Sprite P2KeyboardIcon;
+    [SerializeField] private Sprite P2ReadyKeyboardIcon;
     [Space]
     [SerializeField] private TMP_Text ToJoinText;
     [Header("More stuff")]
@@ -54,21 +58,40 @@ public class PlayerManager : MonoBehaviour
 
         GameObject go = Instantiate(prefabControllerIcon, transform.GetChild(0));
         Sprite s;
+        Sprite rs;
         if (players.Count == 0)
         {
-            if (joined.currentControlScheme.Contains("Keyboard")) s = P1KeyboardIcon;
-            else s = P1ControllerIcon;
+            if (joined.currentControlScheme.Contains("Keyboard"))
+            {
+                s = P1KeyboardIcon;
+                rs = P1ReadyKeyboardIcon;
+            }
+            else
+            {
+                s = P1ControllerIcon;
+                rs = P1ReadyControllerIcon;
+            }
         }
         else
         {
-            if (joined.currentControlScheme.Contains("Keyboard")) s = P2KeyboardIcon;
-            else s = P2ControllerIcon;
+            if (joined.currentControlScheme.Contains("Keyboard"))
+            {
+                s = P2KeyboardIcon;
+                rs = P2ReadyKeyboardIcon;
+            }
+            else
+            {
+                s = P2ControllerIcon;
+                rs = P2ReadyControllerIcon;
+            }
         }
         go.GetComponent<Image>().sprite = s;
         RectTransform rect = go.GetComponent<RectTransform>();
         rect.anchoredPosition = new(0, lowestY + yOffset * players.Count);
-        rect.GetChild(0).gameObject.SetActive(false);
         playerSetup setup = new(joined.GetComponent<Player>(), joined, joined.gameObject, go.GetComponent<RectTransform>());
+
+        setup.ControllerSprite = s;
+        setup.ReadySprite = rs;
 
         setup.Player.OnCharacterChange += setup.ChangeSelection;
         setup.Player.OnToggleReady += setup.ToggleReady;
@@ -80,7 +103,7 @@ public class PlayerManager : MonoBehaviour
         if (players.Count == 2)
         {
             allJoined = true;
-            ToJoinText.text = "To ready up!";
+            ToJoinText.text = "TO READY";
             OnAllPlayersJoined?.Invoke();
             GetComponent<PlayerInputManager>().DisableJoining();
         }
@@ -158,6 +181,8 @@ public class playerSetup : object
     public bool Ready;
     public int Selection;
     public RectTransform ControllerImage;
+    public Sprite ControllerSprite;
+    public Sprite ReadySprite;
     [Space]
     public Player Player;
     public PlayerInput PlayerInput;
@@ -180,6 +205,6 @@ public class playerSetup : object
     {
         if (Selection == 0) return;
         Ready = !Ready;
-        ControllerImage.GetChild(0).gameObject.SetActive(Ready);
+        ControllerImage.GetComponent<Image>().sprite = Ready ? ReadySprite : ControllerSprite;
     }
 }

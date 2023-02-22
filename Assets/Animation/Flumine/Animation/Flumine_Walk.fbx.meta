@@ -75,14 +75,16 @@ ModelImporter:
       - time: 0.52727276
         functionName: PlayDruidFootstep
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: 59f9b65b7372287458f6095dd21ab454,
+          type: 3}
         floatParameter: 1
         intParameter: 0
         messageOptions: 0
       - time: 0.003896104
         functionName: PlayDruidFootstep
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: 59f9b65b7372287458f6095dd21ab454,
+          type: 3}
         floatParameter: 1
         intParameter: 0
         messageOptions: 0
