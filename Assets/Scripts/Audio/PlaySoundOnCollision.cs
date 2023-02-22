@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlaySoundOnCollision : MonoBehaviour
 {
     [SerializeField]
+    private UseSound _useSound;
+    [SerializeField]
     private Sound.Names _sound;
+    [SerializeField]
+    private FMODUnity.EventReference _refSound;
     [Header("Leave them empty if no sound should play on them")]
 
     [SerializeField]
@@ -18,7 +22,10 @@ public class PlaySoundOnCollision : MonoBehaviour
     {
         if (collision.gameObject.layer == _layersToPlay)
         {
-            AudioManager.S_PlayOneShotSound(_sound);
+            if (_useSound == UseSound.dropDownList)
+                AudioManager.S_PlayOneShotSound(_sound);
+            else
+                AudioManager.S_PlayOneShotSound(_refSound);
             return;
         }
         if (_tagsToPlaySoundOn.Length != 0)
@@ -27,9 +34,19 @@ public class PlaySoundOnCollision : MonoBehaviour
             {
                 if (collision.transform.CompareTag(_tagsToPlaySoundOn[i]))
                 {
-                    AudioManager.S_PlayOneShotSound(_sound);
+                    if (_useSound == UseSound.dropDownList)
+                        AudioManager.S_PlayOneShotSound(_sound);
+                    else
+                        AudioManager.S_PlayOneShotSound(_refSound);
+                    return;
                 }
             }
         }
+    }
+
+    private enum UseSound
+    {
+        dropDownList,
+        EventRef
     }
 }

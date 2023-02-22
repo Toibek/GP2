@@ -141,6 +141,14 @@ public class AudioManager : MonoBehaviour
 
         Instance.PlayOneShotSound(name);
     }
+
+    public static void S_PlayOneShotSound(FMODUnity.EventReference refrence)
+    {
+        if (Instance == null) return;
+
+        Instance.PlayOneShotSound(refrence);
+    }
+
     public static void S_PlayOneShotSound(int name)
     {
         if (Instance == null) return;
@@ -161,6 +169,17 @@ public class AudioManager : MonoBehaviour
         var instanceOfSound = RuntimeManager.CreateInstance(sound.eventRef);
         RuntimeManager.AttachInstanceToGameObject(instanceOfSound, Camera.main.transform);
         instanceOfSound.start();
+    }
+
+    public void PlayOneShotSound(FMODUnity.EventReference sound)
+    {
+        try
+        {
+            var instanceOfSound = RuntimeManager.CreateInstance(sound);
+            RuntimeManager.AttachInstanceToGameObject(instanceOfSound, Camera.main.transform);
+            instanceOfSound.start();
+        }
+        catch { Debug.LogError("Did not find Sound: " + sound.Path); }
     }
 
     /// <summary>
