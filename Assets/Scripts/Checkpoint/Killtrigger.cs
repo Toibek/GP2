@@ -27,20 +27,15 @@ namespace Checkpoint
                     montis.heldObject = null;
                 }
 
-                if (other.gameObject.transform.GetChild(0).TryGetComponent(out montis))
-                {
-                    other.gameObject.transform.position = camControll.play2Pos;
-                }
-                else
-                {
-                    other.gameObject.transform.position = camControll.play1Pos;
+                if (other.gameObject.GetComponent<Flumine>() != null)
                     other.GetComponent<Liftable>().flying = false;
-                }
+                
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                CheckpointManager.instance.LoadLastPlayerPosition(other.gameObject);
             }
             if(other.CompareTag("Pebble"))
             {
-                CheckpointManager.instance.LoadLastCheckpoint(other.gameObject);
+                CheckpointManager.instance.AddPebbleToList(other.gameObject);
             }
         }
     }

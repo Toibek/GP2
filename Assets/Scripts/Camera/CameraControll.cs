@@ -61,11 +61,8 @@ public class CameraControll : MonoBehaviour
     private void LateUpdate()
     {
         if (!player1) return;
-        rend = player1.GetComponentInChildren<Renderer>();
-        rend2 = player2.GetComponentInChildren<Renderer>();
         SetPositionValue();
         SetCameraPosition();
-        CameraRay();
     }
 
     //This function is used to shorten the code while also keeping track of the objects position
@@ -75,45 +72,6 @@ public class CameraControll : MonoBehaviour
         play1Pos = player1.transform.position;
         if (player2 != null)
             play2Pos = player2.transform.position;
-
-    }
-
-    static bool VisibleFromCamera(Renderer renderer, Camera camera)
-    {
-        Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(camera);
-        return GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds);
-    }
-
-    void CameraRay()
-    {
-        Ray ray = new Ray(currentPosition, transform.forward);
-        Physics.Raycast(ray, out RaycastHit hit, 100f ,  Physics.AllLayers, QueryTriggerInteraction.Ignore);
-        NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, 1f, NavMesh.AllAreas);
-
-        //Makes sure to only change the spawnposition if the camera is looking at the Navmesh
-        if (navHit.hit)
-            savePosition = navHit.position;
-
-        //Prepares the new position of the players to the cameras laser point
-        play1Pos = savePosition;
-        play2Pos = savePosition;
-
-        //Makes the players spawn on either side of the point
-        play1Pos.x -= 1;
-        play2Pos.x += 1;
-
-        //Makes sure that the characters don't spawn in the floor
-        play1Pos.y += 2;
-        play2Pos.y += 2;
-
-        if (useCameraBorder)
-        {
-            if (!VisibleFromCamera(rend, Camera.main))
-                player1.transform.position = play1Pos;
-        
-            if (!VisibleFromCamera(rend2, Camera.main))
-                player2.transform.position = play2Pos;
-        }
 
     }
 
