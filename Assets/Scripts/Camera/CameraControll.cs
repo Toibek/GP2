@@ -22,6 +22,7 @@ public class CameraControll : MonoBehaviour
 
 
     //Camera positions
+    [SerializeField] private bool useCameraBorder;
     private Vector3 startPosition;
     private Vector3 currentPosition;
     private Vector3 jointPosition;
@@ -105,11 +106,14 @@ public class CameraControll : MonoBehaviour
         play1Pos.y += 2;
         play2Pos.y += 2;
 
-        if (!VisibleFromCamera(rend, Camera.main))
-            player1.transform.position = play1Pos;
-
-        if (!VisibleFromCamera(rend2, Camera.main))
-            player2.transform.position = play2Pos;
+        if (useCameraBorder)
+        {
+            if (!VisibleFromCamera(rend, Camera.main))
+                player1.transform.position = play1Pos;
+        
+            if (!VisibleFromCamera(rend2, Camera.main))
+                player2.transform.position = play2Pos;
+        }
 
     }
 

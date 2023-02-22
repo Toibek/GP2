@@ -378,10 +378,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1602618676471373288, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7687985156749089304, guid: 40c6a30cd949f204ca3d330c45cc46b6,
         type: 3}
       propertyPath: m_Name
       value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnAllPlayersJoined.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 587608894}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetUpUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+        type: 3}
+      propertyPath: OnStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7687985156749089311, guid: 40c6a30cd949f204ca3d330c45cc46b6,
         type: 3}
@@ -1277,6 +1322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHeight: 30
+  play1Pos: {x: 0, y: 0, z: 0}
+  play2Pos: {x: 0, y: 0, z: 0}
   savePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &380560073
 GameObject:
@@ -2026,6 +2073,18 @@ Transform:
   m_Father: {fileID: 614969720}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587608894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7687985156749089308, guid: 40c6a30cd949f204ca3d330c45cc46b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 205254064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183648e16e5367641ae63f86d27cb47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &614969719
 GameObject:
   m_ObjectHideFlags: 0

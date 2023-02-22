@@ -146,9 +146,9 @@ public class Vector2Platform : MonoBehaviour
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireCube( transform.position + transform.rotation * new Vector3(_startPos.x, 0, _startPos.y), transform.localScale);
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(transform.position + _startRot * (new Vector3(_restraints.x * 0.5f, 0, _restraints.y)), Vector3.one);
+            Gizmos.DrawWireCube(transform.position + transform.rotation * (new Vector3(_restraints.x * 0.5f, 0, _restraints.y)), Vector3.one);
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position + _startRot * (new Vector3(_restraints.x, 0, _restraints.y * 0.5f)), Vector3.one);
+            Gizmos.DrawWireCube(transform.position + transform.rotation * (new Vector3(_restraints.x, 0, _restraints.y * 0.5f)), Vector3.one);
         }
     }
 }

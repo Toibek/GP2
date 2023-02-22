@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInParent<Animator>();
+        if (moveRoutine == null) moveRoutine = StartCoroutine(MoveEnum());
     }
     private void FixedUpdate()
     {
@@ -44,13 +45,13 @@ public class Movement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
         }
-        grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, groundingLayers);
+        grounded = Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, 0.5f, groundingLayers);
         anim.SetBool("IsGrounded", grounded);
     }
     public void Jump()
     {
         if (disabled) return;
-        if (Physics.Raycast(transform.position, Vector3.down, 1.5f, groundingLayers))
+        if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, 0.5f, groundingLayers))
         {
             anim.SetTrigger("JumpTrigger");
             rb.AddForce(0, jumpForce, 0);
@@ -58,19 +59,23 @@ public class Movement : MonoBehaviour
     }
     private IEnumerator MoveEnum()
     {
-        anim.SetBool("IsWalking", true);
-        while (moving != Vector2.zero || velocity != Vector3.zero)
+        while (true)
         {
             yield return new WaitForFixedUpdate();
             if (disabled) continue;
             if (moving != Vector2.zero)
+            {
+                anim.SetBool("IsWalking", true);
                 velocity += new Vector3(moving.x, 0, moving.y) * settings.MovementAcceleration * Time.deltaTime;
+            }
             else
+            {
                 velocity -= Vector3.ClampMagnitude(velocity.normalized, velocity.magnitude) * settings.MovementDeceleration * Time.deltaTime;
+                anim.SetBool("IsWalking", false);
+            }
             velocity = Vector3.ClampMagnitude(velocity, settings.MovementSpeed);
             rb.velocity = new(velocity.x, rb.velocity.y, velocity.z);
         }
-        anim.SetBool("IsWalking", false);
         moveRoutine = null;
     }
 }

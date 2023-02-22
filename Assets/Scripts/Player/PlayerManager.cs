@@ -4,16 +4,24 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private UnityEvent OnStart;
     [SerializeField] private UnityEvent OnAllPlayersJoined;
     [SerializeField] private UnityEvent OnAllPlayersReady;
     [Space]
     [SerializeField] private GameObject prefabControllerIcon;
-    [SerializeField] private Sprite ControllerIcon;
-    [SerializeField] private Sprite KeyboardIcon;
+    [Header("Sprites")]
+    [SerializeField] private Sprite P1ControllerIcon;
+    [SerializeField] private Sprite P1KeyboardIcon;
     [Space]
+    [SerializeField] private Sprite P2ControllerIcon;
+    [SerializeField] private Sprite P2KeyboardIcon;
+    [Space]
+    [SerializeField] private TMP_Text ToJoinText;
+    [Header("More stuff")]
     [SerializeField] private float lowestY;
     [SerializeField] private float yOffset;
     [SerializeField] private float leftPosition;
@@ -26,9 +34,19 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Vector3[] spawnPoints = new Vector3[2];
     [Space]
     public List<playerSetup> players;
+    private bool allJoined;
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         GetComponent<GameManager>().OnGameStart += SetUpCharacters;
+        OnStart?.Invoke();
+    }
+    public void SetUpUI()
+    {
+        ToJoinText.transform.parent.gameObject.SetActive(true);
+        ToJoinText.text = "To Join";
+        GetComponent<PlayerInputManager>().EnableJoining();
+
     }
     private void OnPlayerJoined(PlayerInput joined)
     {
@@ -36,8 +54,16 @@ public class PlayerManager : MonoBehaviour
 
         GameObject go = Instantiate(prefabControllerIcon, transform.GetChild(0));
         Sprite s;
-        if (joined.currentControlScheme.Contains("Keyboard")) s = KeyboardIcon;
-        else s = ControllerIcon;
+        if (players.Count == 0)
+        {
+            if (joined.currentControlScheme.Contains("Keyboard")) s = P1KeyboardIcon;
+            else s = P1ControllerIcon;
+        }
+        else
+        {
+            if (joined.currentControlScheme.Contains("Keyboard")) s = P2KeyboardIcon;
+            else s = P2ControllerIcon;
+        }
         go.GetComponent<Image>().sprite = s;
         RectTransform rect = go.GetComponent<RectTransform>();
         rect.anchoredPosition = new(0, lowestY + yOffset * players.Count);
@@ -48,10 +74,13 @@ public class PlayerManager : MonoBehaviour
         setup.Player.OnToggleReady += setup.ToggleReady;
         setup.Player.OnCharacterChange += ChangedSelection;
         setup.Player.OnToggleReady += ReadyStateChanged;
+
         players.Add(setup);
 
         if (players.Count == 2)
         {
+            allJoined = true;
+            ToJoinText.text = "To ready up!";
             OnAllPlayersJoined?.Invoke();
             GetComponent<PlayerInputManager>().DisableJoining();
         }
@@ -90,11 +119,12 @@ public class PlayerManager : MonoBehaviour
             if (players[i].Selection == 0 || usedSelections.Contains(players[i].Selection)) return;
             usedSelections.Add(players[i].Selection);
         }
-        Debug.Log("All Ready and different selections");
+
         for (int i = 0; i < players.Count; i++)
         {
             players[i].ControllerImage.gameObject.SetActive(false);
         }
+        transform.GetChild(0).gameObject.SetActive(false);
         OnAllPlayersReady?.Invoke();
     }
     private void ApplyCharacter(Vector3 position, GameObject target, CharacterSO character)
@@ -148,6 +178,7 @@ public class playerSetup : object
     }
     public void ToggleReady()
     {
+        if (Selection == 0) return;
         Ready = !Ready;
         ControllerImage.GetChild(0).gameObject.SetActive(Ready);
     }
