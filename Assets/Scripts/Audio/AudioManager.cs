@@ -44,20 +44,24 @@ public class AudioManager : MonoBehaviour
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.AmbientVolume);
             AmbienceBus.setVolume(newVol);
+            Debug.Log(newVol);
         }
         if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.EnviormentFXVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.EnviormentFXVolume);
+            Debug.Log(newVol);
             EnvironmentFXBus.setVolume(newVol);
         }
         if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.FootStepsVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.FootStepsVolume);
+            Debug.Log(newVol);
             FootStepsBus.setVolume(newVol);
         }
         if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.UIVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.UIVolume);
+            Debug.Log(newVol);
             UIBus.setVolume(newVol);
         }
     }
@@ -72,19 +76,24 @@ public class AudioManager : MonoBehaviour
                 break;
             case Sound.Type.EnviromentFX:
                 PlayerPrefs.SetFloat(PlayerPrefsVariables.EnviormentFXVolume, newVolume);
-                AmbienceBus.setVolume(newVolume);
+                EnvironmentFXBus.setVolume(newVolume);
                 break;
             case Sound.Type.Footsteps:
                 PlayerPrefs.SetFloat(PlayerPrefsVariables.FootStepsVolume, newVolume);
-                AmbienceBus.setVolume(newVolume);
+                FootStepsBus.setVolume(newVolume);
                 break;
             case Sound.Type.UI:
                 PlayerPrefs.SetFloat(PlayerPrefsVariables.UIVolume, newVolume);
-                AmbienceBus.setVolume(newVolume);
+                UIBus.setVolume(newVolume);
                 break;
             case Sound.Type.Unassigned:
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.Save();
     }
 
     [ContextMenu("TestSound")]
@@ -224,5 +233,27 @@ public class AudioManager : MonoBehaviour
 
         RuntimeManager.PlayOneShot(sound.eventRef, target);
 
+    }
+
+    internal float GetVolume(Sound.Type soundType)
+    {
+        float volume = 1f;
+
+        switch (soundType)
+        {
+            case Sound.Type.Ambient:
+                AmbienceBus.getVolume(out volume);
+                break;
+            case Sound.Type.EnviromentFX:
+                EnvironmentFXBus.getVolume(out volume);
+                break;
+            case Sound.Type.Footsteps:
+                FootStepsBus.getVolume(out volume);
+                break;
+            case Sound.Type.UI:
+                UIBus.getVolume(out volume);
+                break;
+        }
+        return volume;
     }
 }
