@@ -23,6 +23,8 @@ public class EnableDisableOnTrigger : MonoBehaviour
             Debug.LogError("Could not find gamemanager in the scene!");
             return;
         }
+        //This makes it so it doesn't count triggers of the players
+        if (other.isTrigger) return;
 
         // Check if the entering collider has a keyboard
         if (other.GetComponentInChildren<Flumine>() != null && other.GetComponentInParent<PlayerInput>().currentControlScheme.Contains("Keyboard"))

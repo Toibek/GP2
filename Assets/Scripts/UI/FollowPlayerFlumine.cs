@@ -8,21 +8,26 @@ public class FollowPlayerFlumine : MonoBehaviour
 
     private GameObject Target;
 
-    private void Start()
+    private void OnEnable()
     {
-        GameManager.Instance.OnGameStart += () => SetTarget();
+        //GameManager.Instance.OnPlayerJoined += SetTarget;
+        SetTarget();
     }
 
     private void SetTarget()
     {
-        if (Player2.GetComponentInChildren<Flumine>() != null)
+        if (Player2.transform.GetChild(0).GetComponentsInChildren<Flumine>() != null)
         {
-            Target = Player2;
+            Target = Player2.transform.GetChild(0).gameObject;
         }
 
-        else if (Player1.GetComponentInChildren<Flumine>() != null)
+        else if (Player1.transform.GetChild(0).GetComponentsInChildren<Flumine>() != null)
         {
-            Target = Player1;
+            Target = Player1.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+            Debug.Log("Didn't get Target");
         }
     }
 

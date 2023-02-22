@@ -8,21 +8,28 @@ public class FollowPlayerMothis : MonoBehaviour
 
     private GameObject Target;
 
-    private void Start()
+    private void OnEnable()
     {
-        GameManager.Instance.OnGameStart += () => SetTarget();
+        //GameManager.Instance.OnPlayerJoined += SetTarget;
+        SetTarget();
     }
 
     private void SetTarget()
     {
-        if (Player2.transform.GetChild(1).GetComponentInChildren<Montis>() != null)
+        if (Player2.transform.GetChild(0).GetComponentsInChildren<Montis>() != null)
         {
-            Target = Player2;
+            Debug.Log("1");
+            Target = Player2.transform.GetChild(0).gameObject;
         }
 
-        else if (Player1.transform.GetChild(0).GetComponentInChildren<Montis>() != null)
+        else if (Player1.transform.GetChild(0).GetComponentsInChildren<Montis>() != null)
         {
-            Target = Player1;
+            Debug.Log("2");
+            Target = Player1.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+            Debug.Log("Didn't get Target");
         }
     }
 
@@ -31,6 +38,5 @@ public class FollowPlayerMothis : MonoBehaviour
         if (Target == null)
             return;
         transform.position = Target.transform.position;
-        Debug.Log(Target);
     }
 }
