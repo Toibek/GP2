@@ -11,7 +11,7 @@ public class FreeMovingPlatform : MonoBehaviour
     [SerializeField]
     private Transform[] _overlapChecksRotation = new Transform[2];
     [SerializeField]
-    private Vector3 _overlapRotation = new Vector3(1,1,5);
+    private Vector3 _overlapRotation = new Vector3(1, 1, 5);
 
     [SerializeField]
     private Transform[] _overlapChecksMoving = new Transform[2];
@@ -27,7 +27,22 @@ public class FreeMovingPlatform : MonoBehaviour
     private AnimationCurve _acceleration = AnimationCurve.Linear(0, 0, 1, 1);
 
     [SerializeField]
-    private AnimationCurve _rotationCurve = AnimationCurve.Linear(0,0,1,1);
+    private AnimationCurve _rotationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+    [Space]
+    [Header("Moving Events")]
+    [SerializeField]
+    private UnityEngine.Events.UnityEvent OnMoveStart;
+    [SerializeField]
+    private UnityEngine.Events.UnityEvent OnMoveInterupted;
+    [SerializeField]
+    private UnityEngine.Events.UnityEvent OnMoveEnd;
+    [Header("Rotation Events")]
+    [SerializeField]
+    private UnityEngine.Events.UnityEvent OnRotationStart;
+    [SerializeField]
+    private UnityEngine.Events.UnityEvent OnRotationInterupted;
+    [SerializeField]
+    private UnityEngine.Events.UnityEvent OnRotationEnd;
 
     private bool _isRotating;
     private bool _isRotatingBack;
@@ -52,7 +67,7 @@ public class FreeMovingPlatform : MonoBehaviour
             {
                 _isRotatingBack = true;
                 StopCoroutine("Rotating");
-                AudioManager.S_PlayOneShotSound(Sound.Names.UI_SelectNegative);
+                OnRotationInterupted.Invoke();
                 StartCoroutine("GoBack");
             }
             _rb.velocity = Vector3.zero;
@@ -93,33 +108,56 @@ public class FreeMovingPlatform : MonoBehaviour
         _isMovingForward = true;
         _speedTimer = 0;
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
-        StopCoroutine("MoveBackward");
+        if (_isMovingBackward)
+            StopMoveBackward();
         _isMovingBackward = false;
+
         StartCoroutine("MoveForward");
+
+        OnMoveStart.Invoke();
     }
 
     public void StartMoveBackward()
     {
         if (_isRotating) return;
+
         _speedTimer = 0;
         _isMovingBackward = true;
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
-        StopCoroutine("MoveForward");
+
+        if (_isMovingForward)
+            StopMoveForward();
         _isMovingForward = false;
+
         StartCoroutine("MoveBackward");
+
+        OnMoveStart.Invoke();
+        
     }
 
-    public void StopMoveForward()
+    public void StopMoveForward(bool interupted = false)
     {
         _rb.constraints = RigidbodyConstraints.FreezeAll;
         _isMovingForward = false;
+
+        if (!interupted)
+            OnMoveEnd.Invoke();
+        else if (interupted)
+            OnMoveInterupted.Invoke();
+
         StopCoroutine("MoveForward");
     }
 
-    public void StopMoveBackward()
+    public void StopMoveBackward(bool interupted = false)
     {
         _rb.constraints = RigidbodyConstraints.FreezeAll;
         _isMovingBackward = false;
+
+        if (!interupted)
+            OnMoveEnd.Invoke();
+        else if (interupted)
+            OnMoveInterupted.Invoke();
+
         StopCoroutine("MoveBackward");
     }
 
@@ -168,8 +206,11 @@ public class FreeMovingPlatform : MonoBehaviour
 
     internal void Rotate(float rotation)
     {
-        if (!_isRotating)
-            StartCoroutine("Rotating", rotation);
+        if (_isRotating) return;
+
+        StopMoveForward();
+        StopMoveBackward();
+        StartCoroutine("Rotating", rotation);
     }
 
     internal IEnumerator Rotating(float rotation)
