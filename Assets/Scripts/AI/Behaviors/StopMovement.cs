@@ -8,7 +8,7 @@ public class StopMovement : Node
 {
     private Rigidbody _rb;
     private Vector3 _currentVelocity = Vector3.zero;
-    private float _smoothDampSpeed = 0.6f;
+    private float _smoothDampSpeed = 0.1f;
     public StopMovement(Rigidbody rigidbody, float smoothDampSpeed = 0.6f) : base()
     {
         _rb = rigidbody;

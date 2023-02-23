@@ -55,9 +55,15 @@ public class IdleMove : Node
                         0,                                  // y
                         Random.Range(-_moveArea, _moveArea) // z
                     );
-            if (NavMesh.SamplePosition(_newPosition,out NavMeshHit hit, 3f, NavMesh.AllAreas))
+
+
+            if (NavMesh.SamplePosition(_newPosition, out NavMeshHit hit, 0.5f, NavMesh.AllAreas))
             {
-                _newPosition = hit.position;
+                // Already on navmesh
+            }
+            else
+            {
+                return NodeState.SUCCESS;
             }
             _GenerateNewPos = false;
         }
@@ -74,7 +80,11 @@ public class IdleMove : Node
                 _currentVelocity = (Vector3)GetData("CurrentVelocity");
             }
 
-            _rb.velocity = Vector3.SmoothDamp(_rb.velocity, newVel, ref _currentVelocity, _smoothDampSpeed);
+            _rb.velocity = Vector3.SmoothDamp(
+                _rb.velocity,
+                newVel, 
+                ref _currentVelocity, 
+                _smoothDampSpeed);
             GetRootNode().SetData("CurrentVelocity", _currentVelocity);
 
         }
