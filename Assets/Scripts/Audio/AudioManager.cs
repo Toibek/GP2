@@ -40,25 +40,25 @@ public class AudioManager : MonoBehaviour
         FootStepsBus = RuntimeManager.GetBus("bus:/Footsteps");
         UIBus = RuntimeManager.GetBus("bus:/UI");
 
-        if (File.Exists(Application.persistentDataPath + "/"  + PlayerPrefsVariables.AmbientVolume))
+        if (PlayerPrefs.HasKey(PlayerPrefsVariables.AmbientVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.AmbientVolume);
             AmbienceBus.setVolume(newVol);
             Debug.Log(newVol);
         }
-        if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.EnviormentFXVolume))
+        if (PlayerPrefs.HasKey(PlayerPrefsVariables.EnviormentFXVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.EnviormentFXVolume);
             Debug.Log(newVol);
             EnvironmentFXBus.setVolume(newVol);
         }
-        if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.FootStepsVolume))
+        if (PlayerPrefs.HasKey(PlayerPrefsVariables.FootStepsVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.FootStepsVolume);
             Debug.Log(newVol);
             FootStepsBus.setVolume(newVol);
         }
-        if (File.Exists(Application.persistentDataPath + "/" + PlayerPrefsVariables.UIVolume))
+        if (PlayerPrefs.HasKey(PlayerPrefsVariables.UIVolume))
         {
             float newVol = PlayerPrefs.GetFloat(PlayerPrefsVariables.UIVolume);
             Debug.Log(newVol);
