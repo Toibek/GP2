@@ -529,7 +529,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c2affa3389254e44db24e961b83f04eb, type: 3}
   - {fileID: 2800000, guid: 5e298e317e3281649bdda0ffa4a024cc, type: 3}
   - {fileID: 2800000, guid: fbb4bb33a95af5e4dbc1339c5a4c662e, type: 3}
-  jumpInterval: 0.4
+  jumpInterval: 1
 --- !u!1 &676422880953846407
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,9 +576,10 @@ GameObject:
   - component: {fileID: 1811910751575860984}
   - component: {fileID: 3978564709721257545}
   - component: {fileID: 1483121336905459400}
-  m_Layer: 0
+  - component: {fileID: 1759417708476157745}
+  m_Layer: 3
   m_Name: Montis
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -682,6 +683,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1759417708476157745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700430598857096356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197723be0ef01b647bf1f4b8a519007c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: This does nothing, Cool
 --- !u!1 &1023889550496027069
 GameObject:
   m_ObjectHideFlags: 0

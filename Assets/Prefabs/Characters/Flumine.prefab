@@ -728,9 +728,10 @@ GameObject:
   - component: {fileID: -6513736336859246249}
   - component: {fileID: 3275250006916395244}
   - component: {fileID: 6451566914014227528}
-  m_Layer: 0
+  - component: {fileID: -3522032972645413438}
+  m_Layer: 3
   m_Name: Flumine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,6 +846,19 @@ CapsuleCollider:
   m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-3522032972645413438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485404556053642066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197723be0ef01b647bf1f4b8a519007c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: This does nothing, Cool
 --- !u!1 &1659328991834928602
 GameObject:
   m_ObjectHideFlags: 0

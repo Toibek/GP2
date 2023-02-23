@@ -50,18 +50,6 @@ public class Montis : Ability
 
     public override void Secondary()
     {
-        if (heldObject == null) return;
-
-        if (heldObject.TryGetComponent(out Rigidbody rb))
-        {
-            rb.isKinematic = false;
-        }
-
-        anim.SetBool("IsHolding", false);
-        Vector3 direction = transform.forward;
-        heldObject.gameObject.GetComponent<Liftable>().Throw(direction * throwForce, transform.parent.gameObject);
-
-        heldObject = null;
 
     }
     private Liftable ClosestLiftable()
@@ -98,6 +86,17 @@ public class Montis : Ability
 
     public override void Tertiary()
     {
-        Debug.Log("Montis don't have a third skill, silly!");
+        if (heldObject == null) return;
+
+        if (heldObject.TryGetComponent(out Rigidbody rb))
+        {
+            rb.isKinematic = false;
+        }
+
+        anim.SetBool("IsHolding", false);
+        Vector3 direction = transform.forward;
+        heldObject.gameObject.GetComponent<Liftable>().Throw(direction * throwForce, transform.parent.gameObject);
+
+        heldObject = null;
     }
 }

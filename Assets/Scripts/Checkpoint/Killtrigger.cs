@@ -27,8 +27,8 @@ namespace Checkpoint
                     montis.heldObject = null;
                 }
 
-                if (other.gameObject.GetComponent<Flumine>() != null)
-                    other.GetComponent<Liftable>().flying = false;
+                if (other.gameObject.GetComponentInChildren<Flumine>() != null)
+                    other.GetComponentInChildren<Liftable>().flying = false;
                 
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 CheckpointManager.instance.LoadLastPlayerPosition(other.gameObject);
