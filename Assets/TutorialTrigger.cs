@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutorialTrigger : MonoBehaviour
 {
+    [SerializeField] bool ShowMontis;
+    [SerializeField] bool ShowFlumine;
     [SerializeField] private int TutorialToShow;
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +13,8 @@ public class TutorialTrigger : MonoBehaviour
         Transform parent = other.transform;
         for (int i = 0; i < parent.childCount; i++)
         {
+            if (parent.GetChild(i).TryGetComponent(out Montis m) && !ShowMontis) return;
+            if (parent.GetChild(i).TryGetComponent(out Flumine f) && !ShowFlumine) return;
             if (parent.GetChild(i).TryGetComponent(out Popup popup))
             {
                 Debug.Log("Found it");

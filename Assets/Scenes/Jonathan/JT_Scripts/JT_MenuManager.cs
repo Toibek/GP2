@@ -9,12 +9,28 @@ public class JT_MenuManager : MonoBehaviour
     [SerializeField] private GameObject audio;
     [SerializeField] private GameObject controls;
     [SerializeField] private GameObject accessibility;
+    [Space]
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject Blur;
 
     private void Start()
     {
         gameSettings.SetActive(true);
+        GameManager.Instance.OnPause += Pause;
+        GameManager.Instance.OnResume += Resume;
     }
 
+    void Pause()
+    {
+        PauseMenu.SetActive(true);
+        Blur.SetActive(true);
+    }
+    void Resume()
+    {
+        PauseMenu.SetActive(false);
+        Blur.SetActive(false);
+
+    }
     public void GameSettings()
     {
         gameSettings.SetActive(true);

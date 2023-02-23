@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public emptyDelegate OnGameStart;
     public emptyDelegate OnPlayerJoined;
+    public emptyDelegate OnPause;
+    public emptyDelegate OnResume;
 
     // Flag to check if the game is paused.
     public bool GameIsPaused = false;
@@ -59,9 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
-        PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        OnResume?.Invoke();
     }
 
     // Pause the game and activate the Pause Menu UI.
@@ -69,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         GameIsPaused = true;
-        PauseMenuUI.SetActive(true);
+        OnPause?.Invoke();
     }
 
     // Quit the game.
