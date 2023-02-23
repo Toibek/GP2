@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   quality:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 3
   focusMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
   focusDistance:
     m_OverrideState: 0
     m_Value: 10
@@ -26,37 +26,37 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   nearFocusStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   nearFocusEnd:
-    m_OverrideState: 0
-    m_Value: 4
-  farFocusStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 10
+  farFocusStart:
+    m_OverrideState: 1
+    m_Value: 93.9
   farFocusEnd:
-    m_OverrideState: 0
-    m_Value: 20
+    m_OverrideState: 1
+    m_Value: 150
   m_NearSampleCount:
-    m_OverrideState: 0
-    m_Value: 5
-  m_NearMaxBlur:
-    m_OverrideState: 0
-    m_Value: 4
-  m_FarSampleCount:
-    m_OverrideState: 0
-    m_Value: 7
-  m_FarMaxBlur:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 8
+  m_NearMaxBlur:
+    m_OverrideState: 1
+    m_Value: 7
+  m_FarSampleCount:
+    m_OverrideState: 1
+    m_Value: 16
+  m_FarMaxBlur:
+    m_OverrideState: 1
+    m_Value: 12.87
   m_Resolution:
-    m_OverrideState: 0
-    m_Value: 2
+    m_OverrideState: 1
+    m_Value: 1
   m_HighQualityFiltering:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   m_PhysicallyBased:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -88,8 +88,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   mode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   meteringMode:
     m_OverrideState: 0
     m_Value: 2
@@ -97,17 +97,17 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   fixedExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 13.418941
   compensation:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 2.1
   limitMin:
-    m_OverrideState: 0
-    m_Value: -1
+    m_OverrideState: 1
+    m_Value: -0.25093615
   limitMax:
-    m_OverrideState: 0
-    m_Value: 14
+    m_OverrideState: 1
+    m_Value: 12.813924
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -239,19 +239,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   quality:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   threshold:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   intensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.2
   scatter:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.7
   tint:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 0
@@ -263,11 +263,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   m_Resolution:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 2
   m_HighQualityPrefiltering:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   m_HighQualityFiltering:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1

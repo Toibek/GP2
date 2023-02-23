@@ -188,7 +188,7 @@ public class AudioManager : MonoBehaviour
             RuntimeManager.AttachInstanceToGameObject(instanceOfSound, Camera.main.transform);
             instanceOfSound.start();
         }
-        catch { Debug.LogError("Did not find Sound: " + sound.Path); }
+        catch { /* Debug.LogError("Did not find Sound: " + sound.Path);*/ }
     }
 
     /// <summary>

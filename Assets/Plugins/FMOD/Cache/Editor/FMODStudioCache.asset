@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638119872042593629
+  lastModified: 638122260340539150
   FileSizes: []
   Exists: 1
 --- !u!114 &-8821536011808666694
@@ -95,7 +95,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4807
+  Length: 4307
 --- !u!114 &-8150236805934599800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +124,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26117
+--- !u!114 &-7958363808639626593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps(Lapide)/Water
+  m_EditorClassIdentifier: 
+  Name: Water
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 876451450
+    data2: 1221696588
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-7768890405469175351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +164,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 1
+  Default: 0
   ID:
     data1: 4171170588
     data2: 3556921084
@@ -203,6 +227,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4057
+--- !u!114 &-7177095222980551790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps(Lapide)/Rock
+  m_EditorClassIdentifier: 
+  Name: Rock
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 3651036562
+    data2: 3049059929
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-6561830081018317743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +339,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 0
+  Default: 1
   ID:
     data1: 3651036562
     data2: 3049059929
@@ -392,7 +440,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638119872043107685
+  lastModified: 638122260348009126
   FileSizes: []
   Exists: 1
 --- !u!114 &-2115162920903896302
@@ -450,6 +498,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1105350934868932573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps(Lapide)/CaveReverb
+  m_EditorClassIdentifier: 
+  Name: CaveReverb
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 1484770238
+    data2: 2233175786
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-544477508253657456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,13 +667,38 @@ MonoBehaviour:
   - {fileID: 4720880517244959327}
   - {fileID: 1875089120448962248}
   - {fileID: -5814519607956144136}
+  - {fileID: 4633437993658446596}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6062643611790963009}
   StringsBanks:
   - {fileID: 680128047597393548}
-  cacheTime: 638122438266048031
+  cacheTime: 638125830920235561
   cacheVersion: 131601
+--- !u!114 &654775459044871923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps(Lapide)/Snow
+  m_EditorClassIdentifier: 
+  Name: Snow
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1190363645
+    data2: 181130386
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &680128047597393548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,10 +714,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638122438265513260
+  lastModified: 638125830815040364
   FileSizes:
   - Name: 
-    Value: 2684
+    Value: 2734
   Exists: 1
 --- !u!114 &688572040882061942
 MonoBehaviour:
@@ -664,7 +761,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638122438265718758
+  lastModified: 638122269984309699
   FileSizes: []
   Exists: 1
 --- !u!114 &1792203974429770940
@@ -786,7 +883,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638122438266048031
+  lastModified: 638125830920235561
   FileSizes: []
   Exists: 1
 --- !u!114 &3557068587133368239
@@ -867,6 +964,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1062
+--- !u!114 &4633437993658446596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Environment/StoneDoorClosing
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Environment/StoneDoorClosing
+  Guid:
+    Data1: 2133733272
+    Data2: 1149239014
+    Data3: 209397180
+    Data4: 260748413
+  Banks:
+  - {fileID: 3495981028596171442}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4423
 --- !u!114 &4720880517244959327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,7 +1093,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638122438265513260
+  lastModified: 638125830815020408
   FileSizes: []
   Exists: 1
 --- !u!114 &7090907082063133511
@@ -986,10 +1110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Footsteps/Footsteps(Lapide)
   Guid:
-    Data1: -901956711
-    Data2: 1324194826
-    Data3: -648965470
-    Data4: -628652519
+    Data1: 415564316
+    Data2: 1126337671
+    Data3: 1155759039
+    Data4: -1996066228
   Banks:
   - {fileID: 3495981028596171442}
   IsStream: 0
@@ -997,9 +1121,13 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: -7768890405469175351}
+  - {fileID: -7958363808639626593}
+  - {fileID: -7177095222980551790}
+  - {fileID: 654775459044871923}
+  - {fileID: -1105350934868932573}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 705
 --- !u!114 &7293744869835083407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,7 +1168,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 1
+  Default: 0
   ID:
     data1: 4171170588
     data2: 3556921084
