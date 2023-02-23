@@ -81,7 +81,7 @@ Material:
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
-    - _Depth: 2.79
+    - _Depth: 5.82
     - _DepthOffsetEnable: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
@@ -89,8 +89,8 @@ Material:
     - _DstBlend: 10
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _Metalic: 0.83
-    - _Normal_Strength: 10.68
+    - _Metalic: 1.49
+    - _Normal_Strength: 100
     - _OpaqueCullMode: 2
     - _RayTracing: 0
     - _ReceivesSSR: 1
@@ -98,7 +98,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _Scale: -0.07
+    - _Scale: 0.05
     - _Smoothness: 0
     - _SrcBlend: 1
     - _StencilRef: 0
@@ -122,8 +122,8 @@ Material:
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
     - _WaterDistortion: 1
-    - _WaveIntensity: 0.6
-    - _WaveSpeed: 3
+    - _WaveIntensity: 0.45
+    - _WaveSpeed: 8.64
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
@@ -133,5 +133,5 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterColor: {r: 0.2028302, g: 0.24497128, b: 1, a: 0}
+    - _WaterColor: {r: 0, g: 0.40902853, b: 1, a: 0}
   m_BuildTextureStacks: []
