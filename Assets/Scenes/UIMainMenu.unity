@@ -5070,6 +5070,7 @@ MonoBehaviour:
   gameSettings: {fileID: 288884752}
   audio: {fileID: 2122007276}
   controls: {fileID: 1369213594}
+  accessibility: {fileID: 0}
 --- !u!4 &574768176
 Transform:
   m_ObjectHideFlags: 0
